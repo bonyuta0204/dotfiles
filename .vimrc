@@ -116,6 +116,7 @@ NeoBundle 'thinca/vim-quickrun'
 call neobundle#end()
  
 "}}}
+
 "NeoBundleここまで
 
 """"""""""""""""""""""""""""""
@@ -325,17 +326,13 @@ augroup END
 augroup python
 		autocmd!
 		autocmd Filetype python inoremap <buffer> __ ____<LEFT><LEFT>
-		autocmd FileType python set foldmethod=indent
-		autocmd FileType python setlocal foldlevel=99
 		autocmd FileType python inoremap <buffer> """
 		\ """"""<LEFT><LEFT><LEFT><CR><ESC>O
-		" just hit = means<space>=<space>
-		autocmd FileType python inoremap <buffer> = <space>=<space>
 		autocmd FileType python inoremap<buffer> == <space>==<space>
-		autocmd FileType python inoremap <buffer> <Leader>= =
 		autocmd FileType python inoremap <buffer> , ,<space>
 
 		autocmd FileType python setlocal foldmethod=indent" }}}
+		autocmd FileType python setlocal foldlevel=99
 "}}}	
 
 
