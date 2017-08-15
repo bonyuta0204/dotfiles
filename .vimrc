@@ -24,7 +24,12 @@ set laststatus=2
 
 set confirm
 set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+
+if has("unix")
+	set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+endif
+
+
 set visualbell
 set t_vb=
 set cmdheight=2
@@ -53,16 +58,6 @@ au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold
 " }}}
 
 
-
-""""""""""""""""""""""""""""""
-" colorscheme
-""""""""""""""""""""""""""""""
-"{{{
-colorscheme molokai
-
-
-
-"}}}
 
 
 """"""""""""""""""""""""""""""
@@ -224,6 +219,16 @@ inoremap *= <space>*=<space>
 "}}}
 
 "キーマッピングの設定終わり
+
+""""""""""""""""""""""""""""""
+" colorscheme
+""""""""""""""""""""""""""""""
+"{{{
+colorscheme molokai
+
+
+"}}}
+
 
 """"""""""""""""""""""""""""""
 " Unite.vimの設定
