@@ -51,14 +51,11 @@ set colorcolumn=80      " その代わり80文字目にラインを入れる
 " ステータスラインの色を変える
 set laststatus=2 
 
- au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=bold,reverse
+au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=bold,reverse
 			 \ guisp=Magenta guibg=#FFFFFF guifg=#84B97C
 au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold 
 			  \ guibg=#639EE4 guifg=#FFFFFF
 " }}}
-
-
-
 
 """"""""""""""""""""""""""""""
 " NeoBundleの設定
@@ -116,6 +113,7 @@ NeoBundle 'thinca/vim-quickrun'
 call neobundle#end()
  
 "}}}
+
 "NeoBundleここまで
 
 """"""""""""""""""""""""""""""
@@ -325,17 +323,13 @@ augroup END
 augroup python
 		autocmd!
 		autocmd Filetype python inoremap <buffer> __ ____<LEFT><LEFT>
-		autocmd FileType python set foldmethod=indent
-		autocmd FileType python setlocal foldlevel=99
 		autocmd FileType python inoremap <buffer> """
 		\ """"""<LEFT><LEFT><LEFT><CR><ESC>O
-		" just hit = means<space>=<space>
-		autocmd FileType python inoremap <buffer> = <space>=<space>
 		autocmd FileType python inoremap<buffer> == <space>==<space>
-		autocmd FileType python inoremap <buffer> <Leader>= =
 		autocmd FileType python inoremap <buffer> , ,<space>
 
-		autocmd FileType python setlocal foldmethod=indent" }}}
+		autocmd FileType python setlocal foldmethod=indent 
+		autocmd FileType python setlocal foldlevel=99
 "}}}	
 
 
