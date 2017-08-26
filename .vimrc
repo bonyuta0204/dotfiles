@@ -25,10 +25,7 @@ set laststatus=2
 set confirm
 set list
 
-if has("unix")
-	set listchars=tab:»-,trail:-,nbsp:%,eol:↲
-endif
-
+set listchars=tab:>-,trail:-,nbsp:%,eol:$
 
 set visualbell
 set t_vb=
@@ -205,8 +202,8 @@ inoremap <ESC> <Nop>
 inoremap jj <RIGHT>
 
 " dw で単語を削除, cwで単語を削除してInsert Modeに
-noremap dw diw
-noremap cw ciw
+" noremap dw diw
+" noremap cw ciw
 "
 " key mapping for programming
 
