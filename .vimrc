@@ -329,6 +329,7 @@ augroup python
 		autocmd FileType python inoremap <buffer> , ,<space>
 
 		autocmd FileType python setlocal foldmethod=indent 
+		autocmd Filetype python setlocal expandtab
 		autocmd FileType python setlocal foldlevel=99
 "}}}	
 
