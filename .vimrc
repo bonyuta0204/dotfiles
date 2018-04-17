@@ -95,7 +95,7 @@ NeoBundle "fuenor/im_control.vim"
 NeoBundle "Shougo/vimshell"
 
 " 入力補完
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete.vim'
 
 " html 関係
 NeoBundle 'mattn/emmet-vim'
@@ -106,6 +106,9 @@ NeoBundle 'tpope/vim-surround'
 
 "quickrun
 NeoBundle 'thinca/vim-quickrun'
+
+" ruby
+NeoBundle 'tpope/vim-rails'
 
 call neobundle#end()
  
@@ -219,7 +222,7 @@ inoremap *= <space>*=<space>
 " colorscheme
 """"""""""""""""""""""""""""""
 "{{{
-colorscheme molokai
+colorscheme neodark
 
 
 "}}}
@@ -245,42 +248,79 @@ nnoremap <silent> [unite]a :<C-u>Unite<space>file<space>buffer<space>bookmark<sp
 " }}}
 
 """"""""""""""""""""""""""""""
-" NeoCompleteCache の設定
+" NeoComplete の設定
 """"""""""""""""""""""""""""""
 " {{{
+"Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-						\ 'default' : ''
-						\ }
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-		return neocomplcache#smart_close_popup() . "\<CR>"
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " }}}
 
 """"""""""""""""""""""""""""""
@@ -329,6 +369,41 @@ augroup python
 		autocmd Filetype python setlocal expandtab
 		autocmd FileType python setlocal foldlevel=99
 "}}}	
+
+""""""""""""""""""""""""""""""
+" Ruby settings
+""""""""""""""""""""""""""""""
+" {{{
+autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
+
+augroup ruby
+		autocmd!
+		autocmd filetype ruby inoremap <buffer> <% <% %><LEFT><LEFT>
+		autocmd filetype ruby inoremap <buffer> <space>
+		autocmd filetype ruby inoremap <buffer> , ,<space>
+		autocmd filetype ruby setlocal foldmethod=indent 
+		autocmd filetype ruby setlocal expandtab
+		autocmd filetype ruby setlocal foldlevel=99
+"}}}	
+""""""""""""""""""""""""""""""
+" Erb settings
+""""""""""""""""""""""""""""""
+" {{{
+augroup eruby
+		autocmd!
+		autocmd Filetype eruby.html inoremap <buffer> <% <% %><LEFT><LEFT><LEFT>
+
+		autocmd FileType python setlocal foldmethod=indent 
+		autocmd Filetype python setlocal expandtab
+		autocmd FileType python setlocal foldlevel=99
+"}}}	
+""""""""""""""""""""""""""""""
+" NERDTree
+""""""""""""""""""""""""""""""
+" {{{ 
+"NERDTree
+"}}}
+
 
 
 filetype indent plugin on 
