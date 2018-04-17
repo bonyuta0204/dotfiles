@@ -378,12 +378,12 @@ autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
 augroup ruby
 		autocmd!
-		autocmd filetype ruby inoremap <buffer> <% <% %><LEFT><LEFT>
-		autocmd filetype ruby inoremap <buffer> <space>
-		autocmd filetype ruby inoremap <buffer> , ,<space>
-		autocmd filetype ruby setlocal foldmethod=indent 
-		autocmd filetype ruby setlocal expandtab
-		autocmd filetype ruby setlocal foldlevel=99
+		autocmd Filetype ruby inoremap <buffer> <% <% %><LEFT><LEFT>
+		autocmd Filetype ruby inoremap <buffer> <space>
+		autocmd Filetype ruby inoremap <buffer> , ,<space>
+		autocmd Filetype ruby setlocal foldmethod=indent 
+		autocmd Filetype ruby setlocal expandtab
+		autocmd Filetype ruby setlocal foldlevel=99
 "}}}	
 """"""""""""""""""""""""""""""
 " Erb settings
