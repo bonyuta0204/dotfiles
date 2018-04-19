@@ -7,14 +7,14 @@ fi
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
-# User specific aliases and functions
-TERM=xterm-256color
-export PATH=$HOME/local/bin:$PATH
-export PATH=$HOME/local/lib/python2.7/site-packages:$PATH
-export PATH=$HOME/local/opt/pycharm-community-2017.3.1/bin:$PATH
-export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=$HOME/local/lib/python2.7/site-packages:$PYTHONPATH
-export PYTHONPATH=$HOME/local/bin/python-module:$PYTHONPATH
+# user specific aliases and functions
+term=xterm-256color
+export path=$home/local/bin:$path
+export path=$home/local/lib/python2.7/site-packages:$path
+export path=$home/local/opt/pycharm-community-2017.3.1/bin:$path
+export ld_library_path=$home/local/lib:$ld_library_path
+export pythonpath=$home/local/lib/python2.7/site-packages:$pythonpath
+export pythonpath=$home/local/bin/python-module:$pythonpath
 
 
 set -o vi
