@@ -93,9 +93,12 @@ NeoBundle "fuenor/im_control.vim"
 
 " VimShell
 NeoBundle "Shougo/vimshell"
-
+if has('lua')
 " 入力補完
 NeoBundle 'Shougo/neocomplete.vim'
+endif
+" 入力補完
+NeoBundle 'Shougo/neocomplcache'
 
 " html 関係
 NeoBundle 'mattn/emmet-vim'
@@ -246,7 +249,47 @@ nnoremap <silent> [unite]h :<C-u>Unite<space>file_mru<CR>
 nnoremap <silent> [unite]a :<C-u>Unite<space>file<space>buffer<space>bookmark<space>file_mru<CR>
 
 " }}}
+"
+""""""""""""""""""""""""""""""
+" NeoCompleteCache の設定
+""""""""""""""""""""""""""""""
+" {{{
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+						\ 'default' : ''
+						\ }
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+		return neocomplcache#smart_close_popup() . "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+" }}}
+
+if has('lua')
 """"""""""""""""""""""""""""""
 " NeoComplete の設定
 """"""""""""""""""""""""""""""
@@ -322,6 +365,7 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " }}}
+endif 
 
 """"""""""""""""""""""""""""""
 " VimScript の設定
