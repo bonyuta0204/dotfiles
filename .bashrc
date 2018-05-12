@@ -44,3 +44,9 @@ alias diff="diff -u"
 alias ssh="ssh -X -Y"
 alias view="vim -R"
 alias ll="ls -lh"
+
+# functions for alias
+
+function rl {
+	bundle exec rails $@
+}
