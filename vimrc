@@ -34,7 +34,7 @@ set number
 " 　邪魔なフォルダの保存先を変更する
 set backupdir=~/.vim/temp/
 set directory=~/.vim/temp/
-set viminfo+=n~/.vim/temp/
+"set viminfo+=n~/.vim/temp/
 set undodir=~/.vim/temp/
 " 文字コードの設定
 set encoding=utf-8
@@ -48,10 +48,6 @@ set colorcolumn=80      " その代わり80文字目にラインを入れる
 " ステータスラインの色を変える
 set laststatus=2 
 
-au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=bold,reverse
-			 \ guisp=Magenta guibg=#FFFFFF guifg=#84B97C
-au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold 
-			  \ guibg=#639EE4 guifg=#FFFFFF
 " }}}
 
 """"""""""""""""""""""""""""""
@@ -102,7 +98,6 @@ NeoBundle 'Shougo/neocomplcache'
 
 " html 関係
 NeoBundle 'mattn/emmet-vim'
-NeoBundle 'taichouchou2/surround.vim'
 
 " surround vim 
 NeoBundle 'tpope/vim-surround'
@@ -112,6 +107,9 @@ NeoBundle 'thinca/vim-quickrun'
 
 " ruby
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'ngmy/vim-rubocop'
+NeoBundle 'basyura/unite-rails'
+
 
 call neobundle#end()
  
@@ -217,6 +215,8 @@ inoremap += <space>+=<space>
 inoremap -= <space>-=<space>
 inoremap *= <space>*=<space>
 
+" key map for tag jump
+nnoremap <C-]> g<C-]> 
 "}}}
 
 "キーマッピングの設定終わり
@@ -226,6 +226,10 @@ inoremap *= <space>*=<space>
 """"""""""""""""""""""""""""""
 "{{{
 colorscheme neodark
+au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=bold,reverse
+			 \ guisp=Magenta guibg=#FFFFFF guifg=#84B97C
+au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold 
+			  \ guibg=#639EE4 guifg=#FFFFFF
 
 
 "}}}
@@ -288,6 +292,30 @@ inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " }}}
+
+"------------------------------------
+" Unite-rails.vim
+"------------------------------------
+"{{{
+function! UniteRailsSetting()
+  nnoremap    [unite-rails]   <Nop>
+  nmap    <Leader>u [unite-rails]
+  nnoremap [unite-rails]v  :<C-U>Unite rails/view<CR>
+  nnoremap [unite-rails]m  :<C-U>Unite rails/model<CR>
+  nnoremap [unite-rails]c  :<C-U>Unite rails/controller<CR>
+  nnoremap [unite-rails]h  :<C-U>Unite rails/helper<CR>
+
+endfunction
+aug MyAutoCmd
+  au User Rails call UniteRailsSetting()
+aug END
+"}}}
+
+"------------------------------------
+" Ruby補完
+"------------------------------------
+
+
 
 if has('lua')
 """"""""""""""""""""""""""""""
@@ -425,6 +453,7 @@ augroup ruby
 		autocmd Filetype ruby inoremap <buffer> <% <% %><LEFT><LEFT>
 		autocmd Filetype ruby inoremap <buffer> <space>
 		autocmd Filetype ruby inoremap <buffer> , ,<space>
+		"autocmd Filetype ruby inoremap <buffer> | ||<LEFT>
 		autocmd Filetype ruby setlocal foldmethod=indent 
 		autocmd Filetype ruby setlocal expandtab
 		autocmd Filetype ruby setlocal foldlevel=99
