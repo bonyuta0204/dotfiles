@@ -4,9 +4,6 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# use vin as defaultult editor
-export EDITOR=vim
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
@@ -46,10 +43,21 @@ promps
 alias diff="diff -u"
 alias ssh="ssh -X -Y"
 alias view="vim -R"
-alias ll="ls -lh"
+alias gr="grep -i -r"
+alias ls='ls -CF --color=auto'
+alias ll='ls -AlFh --show-control-chars --color=auto'
+alias la='ls -CFal --color=auto'
+alias mv='mv -i'
+alias rm='rm -i'
+alias cp='cp -i'
 
 # functions for alias
 
 function rl {
 	bundle exec rails $@
+}
+
+function dc {
+	cd ~/workspace/zelda-allstars
+	docker-compose $@
 }
