@@ -87,6 +87,10 @@ NeoBundle "KeitaNakamura/neodark.vim"
 NeoBundle "tomasr/molokai"
 NeoBundle "fuenor/im_control.vim"
 
+" for ruby refs
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'yuku-t/vim-ref-ri'
+
 " VimShell
 NeoBundle "Shougo/vimshell"
 if has('lua')
@@ -242,8 +246,8 @@ au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold
 "キーマッピング
 
 " The prefix key.
-nnoremap    [unite]   <Nop>
-nmap    <Leader>f [unite]
+nnoremap [unite] <Nop>
+nmap  <Leader>f [unite]
 
 " 
 nnoremap [unite]u :<C-u>Unite<space>
@@ -434,7 +438,7 @@ augroup python
 		autocmd Filetype python inoremap <buffer> __ ____<LEFT><LEFT>
 		autocmd FileType python inoremap <buffer> """
 		\ """"""<LEFT><LEFT><LEFT><CR><ESC>O
-		autocmd FileType python inoremap<buffer> == <space>==<space>
+		autocmd FileType python inoremap <buffer> == <space>==<space>
 		autocmd FileType python inoremap <buffer> , ,<space>
 
 		autocmd FileType python setlocal foldmethod=indent 
@@ -466,9 +470,9 @@ augroup eruby
 		autocmd!
 		autocmd Filetype eruby.html inoremap <buffer> <% <% %><LEFT><LEFT><LEFT>
 
-		autocmd FileType python setlocal foldmethod=indent 
-		autocmd Filetype python setlocal expandtab
-		autocmd FileType python setlocal foldlevel=99
+		autocmd FileType eruby.html setlocal foldmethod=indent 
+		autocmd Filetype eruby.html setlocal expandtab
+		autocmd FileType eruby.html setlocal foldlevel=99
 "}}}	
 """"""""""""""""""""""""""""""
 " NERDTree
