@@ -96,13 +96,16 @@ NeoBundle "Shougo/vimshell"
 if has('lua')
 	" 入力補完
 	NeoBundle 'Shougo/neocomplete.vim'
+else
+	NeoBundle 'Shougo/neocomplcache'
 endif
+"
 " 入力補完
-NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'honza/snipmate-snippets'
 NeoBundle 'Shougo/neosnippet-snippets'
 
+	" 入力補完
 " html 関係
 NeoBundle 'mattn/emmet-vim'
 
