@@ -97,6 +97,7 @@ endif
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'honza/snipmate-snippets'
+NeoBundle 'Shougo/neosnippet-snippets'
 
 " html 関係
 NeoBundle 'mattn/emmet-vim'
@@ -135,6 +136,38 @@ function! s:hooks.on_source(bundle)
       \ }
 endfunction
 
+"}}}
+
+
+""""""""""""""""""""""""""""""
+" setting for neosnippet
+""""""""""""""""""""""""""""""
+"{{{
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
 "}}}
 
 
@@ -223,6 +256,8 @@ inoremap *= <space>*=<space>
 
 " key map for tag jump
 nnoremap <C-]> g<C-]> 
+
+nnoremap <Leader>sni :<C-u>edit ~/.vim/bundle/neosnippet-snippets/neosnippets<CR>
 "}}}
 
 "キーマッピングの設定終わり
@@ -462,6 +497,8 @@ augroup ruby
 		"autocmd Filetype ruby inoremap <buffer> | ||<LEFT>
 		autocmd Filetype ruby setlocal foldmethod=indent 
 		autocmd Filetype ruby setlocal expandtab
+		autocmd Filetype ruby setlocal tabstop=2
+		autocmd Filetype ruby setlocal shiftwidth=2
 		autocmd Filetype ruby setlocal foldlevel=99
 "}}}	
 """"""""""""""""""""""""""""""
