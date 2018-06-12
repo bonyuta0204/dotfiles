@@ -90,11 +90,13 @@ NeoBundle "fuenor/im_control.vim"
 " VimShell
 NeoBundle "Shougo/vimshell"
 if has('lua')
-" 入力補完
-NeoBundle 'Shougo/neocomplete.vim'
+	" 入力補完
+	NeoBundle 'Shougo/neocomplete.vim'
 endif
 " 入力補完
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'honza/snipmate-snippets'
 
 " html 関係
 NeoBundle 'mattn/emmet-vim'
@@ -110,7 +112,11 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'ngmy/vim-rubocop'
 NeoBundle 'basyura/unite-rails'
 
+" Slim
+NeoBundle 'slim-template/vim-slim'
 
+" power-line
+NeoBundle 'powerline/powerline'
 call neobundle#end()
  
 "}}}
