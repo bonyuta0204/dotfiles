@@ -87,15 +87,25 @@ NeoBundle "KeitaNakamura/neodark.vim"
 NeoBundle "tomasr/molokai"
 NeoBundle "fuenor/im_control.vim"
 
+" for ruby refs
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'yuku-t/vim-ref-ri'
+
 " VimShell
 NeoBundle "Shougo/vimshell"
 if has('lua')
-" 入力補完
-NeoBundle 'Shougo/neocomplete.vim'
+	" 入力補完
+	NeoBundle 'Shougo/neocomplete.vim'
+else
+	NeoBundle 'Shougo/neocomplcache'
 endif
+"
 " 入力補完
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'honza/snipmate-snippets'
+NeoBundle 'Shougo/neosnippet-snippets'
 
+	" 入力補完
 " html 関係
 NeoBundle 'mattn/emmet-vim'
 
@@ -110,7 +120,11 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'ngmy/vim-rubocop'
 NeoBundle 'basyura/unite-rails'
 
+" Slim
+NeoBundle 'slim-template/vim-slim'
 
+" power-line
+NeoBundle 'powerline/powerline'
 call neobundle#end()
  
 "}}}
@@ -129,6 +143,38 @@ function! s:hooks.on_source(bundle)
       \ }
 endfunction
 
+"}}}
+
+
+""""""""""""""""""""""""""""""
+" setting for neosnippet
+""""""""""""""""""""""""""""""
+"{{{
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
 "}}}
 
 
@@ -217,6 +263,8 @@ inoremap *= <space>*=<space>
 
 " key map for tag jump
 nnoremap <C-]> g<C-]> 
+
+nnoremap <Leader>sni :<C-u>edit ~/.vim/bundle/neosnippet-snippets/neosnippets<CR>
 "}}}
 
 "キーマッピングの設定終わり
@@ -242,8 +290,8 @@ au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold
 "キーマッピング
 
 " The prefix key.
-nnoremap    [unite]   <Nop>
-nmap    <Leader>f [unite]
+nnoremap [unite] <Nop>
+nmap  <Leader>f [unite]
 
 " 
 nnoremap [unite]u :<C-u>Unite<space>
@@ -434,7 +482,7 @@ augroup python
 		autocmd Filetype python inoremap <buffer> __ ____<LEFT><LEFT>
 		autocmd FileType python inoremap <buffer> """
 		\ """"""<LEFT><LEFT><LEFT><CR><ESC>O
-		autocmd FileType python inoremap<buffer> == <space>==<space>
+		autocmd FileType python inoremap <buffer> == <space>==<space>
 		autocmd FileType python inoremap <buffer> , ,<space>
 
 		autocmd FileType python setlocal foldmethod=indent 
@@ -456,6 +504,8 @@ augroup ruby
 		"autocmd Filetype ruby inoremap <buffer> | ||<LEFT>
 		autocmd Filetype ruby setlocal foldmethod=indent 
 		autocmd Filetype ruby setlocal expandtab
+		autocmd Filetype ruby setlocal tabstop=2
+		autocmd Filetype ruby setlocal shiftwidth=2
 		autocmd Filetype ruby setlocal foldlevel=99
 "}}}	
 """"""""""""""""""""""""""""""
@@ -466,9 +516,9 @@ augroup eruby
 		autocmd!
 		autocmd Filetype eruby.html inoremap <buffer> <% <% %><LEFT><LEFT><LEFT>
 
-		autocmd FileType python setlocal foldmethod=indent 
-		autocmd Filetype python setlocal expandtab
-		autocmd FileType python setlocal foldlevel=99
+		autocmd FileType eruby.html setlocal foldmethod=indent 
+		autocmd Filetype eruby.html setlocal expandtab
+		autocmd FileType eruby.html setlocal foldlevel=99
 "}}}	
 """"""""""""""""""""""""""""""
 " NERDTree
