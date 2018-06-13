@@ -84,8 +84,8 @@ NeoBundle 'Shougo/neomru.vim'
 
 " ColorSchemeのプラグイン
 NeoBundle "KeitaNakamura/neodark.vim"
-NeoBundle "tomasr/molokai"
 NeoBundle "fuenor/im_control.vim"
+
 
 " for ruby refs
 NeoBundle 'thinca/vim-ref'
@@ -274,6 +274,8 @@ nnoremap <Leader>sni :<C-u>edit ~/.vim/bundle/neosnippet-snippets/neosnippets<CR
 """"""""""""""""""""""""""""""
 "{{{
 colorscheme neodark
+hi LineNr ctermfg=250
+
 au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=bold,reverse
 			 \ guisp=Magenta guibg=#FFFFFF guifg=#84B97C
 au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold 
