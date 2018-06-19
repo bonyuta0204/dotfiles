@@ -524,12 +524,12 @@ augroup ruby
 " {{{
 augroup eruby
 		autocmd!
-		autocmd Filetype eruby inoremap <buffer> <% <% %><LEFT><LEFT><LEFT>
+		autocmd Filetype eruby.html inoremap <buffer> <% <% %><LEFT><LEFT><LEFT>
 
-		autocmd FileType eruby setlocal foldmethod=indent 
-		autocmd Filetype eruby setlocal expandtab
-		autocmd FileType eruby setlocal foldlevel=99
-		autocmd FileType eruby setlocal tabstop=2 
+		autocmd FileType eruby.html setlocal foldmethod=indent 
+		autocmd Filetype eruby.html setlocal expandtab
+		autocmd FileType eruby.html setlocal foldlevel=99
+		autocmd FileType eruby.html setlocal tabstop=2 
 "}}}	
 
 """"""""""""""""""""""""""""""
