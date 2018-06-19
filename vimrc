@@ -270,6 +270,8 @@ nnoremap <C-]> g<C-]>
 
 nnoremap <Leader>sni :<C-u>edit ~/.vim/bundle/neosnippet-snippets/neosnippets<CR>
 nnoremap <Leader>es :<C-u>NeoSnippetEdit<CR>
+nnoremap <C-n> :<C-u>NERDTreeToggle<CR>
+nnoremap <C-e> :<C-u>Explore<CR>
 "}}}
 
 "キーマッピングの設定終わり
