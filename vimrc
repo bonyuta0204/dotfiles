@@ -122,6 +122,9 @@ NeoBundle 'basyura/unite-rails'
 
 " Slim
 NeoBundle 'slim-template/vim-slim'
+"
+" lightline
+NeoBundle 'itchyny/lightline.vim'
 
 " power-line
 NeoBundle 'powerline/powerline'
@@ -273,13 +276,16 @@ nnoremap <Leader>sni :<C-u>edit ~/.vim/bundle/neosnippet-snippets/neosnippets<CR
 " colorscheme
 """"""""""""""""""""""""""""""
 "{{{
+
 colorscheme neodark
-hi LineNr ctermfg=250
+
+hi Folded ctermfg=240
+hi LineNr ctermfg=250 ctermbg=240
 
 au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=bold,reverse
-			 \ guisp=Magenta guibg=#FFFFFF guifg=#84B97C
+			\ guisp=Magenta guibg=#FFFFFF guifg=#84B97C
 au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold 
-			  \ guibg=#639EE4 guifg=#FFFFFF
+			\ guibg=#639EE4 guifg=#FFFFFF
 
 
 "}}}
@@ -522,6 +528,7 @@ augroup eruby
 		autocmd Filetype eruby.html setlocal expandtab
 		autocmd FileType eruby.html setlocal foldlevel=99
 "}}}	
+
 """"""""""""""""""""""""""""""
 " NERDTree
 """"""""""""""""""""""""""""""
@@ -539,3 +546,4 @@ augroup html
 	autocmd!
 	autocmd FileType html inoremap <buffer> < <><Left>
 "}}}
+
