@@ -85,8 +85,8 @@ NeoBundle 'Shougo/neomru.vim'
 
 " ColorSchemeのプラグイン
 NeoBundle "KeitaNakamura/neodark.vim"
-NeoBundle "tomasr/molokai"
 NeoBundle "fuenor/im_control.vim"
+
 
 " for ruby refs
 NeoBundle 'thinca/vim-ref'
@@ -123,6 +123,9 @@ NeoBundle 'basyura/unite-rails'
 
 " Slim
 NeoBundle 'slim-template/vim-slim'
+"
+" lightline
+NeoBundle 'itchyny/lightline.vim'
 
 " power-line
 NeoBundle 'powerline/powerline'
@@ -275,11 +278,16 @@ nnoremap <Leader>es :<C-u>NeoSnippetEdit<CR>
 " colorscheme
 """"""""""""""""""""""""""""""
 "{{{
+
 colorscheme neodark
+
+hi Folded ctermfg=240
+hi LineNr ctermfg=250 ctermbg=240
+
 au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=bold,reverse
-			 \ guisp=Magenta guibg=#FFFFFF guifg=#84B97C
+			\ guisp=Magenta guibg=#FFFFFF guifg=#84B97C
 au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold 
-			  \ guibg=#639EE4 guifg=#FFFFFF
+			\ guibg=#639EE4 guifg=#FFFFFF
 
 
 "}}}
@@ -523,6 +531,7 @@ augroup eruby
 		autocmd FileType eruby setlocal foldlevel=99
 		autocmd FileType eruby setlocal tabstop=2 
 "}}}	
+
 """"""""""""""""""""""""""""""
 " NERDTree
 """"""""""""""""""""""""""""""
@@ -540,3 +549,4 @@ augroup html
 	autocmd!
 	autocmd FileType html inoremap <buffer> < <><Left>
 "}}}
+
