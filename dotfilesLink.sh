@@ -7,6 +7,6 @@ SNIPPET_DIR=~/.vim/bundle/neosnippet-snippets
 
 echo ${SNIPPET_DIR}
 if [ -d ${SNIPPET_DIR} ]; then
-     echo "aaa"
-	 ln -sdfi ~/dotfiles/snippets ${SNIPPET_DIR}
- fi
+	rm -rf ${SNIPPET_DIR}/snippets
+	ln -sdfi ~/dotfiles/snippets ${SNIPPET_DIR}
+fi

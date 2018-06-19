@@ -5,3 +5,15 @@ abbr        test ... end
   end
 
 
+snippet     assert_difference
+abbr        assert_difference ... do ... end
+  assert_difference '${1:#:command}', ${2:#:number} do
+    ${0:#:block}
+  end
+
+snippet times
+options word
+  times do 
+    ${0}
+  end
+

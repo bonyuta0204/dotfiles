@@ -18,9 +18,10 @@ set hlsearch
 set backspace=indent,start,eol
 set autoindent
 set ruler
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set laststatus=2
+set expandtab
 
 set confirm
 set list
@@ -265,6 +266,7 @@ inoremap *= <space>*=<space>
 nnoremap <C-]> g<C-]> 
 
 nnoremap <Leader>sni :<C-u>edit ~/.vim/bundle/neosnippet-snippets/neosnippets<CR>
+nnoremap <Leader>es :<C-u>NeoSnippetEdit<CR>
 "}}}
 
 "キーマッピングの設定終わり
@@ -502,7 +504,7 @@ augroup ruby
 		autocmd Filetype ruby inoremap <buffer> <space>
 		autocmd Filetype ruby inoremap <buffer> , ,<space>
 		"autocmd Filetype ruby inoremap <buffer> | ||<LEFT>
-		autocmd Filetype ruby setlocal foldmethod=indent 
+		autocmd Filetype ruby setlocal foldmethod=indent
 		autocmd Filetype ruby setlocal expandtab
 		autocmd Filetype ruby setlocal tabstop=2
 		autocmd Filetype ruby setlocal shiftwidth=2
@@ -514,11 +516,12 @@ augroup ruby
 " {{{
 augroup eruby
 		autocmd!
-		autocmd Filetype eruby.html inoremap <buffer> <% <% %><LEFT><LEFT><LEFT>
+		autocmd Filetype eruby inoremap <buffer> <% <% %><LEFT><LEFT><LEFT>
 
-		autocmd FileType eruby.html setlocal foldmethod=indent 
-		autocmd Filetype eruby.html setlocal expandtab
-		autocmd FileType eruby.html setlocal foldlevel=99
+		autocmd FileType eruby setlocal foldmethod=indent 
+		autocmd Filetype eruby setlocal expandtab
+		autocmd FileType eruby setlocal foldlevel=99
+		autocmd FileType eruby setlocal tabstop=2 
 "}}}	
 """"""""""""""""""""""""""""""
 " NERDTree
