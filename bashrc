@@ -66,6 +66,7 @@ function dc {
 
 if [ -f ~/.fzf.bash ]; then
   # fbr - checkout git branch
+  export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
   fbr() {
     local branches branch
     branches=$(git branch -vv) &&
