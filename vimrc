@@ -63,14 +63,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " ここに入れたいプラグインを記入
 
-" MarkDown用のプラグインたち
-NeoBundle "plasticboy/vim-markdown"
-NeoBundle "kannokanno/previm"
-NeoBundle "tyru/open-browser.vim"
 " ファイル管理プラグイン
 NeoBundle "Shougo/unite.vim"
 NeoBundle "scrooloose/nerdtree"
-" NeoBundle "Shougo/vimproc"
 
 NeoBundle 'Shougo/vimproc.vim', {
 			\ 'build' : {
@@ -85,8 +80,6 @@ NeoBundle 'Shougo/neomru.vim'
 
 " ColorSchemeのプラグイン
 NeoBundle "KeitaNakamura/neodark.vim"
-NeoBundle "fuenor/im_control.vim"
-
 
 " for ruby refs
 NeoBundle 'thinca/vim-ref'
@@ -94,6 +87,7 @@ NeoBundle 'yuku-t/vim-ref-ri'
 
 " VimShell
 NeoBundle "Shougo/vimshell"
+
 if has('lua')
 	" 入力補完
 	NeoBundle 'Shougo/neocomplete.vim'
@@ -103,10 +97,12 @@ endif
 "
 " 入力補完
 NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'honza/snipmate-snippets'
 NeoBundle 'Shougo/neosnippet-snippets'
 
-	" 入力補完
+" fuzzy search
+set rtp+=~/.fzf
+NeoBundle 'junegunn/fzf.vim'
+
 " html 関係
 NeoBundle 'mattn/emmet-vim'
 
@@ -127,8 +123,6 @@ NeoBundle 'slim-template/vim-slim'
 " lightline
 NeoBundle 'itchyny/lightline.vim'
 
-" power-line
-NeoBundle 'powerline/powerline'
 call neobundle#end()
  
 "}}}
@@ -371,9 +365,16 @@ aug MyAutoCmd
 aug END
 "}}}
 
+
 "------------------------------------
-" Ruby補完
+" fzf.vim
 "------------------------------------
+"{{{
+nnoremap <Leader>ef :<C-u>Files<CR>
+nnoremap <Leader>em :<C-u>Maps<CR>
+nnoremap <Leader>eb :<C-u>Bufferes<CR>
+nnoremap <Leader>ea :<C-u>Ag
+"}}}
 
 
 

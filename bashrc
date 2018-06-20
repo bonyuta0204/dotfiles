@@ -61,3 +61,16 @@ function dc {
 	cd ~/workspace/zelda-allstars
 	docker-compose $@
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+if [ -f ~/.fzf.bash ]; then
+  # fbr - checkout git branch
+  fbr() {
+    local branches branch
+    branches=$(git branch -vv) &&
+      branch=$(echo "$branches" | fzf +m) &&
+      git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  }
+
+fi
