@@ -23,6 +23,8 @@ set tabstop=2
 set laststatus=2
 set expandtab
 
+" don't show mode. instead use lightline'
+set noshowmode
 set confirm
 set list
 
@@ -103,7 +105,6 @@ endif
 "
 " 入力補完
 NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'honza/snipmate-snippets'
 NeoBundle 'Shougo/neosnippet-snippets'
 
 	" 入力補完
@@ -148,7 +149,20 @@ function! s:hooks.on_source(bundle)
 endfunction
 
 "}}}
+"
+""""""""""""""""""""""""""""""
+" light line config
+""""""""""""""""""""""""""""""
+"{{{
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left':[['mode', 'paste'], 
+      \          ['readonly', 'relativepath', 'modified']]
+      \  }
+      \}
 
+"}}}
 
 """"""""""""""""""""""""""""""
 " setting for neosnippet
