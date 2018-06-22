@@ -387,7 +387,7 @@ aug END
 "{{{
 nnoremap <Leader>ef :<C-u>Files<CR>
 nnoremap <Leader>em :<C-u>Maps<CR>
-nnoremap <Leader>eb :<C-u>Bufferes<CR>
+nnoremap <Leader>eb :<C-u>Buffers<CR>
 nnoremap <Leader>ea :<C-u>Ag
 "}}}
 
