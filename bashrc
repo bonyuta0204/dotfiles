@@ -74,4 +74,9 @@ if [ -f ~/.fzf.bash ]; then
       git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
   }
 
+  fd() {
+    local dir
+    dir=$(find ${1:-.} -path '*/\.*'-prune -o -type d -print 2> /dev/null | fzf +m) &&
+    cd $dir
+  }
 fi
