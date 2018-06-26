@@ -17,3 +17,8 @@ options word
     ${0}
   end
 
+snippet     assert_no_difference
+abbr        assert_no_difference ... do ... end
+  assert_no_difference '${1:#:command}' do
+    ${0:#:block}
+  end

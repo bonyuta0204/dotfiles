@@ -82,6 +82,7 @@ NeoBundle 'Shougo/neomru.vim'
 
 " ColorSchemeのプラグイン
 NeoBundle "KeitaNakamura/neodark.vim"
+NeoBundle "tomasr/molokai"
 
 " for ruby refs
 NeoBundle 'thinca/vim-ref'
@@ -290,16 +291,18 @@ nnoremap <C-e> :<C-u>Explore<CR>
 """"""""""""""""""""""""""""""
 "{{{
 
-colorscheme neodark
+"colorscheme neodark
+"
+"hi Folded ctermfg=240
+"hi LineNr ctermfg=250 ctermbg=240
+"
+"au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=bold,reverse
+"			\ guisp=Magenta guibg=#FFFFFF guifg=#84B97C
+"au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold 
+"			\ guibg=#639EE4 guifg=#FFFFFF
 
-hi Folded ctermfg=240
-hi LineNr ctermfg=250 ctermbg=240
-
-au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=bold,reverse
-			\ guisp=Magenta guibg=#FFFFFF guifg=#84B97C
-au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold 
-			\ guibg=#639EE4 guifg=#FFFFFF
-
+let g:rehash256 = 1
+colorscheme molokai
 
 "}}}
 
