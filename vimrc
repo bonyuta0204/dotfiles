@@ -125,6 +125,9 @@ NeoBundle 'slim-template/vim-slim'
 " lightline
 NeoBundle 'itchyny/lightline.vim'
 
+"fish plugin
+NeoBundle 'dag/vim-fish.git'
+
 call neobundle#end()
  
 "}}}
