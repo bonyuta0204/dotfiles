@@ -15,11 +15,11 @@ export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 set -o vi
 
 # prompt setting
-function parse_git_branch {
+parse_git_branch() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
 }
 
-function promps {
+promps() {
     # 色は気分で変えたいかもしれないので変す宣言しておく
     local  BLUE="\[\e[1;34m\]"
     local  RED="\[\e[1;31m\]"
@@ -52,15 +52,21 @@ alias rm='rm -i'
 alias cp='cp -i'
 
 # functions for alias
+if command -v bundle &> /dev/null; then
+  rl() {
+    bundle exec rails $@
+  }
+fi
 
-function rl {
-	bundle exec rails $@
-}
-
-function dc {
-	cd ~/workspace/zelda-allstars
-	docker-compose $@
-}
+if command -v docker-compose &> /dev/null; then
+  dc() {
+    local dir
+    dir=$(pwd)
+    cd ~/workspace/zelda-allstars
+    docker-compose $@
+    cd $dir
+  }
+fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
