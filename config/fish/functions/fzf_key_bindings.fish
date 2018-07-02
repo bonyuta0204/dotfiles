@@ -1,1 +1,0 @@
-/home/vagrant/.fzf/shell/key-bindings.fish

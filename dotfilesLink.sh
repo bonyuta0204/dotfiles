@@ -19,7 +19,7 @@ fish_symlink(){
   ln -sfi "$dotroot/fish/config.fish" "$fishroot/fish/config.fish" 
   ln -sfi "$dotroot/fish/fishfile" "$fishroot/fish/fishfile" 
   ln -sdfi "$dotroot/fish/functions" "$fishroot/fish" 
-
+}
 
 if command -v fish > /dev/null ; then
   fish_symlink
