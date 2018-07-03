@@ -1,0 +1,1 @@
+/home/vagrant/.config/fisherman/getopts/getopts.fish

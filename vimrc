@@ -126,6 +126,9 @@ NeoBundle 'slim-template/vim-slim'
 " lightline
 NeoBundle 'itchyny/lightline.vim'
 
+"fish plugin
+NeoBundle 'dag/vim-fish.git'
+
 call neobundle#end()
  
 "}}}
@@ -390,7 +393,7 @@ aug END
 "{{{
 nnoremap <Leader>ef :<C-u>Files<CR>
 nnoremap <Leader>em :<C-u>Maps<CR>
-nnoremap <Leader>eb :<C-u>Bufferes<CR>
+nnoremap <Leader>eb :<C-u>Buffers<CR>
 nnoremap <Leader>ea :<C-u>Ag
 "}}}
 
