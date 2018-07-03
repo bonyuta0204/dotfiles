@@ -1,0 +1,1 @@
+/home/vagrant/.config/fisherman/z/functions/zclean.awk
