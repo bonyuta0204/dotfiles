@@ -50,7 +50,7 @@ set clipboard=unnamed
 set colorcolumn=80      " その代わり80文字目にラインを入れる
 " ステータスラインの色を変える
 set laststatus=2 
-
+set termguicolors
 " }}}
 
 """"""""""""""""""""""""""""""
