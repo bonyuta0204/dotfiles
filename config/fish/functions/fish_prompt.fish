@@ -6,6 +6,7 @@ function fish_prompt
 
     # Main
     echo -n (set_color  cyan)(prompt_pwd) (set_color -o red)'>'(set_color -o yellow)'>'(set_color -o green)'>'
+    set_color normal
 
     # Git
     set last_status $status
