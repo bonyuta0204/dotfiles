@@ -111,6 +111,7 @@ NeoBundle 'mattn/emmet-vim'
 
 " surround vim 
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-fugitive'
 
 "quickrun
 NeoBundle 'thinca/vim-quickrun'
@@ -157,8 +158,11 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left':[['mode', 'paste'], 
-      \          ['readonly', 'relativepath', 'modified']]
-      \  }
+      \          ['readonly', 'relativepath', 'modified', 'gitbranch']]
+      \  },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
       \}
 
 "}}}
