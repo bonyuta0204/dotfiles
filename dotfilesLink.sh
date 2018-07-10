@@ -2,6 +2,7 @@
 ln -sfi ~/dotfiles/vimrc ~/.vimrc
 # ln -sf ~/dotfiles/.vim ~/.vim
 ln -sfi ~/dotfiles/bashrc ~/.bashrc
+ln -sfi ~/dotfiles/bash_profile ~/.bash_profile
 
 SNIPPET_DIR=~/.vim/bundle/neosnippet-snippets
 

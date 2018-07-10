@@ -4,22 +4,7 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
-# Setting enviroment variables
-TERM=xterm-256color
-export PATH=$HOME/local/bin:$PATH
-export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
-
 set -o vi
-
-# use fish when available
-if command -v fish &> /dev/null; then
-  exec fish
-fi
-
-# bash specific settings
 
 # prompt setting
 parse_git_branch() {
