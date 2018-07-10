@@ -51,6 +51,9 @@ set colorcolumn=80      " その代わり80文字目にラインを入れる
 " ステータスラインの色を変える
 set laststatus=2 
 set termguicolors
+
+" F10でpasteモードの切り替え
+set pastetoggle=<F10>
 " }}}
 
 """"""""""""""""""""""""""""""
@@ -218,7 +221,8 @@ nnoremap j gj
 nnoremap k gk
 
 " rcで.vimrcを開く
-nnoremap <Leader>rc :<C-u>edit $MYVIMRC<CR> 
+nnoremap <Leader>rc :<C-u>edit ~/dotfiles/vimrc<CR> 
+
 
 " <F5>でvimrcを再読込
 nnoremap <F5> :<C-u>source<Space>$MYVIMRC<CR>

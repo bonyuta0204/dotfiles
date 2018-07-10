@@ -8,5 +8,7 @@ set __fish_git_prompt_color_branch yellow
 set __fish_git_prompt_color_upstream_ahead green
 set __fish_git_prompt_color_upstream_behind red
 
+# settinf for fzf
+set  FZF_DEFAULT_OPTS '--height 40% --reverse --border'
 
 set fish_term24bit 1
