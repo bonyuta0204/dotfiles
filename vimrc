@@ -54,6 +54,10 @@ set laststatus=2
 if has('termguicolors')
   set termguicolors
 endif
+
+" F10でpasteモードの切り替え
+set pastetoggle=<F10>
+
 " }}}
 
 """"""""""""""""""""""""""""""
@@ -161,7 +165,7 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left':[['mode', 'paste'], 
-      \          ['readonly', 'relativepath', 'modified', 'gitbranch']]
+      \          ['readonly', 'relativepath', 'modified']]
       \  },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head'
@@ -221,7 +225,8 @@ nnoremap j gj
 nnoremap k gk
 
 " rcで.vimrcを開く
-nnoremap <Leader>rc :<C-u>edit $MYVIMRC<CR> 
+nnoremap <Leader>rc :<C-u>edit ~/dotfiles/vimrc<CR> 
+
 
 " <F5>でvimrcを再読込
 nnoremap <F5> :<C-u>source<Space>$MYVIMRC<CR>
