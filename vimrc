@@ -161,7 +161,7 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left':[['mode', 'paste'], 
-      \          ['readonly', 'relativepath', 'modified', 'gitbranch']]
+      \          ['readonly', 'relativepath', 'modified']]
       \  },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head'
