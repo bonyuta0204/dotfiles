@@ -1,5 +1,4 @@
 
-"
 """"""""""""""""""""""""""""""
 " Basic Configuration
 """"""""""""""""""""""""""""""
@@ -136,6 +135,8 @@ NeoBundle 'itchyny/lightline.vim'
 
 "fish plugin
 NeoBundle 'dag/vim-fish.git'
+"Ag
+NeoBundle 'rking/ag.vim'
 
 call neobundle#end()
  
