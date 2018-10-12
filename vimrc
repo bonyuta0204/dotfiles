@@ -57,6 +57,7 @@ endif
 
 " F10でpasteモードの切り替え
 set pastetoggle=<F10>
+source $VIMRUNTIME/macros/matchit.vim
 
 " }}}
 
@@ -112,6 +113,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 " fuzzy search
 set rtp+=~/.fzf
 NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'bronson/vim-trailing-whitespace'
 
 " html 関係
 NeoBundle 'mattn/emmet-vim'
