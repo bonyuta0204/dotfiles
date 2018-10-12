@@ -3,12 +3,10 @@
 " Basic Configuration
 """"""""""""""""""""""""""""""
 " {{{
-
 set nocompatible
 filetype indent plugin on 
 
 syntax on
-
 filetype indent plugin on 
 set hidden
 set wildmenu
@@ -114,6 +112,9 @@ NeoBundle 'junegunn/fzf.vim'
 
 " html 関係
 NeoBundle 'mattn/emmet-vim'
+
+" Vue.jsのハイライト
+NeoBundle 'posva/vim-vue'
 
 " surround vim 
 NeoBundle 'tpope/vim-surround'
@@ -276,7 +277,6 @@ inoremap <RIGHT> <Nop>
 inoremap <UP> <Nop>
 inoremap <DOWN> <Nop>
 " disable esc keys(practice)
-inoremap <ESC> <Nop>
 
 " jjで１マス先から入力開始
 inoremap jj <RIGHT>
@@ -407,7 +407,7 @@ aug END
 nnoremap <Leader>ef :<C-u>Files<CR>
 nnoremap <Leader>em :<C-u>Maps<CR>
 nnoremap <Leader>eb :<C-u>Buffers<CR>
-nnoremap <Leader>ea :<C-u>Ag
+nnoremap <Leader>ag :<C-u>Ag<CR>
 "}}}
 
 
@@ -568,6 +568,11 @@ augroup eruby
 		autocmd FileType eruby.html setlocal foldlevel=99
 		autocmd FileType eruby.html setlocal tabstop=2 
 "}}}	
+
+""""""""""""""""""""""""""""""
+" Vue.js settings
+""""""""""""""""""""""""""""""
+autocmd FileType vue syntax sync fromstart
 
 """"""""""""""""""""""""""""""
 " NERDTree
