@@ -1,5 +1,6 @@
 #!/bin/sh
 ln -sfi ~/dotfiles/vimrc ~/.vimrc
+ln -sfi ~/dotfiles/gvimrc ~/.gvimrc
 # ln -sf ~/dotfiles/.vim ~/.vim
 ln -sfi ~/dotfiles/bashrc ~/.bashrc
 ln -sfi ~/dotfiles/bash_profile ~/.bash_profile
