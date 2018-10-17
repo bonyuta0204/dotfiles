@@ -4,14 +4,13 @@
 """"""""""""""""""""""""""""""
 " {{{
 set nocompatible
-filetype indent plugin on 
-
+filetype indent plugin on
 syntax on
-filetype indent plugin on 
 set hidden
 set wildmenu
 set showcmd
 set hlsearch
+set incsearch
 set backspace=indent,start,eol
 set autoindent
 set ruler
@@ -19,9 +18,8 @@ set shiftwidth=2
 set tabstop=2
 set laststatus=2
 set expandtab
-
-" don't show mode. instead use lightline'
-set noshowmode
+set formatoptions=crql
+set noshowmode " don't show mode. instead use lightline'
 set confirm
 set list
 
@@ -31,12 +29,15 @@ set visualbell
 set t_vb=
 set cmdheight=2
 set number
-" 　邪魔なフォルダの保存先を変更する
+
+
+"邪魔なフォルダの保存先を変更する
 set backupdir=~/.vim/temp/
 set directory=~/.vim/temp/
-"set viminfo+=n~/.vim/temp/
 set undodir=~/.vim/temp/
-" 文字コードの設定
+
+
+"文字コードの設定
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
@@ -46,7 +47,7 @@ set clipboard=unnamed
 
 set colorcolumn=80      " その代わり80文字目にラインを入れる
 " ステータスラインの色を変える
-set laststatus=2 
+set laststatus=2
 
 if has('termguicolors')
   set termguicolors
@@ -68,12 +69,12 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" ここに入れたいプラグインを記入
 
-" ファイル管理プラグイン
-NeoBundle "Shougo/unite.vim"
+""""""""""""""""""""""""""""""
+" General
+""""""""""""""""""""""""""""""
 NeoBundle "scrooloose/nerdtree"
-
+NeoBundle "Shougo/unite.vim"
 NeoBundle 'Shougo/vimproc.vim', {
 			\ 'build' : {
 			\     'windows' : 'tools\\update-dll-mingw',
@@ -84,68 +85,74 @@ NeoBundle 'Shougo/vimproc.vim', {
 			\    },
 			\ }
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'thinca/vim-ref'
+NeoBundle "Shougo/vimshell"
+set rtp+=~/.fzf "fuzzy search
+NeoBundle 'junegunn/fzf.vim' "fuzzy search
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-fugitive' "git client
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'itchyny/lightline.vim' "status line
+NeoBundle 'bronson/vim-trailing-whitespace'
 
-" ColorSchemeのプラグイン
+
+""""""""""""""""""""""""""""""
+" Colorschemes
+""""""""""""""""""""""""""""""
 NeoBundle "KeitaNakamura/neodark.vim"
 NeoBundle "tomasr/molokai"
 
-" for ruby refs
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'yuku-t/vim-ref-ri'
 
-" VimShell
-NeoBundle "Shougo/vimshell"
-
+""""""""""""""""""""""""""""""
+" Complation
+""""""""""""""""""""""""""""""
 if has('lua')
-	" 入力補完
 	NeoBundle 'Shougo/neocomplete.vim'
 else
 	NeoBundle 'Shougo/neocomplcache'
 endif
-"
-" 入力補完
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 
-" fuzzy search
-set rtp+=~/.fzf
-NeoBundle 'junegunn/fzf.vim'
-NeoBundle 'bronson/vim-trailing-whitespace'
 
-" html 関係
+""""""""""""""""""""""""""""""
+" html and Css
+""""""""""""""""""""""""""""""
 NeoBundle 'mattn/emmet-vim'
-
-" Vue.jsのハイライト
-NeoBundle 'posva/vim-vue'
-
-" surround vim 
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-fugitive'
-
-"quickrun
-NeoBundle 'thinca/vim-quickrun'
-
-" ruby
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'ngmy/vim-rubocop'
-NeoBundle 'basyura/unite-rails'
-
-" Slim
 NeoBundle 'slim-template/vim-slim'
-"
-" lightline
-NeoBundle 'itchyny/lightline.vim'
 
-"fish plugin
-NeoBundle 'dag/vim-fish.git'
-"Ag
-NeoBundle 'rking/ag.vim'
+
+""""""""""""""""""""""""""""""
+" ruby plugins
+""""""""""""""""""""""""""""""
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'basyura/unite-rails'
+NeoBundle 'yuku-t/vim-ref-ri'
+
+
+""""""""""""""""""""""""""""""
+" python plugins
+""""""""""""""""""""""""""""""
+NeoBundle 'davidhalter/jedi-vim'
+
+
+""""""""""""""""""""""""""""""
+" javascript plugins
+""""""""""""""""""""""""""""""
+NeoBundle 'othree/yajs.vim' "hight for ES6 Syntax
+NeoBundle 'posva/vim-vue'
+NeoBundle 'ternjs/tern_for_vim'
+
+
+""""""""""""""""""""""""""""""
+" Others
+""""""""""""""""""""""""""""""
+NeoBundle 'dag/vim-fish.git' "fish highting
+
 
 call neobundle#end()
- 
-"}}}
+"}}} NeoBundleここまで
 
-"NeoBundleここまで
 
 """"""""""""""""""""""""""""""
 " quickrunの設定
@@ -158,9 +165,8 @@ function! s:hooks.on_source(bundle)
       \ "*": {"runner": "remote/vimproc"},
       \ }
 endfunction
-
 "}}}
-"
+
 """"""""""""""""""""""""""""""
 " light line config
 """"""""""""""""""""""""""""""
@@ -177,6 +183,7 @@ let g:lightline = {
       \}
 
 "}}}
+
 
 """"""""""""""""""""""""""""""
 " setting for neosnippet
@@ -209,7 +216,6 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
 "}}}
 
-
 " settings for emmet
 "{{{
 let g:user_emmet_leader_key='<c-t>'
@@ -221,22 +227,17 @@ let g:user_emmet_leader_key='<c-t>'
 "{{{
 "<Leader>を<Space>に設定
 let mapleader = " "
-
-" jkでインkートモードを抜ける 
 noremap! jk <Esc>
+
 " 論理行ではなくて表示行で移動する
 nnoremap j gj
 nnoremap k gk
 
-" rcで.vimrcを開く
 nnoremap <Leader>rc :<C-u>edit ~/dotfiles/vimrc<CR> 
-
-
-" <F5>でvimrcを再読込
 nnoremap <F5> :<C-u>source<Space>$MYVIMRC<CR>
-
-"cmd でVimShellを起動
 nnoremap cmd :<C-u>VimShell<CR> 
+
+
 """"""""""""""""""""""""""""""
 " 自動的に閉じ括弧を入力
 """"""""""""""""""""""""""""""
@@ -245,6 +246,8 @@ inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
+
+
 """"""""""""""""""""""""""""""
 " <Leader>hjkl でWindowの移動
 """"""""""""""""""""""""""""""
@@ -252,10 +255,10 @@ nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
-""""""""""""""""""""""""""""""
+
+
 """"""""""""""""""""""""""""""
 " <Leader>HJKL でWindowを移動
-""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""
 nnoremap<Leader>H <C-w>H
 nnoremap<Leader>J <C-w>J
@@ -283,9 +286,6 @@ inoremap <DOWN> <Nop>
 " jjで１マス先から入力開始
 inoremap jj <RIGHT>
 
-" dw で単語を削除, cwで単語を削除してInsert Modeに
-" noremap dw diw
-" noremap cw ciw
 "
 " key mapping for programming
 
@@ -302,7 +302,6 @@ nnoremap <C-n> :<C-u>NERDTreeToggle<CR>
 nnoremap <C-e> :<C-u>Explore<CR>
 "}}}
 
-"キーマッピングの設定終わり
 
 """"""""""""""""""""""""""""""
 " colorscheme
@@ -348,6 +347,7 @@ nnoremap <silent> [unite]a :<C-u>Unite<space>file<space>buffer<space>bookmark<sp
 " NeoCompleteCache の設定
 """"""""""""""""""""""""""""""
 " {{{
+if !has('lua')
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -380,7 +380,7 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
+endif
 " }}}
 
 "------------------------------------
@@ -413,12 +413,11 @@ nnoremap <Leader>ag :<C-u>Ag<CR>
 "}}}
 
 
-
-if has('lua')
 """"""""""""""""""""""""""""""
 " NeoComplete の設定
 """"""""""""""""""""""""""""""
 " {{{
+if has('lua')
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -489,8 +488,16 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-" }}}
+
+
+""""""""""""""""""""""""""""""
+" javascript補完
+""""""""""""""""""""""""""""""
+let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\|[^. \t]\.\w*\|\$\w*'
+
+
 endif 
+" }}}
 
 """"""""""""""""""""""""""""""
 " VimScript の設定
@@ -575,14 +582,6 @@ augroup eruby
 " Vue.js settings
 """"""""""""""""""""""""""""""
 autocmd FileType vue syntax sync fromstart
-
-""""""""""""""""""""""""""""""
-" NERDTree
-""""""""""""""""""""""""""""""
-" {{{ 
-"NERDTree
-"}}}
-
 
 
 filetype indent plugin on 
