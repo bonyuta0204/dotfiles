@@ -18,8 +18,7 @@ fi
 # snippets files should place on
 # e.g. ~/dotfiles/snippets/ruby.snip
 if [ -d ${SNIPPET_DIR} > /dev/null ]; then
-  rm -rf ${SNIPPET_DIR}/snippets
-  ln -sdfi ~/dotfiles/snippets ${SNIPPET_DIR}
+  ln -sdfi ~/dotfiles/vim/snippets ${SNIPPET_DIR}
 fi
 
 
