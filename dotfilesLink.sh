@@ -8,8 +8,10 @@ SNIPPET_DIR=~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets
 VIM_DIR=~/.vim
 
 # vim setting
-ln -sfi ~/dotfiles/vim/plugins.toml ~/.vim/dein
-ln -sfi ~/dotfiles/vim/lazy.toml ~/.vim/dein
+if [ -d $HOME/.vim/dein > /dev/null ]; then
+  mkdir -p $HOME/.vim/dein
+  ln -sfi ~/dotfiles/vim/plugins.toml ~/.vim/dein
+  ln -sfi ~/dotfiles/vim/lazy.toml ~/.vim/dein
 
 
 # vim after directory should be placed on
