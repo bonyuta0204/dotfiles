@@ -12,6 +12,7 @@ if [ -d $HOME/.vim/dein > /dev/null ]; then
   mkdir -p $HOME/.vim/dein
   ln -sfi ~/dotfiles/vim/plugins.toml ~/.vim/dein
   ln -sfi ~/dotfiles/vim/lazy.toml ~/.vim/dein
+fi
 
 
 # vim after directory should be placed on
