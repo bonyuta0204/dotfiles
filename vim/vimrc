@@ -174,7 +174,7 @@ endfunction
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
-      \   'left':[['mode', 'paste'], 
+      \   'left':[['mode', 'paste'],
       \          ['readonly', 'relativepath', 'modified']]
       \  },
       \ 'component_function': {
@@ -233,9 +233,9 @@ noremap! jk <Esc>
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <Leader>rc :<C-u>edit ~/dotfiles/vimrc<CR> 
+nnoremap <Leader>rc :<C-u>edit ~/.vimrc<CR>
 nnoremap <F5> :<C-u>source<Space>$MYVIMRC<CR>
-nnoremap cmd :<C-u>VimShell<CR> 
+nnoremap cmd :<C-u>VimShell<CR>
 
 
 """"""""""""""""""""""""""""""
@@ -269,7 +269,7 @@ nnoremap<Leader>L <C-w>L
 nnoremap <Leader>s :<C-u>split<CR><C-w>j
 nnoremap <Leader>v :<C-u>vsplit<CR><C-w>l
 " create new line at the bottom of the file and go into insert line
-nnoremap <Leader>o Go 
+nnoremap <Leader>o Go
 
 " disable arrow keys(for practice)
 noremap <LEFT> <Nop>
@@ -294,7 +294,7 @@ inoremap -= <space>-=<space>
 inoremap *= <space>*=<space>
 
 " key map for tag jump
-nnoremap <C-]> g<C-]> 
+nnoremap <C-]> g<C-]>
 
 nnoremap <Leader>sni :<C-u>edit ~/.vim/bundle/neosnippet-snippets/neosnippets<CR>
 nnoremap <Leader>es :<C-u>NeoSnippetEdit<CR>
@@ -315,7 +315,7 @@ nnoremap <C-e> :<C-u>Explore<CR>
 "
 "au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=bold,reverse
 "			\ guisp=Magenta guibg=#FFFFFF guifg=#84B97C
-"au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold 
+"au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold
 "			\ guibg=#639EE4 guifg=#FFFFFF
 
 let g:rehash256 = 1
@@ -334,7 +334,7 @@ colorscheme molokai
 nnoremap [unite] <Nop>
 nmap  <Leader>f [unite]
 
-" 
+"
 nnoremap [unite]u :<C-u>Unite<space>
 nnoremap <silent> [unite]f :<C-u>Unite<space>file<CR>
 nnoremap <silent> [unite]b :<C-u>Unite<space>buffer<CR>
@@ -461,15 +461,6 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -481,9 +472,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
@@ -496,87 +486,9 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\|[^. \t]\.\w*\|\$\w*'
 
 
-endif 
+endif
 " }}}
 
-""""""""""""""""""""""""""""""
-" VimScript の設定
-""""""""""""""""""""""""""""""
-" Vimscript file settings-------------------- {{{
-augroup filetype_vim
-		autocmd!
-		autocmd FileType vim setlocal foldmethod=marker
-		autocmd FileType vim inoremap <buffer> " "
-		autocmd FileType vim inoremap <buffer> < <><LEFT>
-augroup END
-" }}}
-
-""""""""""""""""""""""""""""""
-" Markdown
-""""""""""""""""""""""""""""""
-"Markdown settings ----------------------{{{
-
-" disable autoindent of vim-markdown plugin
-let g:vim_markdown_new_list_item_indent = 0
-augroup markdown 
-		autocmd!
-		autocmd FileType markdown inoremap <buffer> * **
-		autocmd FileType markdown inoremap <buffer> ** ****<Left><Left>
-		autocmd Filetype markdown inoremap <buffer> <S-cr> <space><space><CR>
-		autocmd FileType markdown PrevimOpen
-augroup END	
-
-"}}} 
-
-
-""""""""""""""""""""""""""""""
-" Python settings
-""""""""""""""""""""""""""""""
-" {{{
-"augroup python
-"		autocmd!
-"		autocmd Filetype python inoremap <buffer> __ ____<LEFT><LEFT>
-"		autocmd FileType python inoremap <buffer> """
-"		\ """"""<LEFT><LEFT><LEFT><CR><ESC>O
-"		autocmd FileType python inoremap <buffer> == <space>==<space>
-"		autocmd FileType python inoremap <buffer> , ,<space>
-"
-"		autocmd FileType python setlocal foldmethod=indent
-"		autocmd Filetype python setlocal expandtab
-"		autocmd FileType python setlocal foldlevel=99
-"}}}
-
-""""""""""""""""""""""""""""""
-" Ruby settings
-""""""""""""""""""""""""""""""
-" {{{
-autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
-
-augroup ruby
-		autocmd!
-		autocmd Filetype ruby inoremap <buffer> <% <% %><LEFT><LEFT>
-		autocmd Filetype ruby inoremap <buffer> <space>
-		autocmd Filetype ruby inoremap <buffer> , ,<space>
-		"autocmd Filetype ruby inoremap <buffer> | ||<LEFT>
-		autocmd Filetype ruby setlocal foldmethod=indent
-		autocmd Filetype ruby setlocal expandtab
-		autocmd Filetype ruby setlocal tabstop=2
-		autocmd Filetype ruby setlocal shiftwidth=2
-		autocmd Filetype ruby setlocal foldlevel=99
-"}}}	
-""""""""""""""""""""""""""""""
-" Erb settings
-""""""""""""""""""""""""""""""
-" {{{
-augroup eruby
-		autocmd!
-		autocmd Filetype eruby.html inoremap <buffer> <% <% %><LEFT><LEFT><LEFT>
-
-		autocmd FileType eruby.html setlocal foldmethod=indent 
-		autocmd Filetype eruby.html setlocal expandtab
-		autocmd FileType eruby.html setlocal foldlevel=99
-		autocmd FileType eruby.html setlocal tabstop=2 
-"}}}	
 
 """"""""""""""""""""""""""""""
 " Vue.js settings
