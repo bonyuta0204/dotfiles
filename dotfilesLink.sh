@@ -4,7 +4,7 @@ ln -sfi ~/dotfiles/vim/gvimrc ~/.gvimrc
 ln -sfi ~/dotfiles/bashrc ~/.bashrc
 ln -sfi ~/dotfiles/bash_profile ~/.bash_profile
 
-SNIPPET_DIR=~/.vim/bundle/neosnippet-snippets
+SNIPPET_DIR=~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets
 VIM_DIR=~/.vim
 
 
