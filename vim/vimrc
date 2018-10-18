@@ -533,18 +533,18 @@ augroup END
 " Python settings
 """"""""""""""""""""""""""""""
 " {{{
-augroup python
-		autocmd!
-		autocmd Filetype python inoremap <buffer> __ ____<LEFT><LEFT>
-		autocmd FileType python inoremap <buffer> """
-		\ """"""<LEFT><LEFT><LEFT><CR><ESC>O
-		autocmd FileType python inoremap <buffer> == <space>==<space>
-		autocmd FileType python inoremap <buffer> , ,<space>
-
-		autocmd FileType python setlocal foldmethod=indent 
-		autocmd Filetype python setlocal expandtab
-		autocmd FileType python setlocal foldlevel=99
-"}}}	
+"augroup python
+"		autocmd!
+"		autocmd Filetype python inoremap <buffer> __ ____<LEFT><LEFT>
+"		autocmd FileType python inoremap <buffer> """
+"		\ """"""<LEFT><LEFT><LEFT><CR><ESC>O
+"		autocmd FileType python inoremap <buffer> == <space>==<space>
+"		autocmd FileType python inoremap <buffer> , ,<space>
+"
+"		autocmd FileType python setlocal foldmethod=indent
+"		autocmd Filetype python setlocal expandtab
+"		autocmd FileType python setlocal foldlevel=99
+"}}}
 
 """"""""""""""""""""""""""""""
 " Ruby settings
@@ -584,7 +584,7 @@ augroup eruby
 autocmd FileType vue syntax sync fromstart
 
 
-filetype indent plugin on 
+filetype indent plugin on
 "html settings
 "{{{
 augroup html
