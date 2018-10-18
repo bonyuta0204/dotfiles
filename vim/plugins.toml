@@ -1,0 +1,92 @@
+# Essential Plugins
+[[plugins]]
+repo = 'Shougo/dein.vim'
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = "make"
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+[[plugins]]
+repo = "Shougo/vimshell"
+
+
+#General Use
+[[plugins]]
+repo = 'junegunn/fzf.vim' #fuzzy search
+[[plugins]]
+repo = 'tpope/vim-surround'
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+[[plugins]]
+repo = 'thinca/vim-ref'
+[[plugins]]
+repo = 'tpope/vim-fugitive' #git client
+
+
+# Editor Design
+[[plugins]]
+repo = 'itchyny/lightline.vim' #status line
+
+
+# ColorSchemes
+[[plugins]]
+repo = "KeitaNakamura/neodark.vim"
+[[plugins]]
+repo = "tomasr/molokai"
+
+
+# Completion
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+if = '''has('lua')'''
+[[plugins]]
+repo = 'Shougo/neocomplecache.vim'
+if = '''!has('lua')'''
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+
+# Language Specific
+#
+# HTML
+[[plugins]]
+repo = 'mattn/emmet-vim'
+[[plugins]]
+repo = 'slim-template/vim-slim'
+
+
+# javascript
+[[plugins]]
+repo = 'othree/yajs.vim' #hight for ES6 Syntax
+[[plugins]]
+repo = 'ternjs/tern_for_vim'
+[[plugins]]
+repo = 'posva/vim-vue'
+
+
+# Ruby, Ruby on Rails
+[[plugins]]
+repo = 'yuku-t/vim-ref-ri'
+[[plugins]]
+repo = 'tpope/vim-rails'
+[[plugins]]
+repo = 'basyura/unite-rails'
+
+
+# Python
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+
+
+# fish
+[[plugins]]
+repo = 'dag/vim-fish.git' #fish highting
+
+
+# toml
+[[plugins]]
+repo = 'cespare/vim-toml'

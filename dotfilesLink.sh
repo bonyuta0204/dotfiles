@@ -7,6 +7,10 @@ ln -sfi ~/dotfiles/bash_profile ~/.bash_profile
 SNIPPET_DIR=~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets
 VIM_DIR=~/.vim
 
+# vim setting
+ln -sfi ~/dotfiles/vim/plugins.toml ~/.vim/dein
+ln -sfi ~/dotfiles/vim/lazy.toml ~/.vim/dein
+
 
 # vim after directory should be placed on
 # e.g. ~/dotfiles/after/ftplugin/python.vim
