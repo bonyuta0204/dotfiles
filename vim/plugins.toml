@@ -42,7 +42,7 @@ repo = "tomasr/molokai"
 repo = 'Shougo/neocomplete.vim'
 if = '''has('lua')'''
 [[plugins]]
-repo = 'Shougo/neocomplecache.vim'
+repo = 'Shougo/neocomplcache.vim'
 if = '''!has('lua')'''
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
