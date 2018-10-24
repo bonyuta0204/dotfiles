@@ -230,7 +230,7 @@ inoremap *= <space>*=<space>
 " key map for tag jump
 nnoremap <C-]> g<C-]>
 
-nnoremap <Leader>sni :<C-u>edit ~/.vim/bundle/neosnippet-snippets/neosnippets<CR>
+nnoremap <Leader>sni :<C-u>NeoSnippetEdit -runtime<CR>
 nnoremap <Leader>es :<C-u>NeoSnippetEdit<CR>
 nnoremap <C-n> :<C-u>NERDTreeToggle<CR>
 nnoremap <C-e> :<C-u>Explore<CR>
@@ -346,6 +346,13 @@ nnoremap <Leader>eb :<C-u>Buffers<CR>
 nnoremap <Leader>ag :<C-u>Ag<CR>
 "}}}
 
+"------------------------------------
+" ack.vim
+"------------------------------------
+"{{{
+let g:ackprg = "ag --vimgrep"
+
+"}}}
 
 """"""""""""""""""""""""""""""
 " NeoComplete の設定
