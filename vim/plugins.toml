@@ -95,6 +95,7 @@ repo = 'basyura/unite-rails'
 # Python
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
+if = '''has('python3') || has('python')'''
 
 
 # fish
