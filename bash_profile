@@ -22,10 +22,16 @@ if [ -d ~/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
+if [ -d /home/python/3.5/bin ]; then
+  export PATH="$PATH:/home/python/3.5/bin"
+fi
+
 # use fish when available
 if command -v fish &> /dev/null; then
   exec fish
 fi
+
+### LINE BELOW HERE WILL NOT BE EXCUTED
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
