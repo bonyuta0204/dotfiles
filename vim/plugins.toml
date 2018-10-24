@@ -25,6 +25,8 @@ repo = 'tpope/vim-fugitive' #git client
 repo = 'rhysd/accelerated-jk'
 [[plugins]]
 repo = 'scrooloose/nerdcommenter'
+[[plugins]]
+repo = 'mileszs/ack.vim'
 
 # Editor UI
 [[plugins]]
