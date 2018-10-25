@@ -46,11 +46,14 @@ repo = "tomasr/molokai"
 
 # Completion
 [[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = '''has('nvim')'''
+[[plugins]]
 repo = 'Shougo/neocomplete.vim'
-if = '''has('lua')'''
+if = '''!has('nvim') && has('lua')'''
 [[plugins]]
 repo = 'Shougo/neocomplcache.vim'
-if = '''!has('lua')'''
+if = '''!has('lua') && !has('nvim')'''
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 [[plugins]]
@@ -96,6 +99,10 @@ repo = 'basyura/unite-rails'
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 if = '''has('python3') || has('python')'''
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+if = '''has('nvim') && (has('python3') || has('python'))'''
+
 
 
 # fish

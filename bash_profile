@@ -10,6 +10,7 @@ if [ -d ~/.node_modules_global ]; then
   export PATH="$PATH:$HOME/.node_modules_global/bin"
 fi
 
+
 if [ -d ~/.pyenv ]; then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
@@ -17,19 +18,28 @@ if [ -d ~/.pyenv ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+
 if [ -d ~/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
 
+
+if [ -d /home/python/2.7/bin ]; then
+  export PATH="$PATH:/home/python/2.7/bin"
+fi
+
+
 if [ -d /home/python/3.5/bin ]; then
   export PATH="$PATH:/home/python/3.5/bin"
 fi
+
 
 # use fish when available
 if command -v fish &> /dev/null; then
   exec fish
 fi
+
 
 ### LINE BELOW HERE WILL NOT BE EXCUTED
 

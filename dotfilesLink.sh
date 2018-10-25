@@ -4,8 +4,10 @@ ln -sfi ~/dotfiles/vim/gvimrc ~/.gvimrc
 ln -sfi ~/dotfiles/bashrc ~/.bashrc
 ln -sfi ~/dotfiles/bash_profile ~/.bash_profile
 
+
 SNIPPET_DIR=~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets
 VIM_DIR=~/.vim
+
 
 # vim setting
 if [ -d $HOME/.vim/dein > /dev/null ]; then
@@ -26,6 +28,13 @@ fi
 # e.g. ~/dotfiles/snippets/ruby.snip
 if [ -d ${SNIPPET_DIR} > /dev/null ]; then
   ln -sdfi ~/dotfiles/vim/snippets ${SNIPPET_DIR}
+fi
+
+
+# symlink for nvim
+if command -v nvim > /dev/null ; then
+  ln -sfi ~/.vim ~/.config/nvim
+  ln -sfi ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
 fi
 
 
