@@ -81,9 +81,9 @@ endif
 set clipboard=unnamed
 set pastetoggle=<F10>
 source $VIMRUNTIME/macros/matchit.vim
-set rtp+=~/.fzf "fuzzy search
 
 " }}}
+
 
 """"""""""""""""""""""""""""""
 " Neovim Configuration
@@ -92,6 +92,24 @@ set rtp+=~/.fzf "fuzzy search
 if has('nvim')
   let g:python3_host_prog="/home/nakamura/.conda/envs/video/bin/python3.6"
 endif
+"}}}
+
+""""""""""""""""""""""""""""""
+" ALE configureation
+""""""""""""""""""""""""""""""
+"{{{
+
+let g:ale_lint_on_insert_leave = 1
+let g:ale_fixers = {
+\ 'python': [
+\ 'autopep8',
+\ 'yapf',
+\ 'isort'],
+\ }
+let g:ale_fix_on_save = 1
+
+
+
 "}}}
 
 
@@ -112,9 +130,9 @@ if dein#load_state('~/.vim/dein')
   call dein#save_state()
 endif
 
+"extra runtimepath
+set runtimepath+=~/.fzf "fuzzy search
 
-filetype plugin indent on
-syntax enable
 "}}}
 
 
@@ -331,6 +349,19 @@ let g:ackprg = "ag --vimgrep"
 if has('nvim')
 
 let g:deoplete#enable_at_startup = 1
+
+" Use smartcase.
+call deoplete#custom#option('smart_case', v:true)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ deoplete#mappings#manual_complete()
+
+function! s:check_back_space() abort "{{{
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction "}}}
 
 endif
 

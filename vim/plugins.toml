@@ -60,6 +60,11 @@ repo = 'Shougo/neosnippet.vim'
 repo = 'Shougo/neosnippet-snippets'
 
 
+# static analysis
+[[plugins]]
+repo = 'w0rp/ale'
+
+
 # Language Specific
 #
 # HTML
@@ -98,7 +103,7 @@ repo = 'basyura/unite-rails'
 # Python
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
-if = '''has('python3') || has('python')'''
+if = '''!has('nvim') && (has('python3') || has('python'))'''
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
 if = '''has('nvim') && (has('python3') || has('python'))'''

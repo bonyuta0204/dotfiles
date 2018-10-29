@@ -8,8 +8,6 @@ set __fish_git_prompt_color_branch yellow
 set __fish_git_prompt_color_upstream_ahead green
 set __fish_git_prompt_color_upstream_behind red
 
-# use conda
-source (conda info --root)/etc/fish/conf.d/conda.fish
 
 # settinf for fzf
 set  FZF_DEFAULT_OPTS '--height 40% --reverse --border'
@@ -27,3 +25,7 @@ alias la='ls -CFal --color=auto'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
+
+if test -d /home/python/2.7/etc/fish/conf.d
+  source /home/python/2.7/etc/fish/conf.d/conda.fish
+end
