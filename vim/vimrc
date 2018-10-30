@@ -207,7 +207,7 @@ nnoremap k gk
 " Opening files
 """"""""""""""""""""""""""""""
 nnoremap <Leader>rc :<C-u>edit ~/.vimrc<CR>
-nnoremap <Leader>ft :<C-u>execute 'edit' . fnameescape("~/.vim/after/ftplugin/" . &filetype)<CR>
+nnoremap <Leader>ft :<C-u>execute 'edit' . fnameescape("~/.vim/after/ftplugin/" . &filetype . '.vim')<CR>
 nnoremap <F5> :<C-u>source<Space>$MYVIMRC<CR>
 nnoremap cmd :<C-u>VimShell<CR>
 
