@@ -188,8 +188,7 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/
 "{{{
 let g:user_emmet_leader_key='<c-t>'
 "}}}
-"
-"
+
 
 """"""""""""""""""""""""""""""
 "キーマッピングの設定
@@ -203,9 +202,14 @@ noremap! jk <Esc>
 nnoremap j gj
 nnoremap k gk
 
+""""""""""""""""""""""""""""""
+" Opening files
+""""""""""""""""""""""""""""""
 nnoremap <Leader>rc :<C-u>edit ~/.vimrc<CR>
+nnoremap <Leader>ft :<C-u>execute 'edit' . fnameescape("~/.vim/after/ftplugin/" . &filetype)<CR>
 nnoremap <F5> :<C-u>source<Space>$MYVIMRC<CR>
 nnoremap cmd :<C-u>VimShell<CR>
+
 
 
 """"""""""""""""""""""""""""""
@@ -303,7 +307,8 @@ nnoremap <silent> [unite]h :<C-u>Unite<space>file_mru<CR>
 nnoremap <silent> [unite]a :<C-u>Unite<space>file<space>buffer<space>bookmark<space>file_mru<CR>
 
 " }}}
-"
+
+
 "------------------------------------
 " Unite-rails.vim
 "------------------------------------
@@ -332,6 +337,7 @@ nnoremap <Leader>em :<C-u>Maps<CR>
 nnoremap <Leader>eb :<C-u>Buffers<CR>
 nnoremap <Leader>ag :<C-u>Ag<CR>
 "}}}
+
 
 "------------------------------------
 " ack.vim
@@ -438,6 +444,7 @@ let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\|[^. \t]\.\w*\
 endif
 " }}}
 
+
 """"""""""""""""""""""""""""""
 " NeoComplCache の設定
 """"""""""""""""""""""""""""""
@@ -484,9 +491,11 @@ endif
 """"""""""""""""""""""""""""""
 autocmd FileType vue syntax sync fromstart
 
+
 """"""""""""""""""""""""""""""
 " CSS settings
 """"""""""""""""""""""""""""""
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
+
 
 filetype indent plugin on
