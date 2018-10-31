@@ -93,6 +93,7 @@ if has('nvim')
   let g:python3_host_prog="/home/nakamura/.conda/envs/video/bin/python3.6"
 endif
 "}}}
+"
 
 """"""""""""""""""""""""""""""
 " ALE configureation
@@ -355,9 +356,6 @@ let g:ackprg = "ag --vimgrep"
 if has('nvim')
 
 let g:deoplete#enable_at_startup = 1
-
-" Use smartcase.
-call deoplete#custom#option('smart_case', v:true)
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :

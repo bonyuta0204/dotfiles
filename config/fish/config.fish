@@ -29,3 +29,7 @@ alias cp='cp -i'
 if test -d /home/python/2.7/etc/fish/conf.d
   source /home/python/2.7/etc/fish/conf.d/conda.fish
 end
+
+if test -d $HOME/.conda/envs/video
+  conda activate video
+end

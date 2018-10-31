@@ -1,0 +1,73 @@
+#General Use
+[[plugins]]
+repo = 'junegunn/fzf.vim' #fuzzy search
+on_i = 1
+[[plugins]]
+repo = 'tpope/vim-surround'
+on_i = 1
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+on_i = 1
+
+
+# Completion
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = '''has('nvim')'''
+hook_post_source = '''
+" Use smartcase.
+call deoplete#custom#option('smart_case', v:true)
+'''
+on_i = 1
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+if = '''!has('nvim') && has('lua')'''
+on_i = 1
+[[plugins]]
+repo = 'Shougo/neocomplcache.vim'
+if = '''!has('lua') && !has('nvim')'''
+on_i = 1
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+on_i = 1
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_i = 1
+
+
+# Python
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+if = '''!has('nvim') && (has('python3') || has('python'))'''
+on_ft = ['python']
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+if = '''has('nvim') && (has('python3') || has('python'))'''
+on_ft = ['python']
+
+
+# javascript
+[[plugins]]
+repo = 'othree/yajs.vim' #hight for ES6 Syntax
+on_ft = ['javascript']
+[[plugins]]
+repo = 'ternjs/tern_for_vim'
+on_ft = ['javascript']
+build = 'npm install'
+
+# Ruby, Ruby on Rails
+[[plugins]]
+repo = 'yuku-t/vim-ref-ri'
+on_ft = ['ruby']
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = ['ruby']
+
+# fish
+[[plugins]]
+repo = 'dag/vim-fish.git' #fish highting
+on_ft = ['fish']
+
+# VimScript
+[[plugins]]
+repo = 'Shougo/neco-vim'

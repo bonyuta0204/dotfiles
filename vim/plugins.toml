@@ -12,21 +12,16 @@ repo = "Shougo/vimshell"
 
 #General Use
 [[plugins]]
-repo = 'junegunn/fzf.vim' #fuzzy search
-[[plugins]]
-repo = 'tpope/vim-surround'
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 [[plugins]]
 repo = 'thinca/vim-ref'
 [[plugins]]
 repo = 'tpope/vim-fugitive' #git client
 [[plugins]]
-repo = 'rhysd/accelerated-jk'
-[[plugins]]
-repo = 'scrooloose/nerdcommenter'
-[[plugins]]
 repo = 'mileszs/ack.vim'
+[[plugins]]
+repo = 'rhysd/accelerated-jk'
+
 
 # Editor UI
 [[plugins]]
@@ -42,22 +37,6 @@ repo = 'bronson/vim-trailing-whitespace'
 repo = "KeitaNakamura/neodark.vim"
 [[plugins]]
 repo = "tomasr/molokai"
-
-
-# Completion
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-if = '''has('nvim')'''
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-if = '''!has('nvim') && has('lua')'''
-[[plugins]]
-repo = 'Shougo/neocomplcache.vim'
-if = '''!has('lua') && !has('nvim')'''
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
 
 
 # static analysis
@@ -83,43 +62,9 @@ repo = 'othree/csscomplete.vim'
 
 # javascript
 [[plugins]]
-repo = 'othree/yajs.vim' #hight for ES6 Syntax
-[[plugins]]
-repo = 'ternjs/tern_for_vim'
-build = 'npm install'
-[[plugins]]
 repo = 'posva/vim-vue'
-
-
-# Ruby, Ruby on Rails
-[[plugins]]
-repo = 'yuku-t/vim-ref-ri'
-[[plugins]]
-repo = 'tpope/vim-rails'
-[[plugins]]
-repo = 'basyura/unite-rails'
-
-
-# Python
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-if = '''!has('nvim') && (has('python3') || has('python'))'''
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-if = '''has('nvim') && (has('python3') || has('python'))'''
-
-
-
-# fish
-[[plugins]]
-repo = 'dag/vim-fish.git' #fish highting
 
 
 # toml
 [[plugins]]
 repo = 'cespare/vim-toml'
-
-
-# VimScript
-[[plugins]]
-repo = 'Shougo/neco-vim'
