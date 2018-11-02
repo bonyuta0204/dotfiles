@@ -17,8 +17,9 @@ if = '''has('nvim')'''
 hook_post_source = '''
 " Use smartcase.
 call deoplete#custom#option('smart_case', v:true)
+echom "deoplete loaded"
 '''
-on_i = 1
+on_event = ['FocusLost', 'CursorHold', 'CursorHoldI', 'InsertLeave']
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 if = '''!has('nvim') && has('lua')'''
