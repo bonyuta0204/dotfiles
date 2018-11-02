@@ -341,6 +341,14 @@ nnoremap <Leader>ef :<C-u>Files<CR>
 nnoremap <Leader>em :<C-u>Maps<CR>
 nnoremap <Leader>eb :<C-u>Buffers<CR>
 nnoremap <Leader>ag :<C-u>Ag<CR>
+
+command! Fmru FZFMru
+command! FZFMru call fzf#run({
+            \  'source':  v:oldfiles,
+            \  'sink':    'tabe',
+            \  'options': '-m -x +s',
+            \  'down':    '40%'})
+nnoremap <Leader>eh :<C-u>Fmru<CR>
 "}}}
 
 
