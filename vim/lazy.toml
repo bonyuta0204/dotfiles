@@ -51,9 +51,15 @@ on_ft = ['python']
 repo = 'othree/yajs.vim' #hight for ES6 Syntax
 on_ft = ['javascript']
 [[plugins]]
+repo = 'carlitux/deoplete-ternjs'
+on_ft = ['javascript']
+build = 'npm install'
+if = '''has('nvim') && has('python3')'''
+[[plugins]]
 repo = 'ternjs/tern_for_vim'
 on_ft = ['javascript']
 build = 'npm install'
+if = '''!has('nvim') || !has('python3')'''
 
 # Ruby, Ruby on Rails
 [[plugins]]
