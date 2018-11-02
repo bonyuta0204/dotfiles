@@ -266,6 +266,10 @@ nnoremap <Leader>sni :<C-u>NeoSnippetEdit -runtime<CR>
 nnoremap <Leader>es :<C-u>NeoSnippetEdit<CR>
 nnoremap <C-n> :<C-u>NERDTreeToggle<CR>
 nnoremap <C-e> :<C-u>Explore<CR>
+
+" Terminal Mode Mapping
+tnoremap jk <C-\><C-n>
+
 "}}}
 
 
