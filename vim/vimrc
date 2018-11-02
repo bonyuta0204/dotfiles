@@ -91,6 +91,16 @@ source $VIMRUNTIME/macros/matchit.vim
 "{{{
 let g:python3_host_skip_check=1
 let g:python_host_skip_check = 1
+let g:loaded_python_provider = 1
+
+if !empty(glob("~/.conda/envs/video/bin"))
+let g:python3_host_prog = expand("$HOME/.conda/envs/video/bin/python3")
+endif 
+
+if !empty(glob("/home/python/2.7/bin"))
+let g:python_host_prog = expand("/home/python/2.7/bin/python2")
+endif 
+
 "}}}
 "
 
