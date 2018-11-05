@@ -93,8 +93,8 @@ let g:python3_host_skip_check=1
 let g:python_host_skip_check = 1
 let g:loaded_python_provider = 1
 
-if !empty(glob("~/.conda/envs/video/bin"))
-let g:python3_host_prog = expand("$HOME/.conda/envs/video/bin/python3")
+if !empty(glob("/home/python/3.5/bin"))
+let g:python3_host_prog = expand("/home/python/3.5/bin/python")
 endif 
 
 if !empty(glob("/home/python/2.7/bin"))
@@ -396,10 +396,18 @@ function! s:check_back_space() abort "{{{
 endfunction "}}}
 
 endif
-
-
 "}}}
 
+""""""""""""""""""""""""""""""
+" deoplete python の設定
+""""""""""""""""""""""""""""""
+"{{{
+
+if !empty(glob("~/.conda/envs/video/bin"))
+let g:deoplete#sources#jedi#python_path = expand("$HOME/.conda/envs/video/bin/python3")
+endif 
+
+"}}}
 
 """"""""""""""""""""""""""""""
 " NeoComplete の設定
