@@ -46,7 +46,7 @@ fish_symlink(){
   fishroot="$HOME/.config"
   ln -sfi "$dotroot/fish/config.fish" "$fishroot/fish/config.fish"
   ln -sfi "$dotroot/fish/fishfile" "$fishroot/fish/fishfile"
-  ln -sdfi "$dotroot/fish/functions" "$fishroot/fish"
+  ln -sfi --target-directory="$HOME/.config/fish/functions" $HOME/dotfiles/config/fish/functions/*
 }
 
 
