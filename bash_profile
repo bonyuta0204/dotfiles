@@ -34,6 +34,10 @@ if [ -d /home/python/3.5/bin ]; then
   export PATH="$PATH:/home/python/3.5/bin"
 fi
 
+if [ -d $HOME/racket/bin ]; then
+  export PATH="$PATH:$HOME/racket/bin"
+fi
+
 
 # use fish when available
 if command -v fish &> /dev/null; then
