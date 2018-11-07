@@ -1,8 +1,5 @@
 #General Use
 [[plugins]]
-repo = 'junegunn/fzf.vim' #fuzzy search
-on_i = 1
-[[plugins]]
 repo = 'tpope/vim-surround'
 on_i = 1
 [[plugins]]
@@ -78,3 +75,8 @@ on_ft = ['fish']
 # VimScript
 [[plugins]]
 repo = 'Shougo/neco-vim'
+
+# Scheme
+[[plugins]]
+repo = 'aharisu/vim_goshrepl'
+on_ft = ['sheme']

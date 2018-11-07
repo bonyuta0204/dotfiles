@@ -19,6 +19,8 @@ repo = 'tpope/vim-fugitive' #git client
 repo = 'mileszs/ack.vim'
 [[plugins]]
 repo = 'rhysd/accelerated-jk'
+[[plugins]]
+repo = 'junegunn/fzf.vim' #fuzzy search
 
 
 # Editor UI
