@@ -1,42 +1,28 @@
-
 """"""""""""""""""""""""""""""
 " Basic Configuration
 """"""""""""""""""""""""""""""
-" {{{
-
-""""""""""""""""""""""""""""""
-" Esesntial Settings 
-""""""""""""""""""""""""""""""
+" Esesntial Settings  {{{
 set nocompatible
 filetype indent plugin on
 syntax on
 set showcmd
 set hidden "keep buffers background
 set confirm "confirm to save files
-
-
-""""""""""""""""""""""""""""""
-" Indent and tab
-""""""""""""""""""""""""""""""
+"}}}
+" Indent and tab {{{
 set ruler
 set autoindent
 set shiftwidth=2
 set tabstop=2
 set expandtab
-
-
-""""""""""""""""""""""""""""""
-" backup files
-""""""""""""""""""""""""""""""
+"}}}
+" backup files {{{
 set noswapfile
 set backupdir=~/.vim/temp/
 set directory=~/.vim/temp/
 set undodir=~/.vim/temp/
-
-
-""""""""""""""""""""""""""""""
-" Character Settings
-""""""""""""""""""""""""""""""
+"}}}
+" Character Settings {{{
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
@@ -46,42 +32,29 @@ set backspace=indent,start,eol
 set t_vb=
 set formatoptions=crql
 set visualbell
-
-
-""""""""""""""""""""""""""""""
-" status line and Command line
-""""""""""""""""""""""""""""""
+"}}}
+" status line and Command line {{{
 set laststatus=2
 set noshowmode " don't show mode. instead use lightline'
 set wildmenu "command completion
 set cmdheight=2
-
-
-""""""""""""""""""""""""""""""
-" Search Settings
-""""""""""""""""""""""""""""""
+"}}}
+" Search Settings {{{
 set hlsearch
 set incsearch
-
-
-""""""""""""""""""""""""""""""
-" Editor UI
-""""""""""""""""""""""""""""""
+"}}}
+" Editor UI {{{
 set conceallevel=0
 set number
 set colorcolumn=80      "80文字目にラインを入れる
 if has('termguicolors')
   set termguicolors
 endif
-
-
-""""""""""""""""""""""""""""""
-"  Other Options
-""""""""""""""""""""""""""""""
+"}}}
+"  Other Options "{{{
 set clipboard=unnamed
 set pastetoggle=<F10>
 source $VIMRUNTIME/macros/matchit.vim
-
 " }}}
 
 
@@ -92,46 +65,12 @@ source $VIMRUNTIME/macros/matchit.vim
 let g:python3_host_skip_check=1
 let g:python_host_skip_check = 1
 let g:loaded_python_provider = 1
-
 if !empty(glob("/home/python/3.5/bin"))
 let g:python3_host_prog = expand("/home/python/3.5/bin/python")
-endif 
-
+endif
 if !empty(glob("/home/python/2.7/bin"))
 let g:python_host_prog = expand("/home/python/2.7/bin/python2")
-endif 
-
-"}}}
-"
-
-""""""""""""""""""""""""""""""
-" ALE configureation
-""""""""""""""""""""""""""""""
-"{{{
-
-let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_text_changed = 0
-let g:ale_fixers = {
-\ 'python': [
-\ 'autopep8',
-\ 'yapf',
-\ 'isort'],
-\ 'javascript': [
-\ 'prettier',
-\ 'eslint'],
-\ 'css': [
-\ 'prettier'],
-\ 'html': [
-\ 'remove_trailing_lines', 'trim_whitespace']
-\ }
-let g:ale_fix_on_save = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_virtualenv_dir_names = []
-
-
-
-
+endif
 "}}}
 
 
@@ -154,117 +93,44 @@ endif
 
 "extra runtimepath
 set runtimepath+=~/.fzf "fuzzy search
-
-"}}}
-
-
-""""""""""""""""""""""""""""""
-" light line config
-""""""""""""""""""""""""""""""
-"{{{
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left':[['mode', 'paste'],
-      \          ['readonly', 'relativepath', 'modified']]
-      \  },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \}
-
-"}}}
-
-
-""""""""""""""""""""""""""""""
-" QuickRun config
-""""""""""""""""""""""""""""""
-"{{{
-
-
-"}}}
-
-
-""""""""""""""""""""""""""""""
-" setting for neosnippet
-""""""""""""""""""""""""""""""
-"{{{
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
-"}}}
-
-
-""""""""""""""""""""""""""""""
-" Emmet Settings
-""""""""""""""""""""""""""""""
-"{{{
-let g:user_emmet_leader_key='<c-t>'
 "}}}
 
 
 """"""""""""""""""""""""""""""
 "キーマッピングの設定
 """"""""""""""""""""""""""""""
-"{{{
-"<Leader>を<Space>に設定
-let mapleader = " "
+" デフォルト書き換え系 {{{
+let mapleader = " " "<Leader>を<Space>に設定
 noremap! jk <Esc>
-
-" 論理行ではなくて表示行で移動する
 nnoremap j gj
 nnoremap k gk
-
-""""""""""""""""""""""""""""""
-" Opening files
-""""""""""""""""""""""""""""""
+inoremap jj <RIGHT>
+nnoremap <C-]> g<C-]>
+tnoremap jk <C-\><C-n>
+"}}}
+" ファイル開く系ショートカット"{{{
 nnoremap <Leader>rc :<C-u>edit ~/.vimrc<CR>
 nnoremap <Leader>ft :<C-u>execute 'edit' . fnameescape("~/.vim/after/ftplugin/" . &filetype . '.vim')<CR>
 nnoremap <F5> :<C-u>source<Space>$MYVIMRC<CR>
 nnoremap cmd :<C-u>VimShell<CR>
-
-
-
-""""""""""""""""""""""""""""""
-" 自動的に閉じ括弧を入力
-""""""""""""""""""""""""""""""
+nnoremap <Leader>sni :<C-u>NeoSnippetEdit -runtime<CR>
+nnoremap <Leader>es :<C-u>NeoSnippetEdit<CR>
+nnoremap <C-n> :<C-u>NERDTreeToggle<CR>
+nnoremap <C-e> :<C-u>Explore<CR>
+"}}}
+" 括弧補完 {{{
 inoremap { {}<LEFT>
 inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
-
-
-""""""""""""""""""""""""""""""
-" <Leader>hjkl でWindowの移動
-""""""""""""""""""""""""""""""
+"}}}
+" Window関連 {{{
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
 
-
-""""""""""""""""""""""""""""""
-" <Leader>HJKL でWindowを移動
-""""""""""""""""""""""""""""""
 nnoremap<Leader>H <C-w>H
 nnoremap<Leader>J <C-w>J
 nnoremap<Leader>K <C-w>K
@@ -273,188 +139,129 @@ nnoremap<Leader>L <C-w>L
 "split of window
 nnoremap <Leader>s :<C-u>split<CR><C-w>j
 nnoremap <Leader>v :<C-u>vsplit<CR><C-w>l
-" create new line at the bottom of the file and go into insert line
-nnoremap <Leader>o Go
-
-
-" jjで１マス先から入力開始
-inoremap jj <RIGHT>
-"
-" for accelerated-jk
+"}}}
+" for accelerated-jk "{{{
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
-"
-" key mapping for programming
+"}}}
+" オペレーター前後のスペース補完 {{{
 inoremap += <space>+=<space>
 inoremap -= <space>-=<space>
 inoremap *= <space>*=<space>
-
-" key map for tag jump
-nnoremap <C-]> g<C-]>
-
-nnoremap <Leader>sni :<C-u>NeoSnippetEdit -runtime<CR>
-nnoremap <Leader>es :<C-u>NeoSnippetEdit<CR>
-nnoremap <C-n> :<C-u>NERDTreeToggle<CR>
-nnoremap <C-e> :<C-u>Explore<CR>
-
-" Terminal Mode Mapping
-tnoremap jk <C-\><C-n>
-
 "}}}
 
 
 """"""""""""""""""""""""""""""
-" colorscheme
+" ColorScheme
 """"""""""""""""""""""""""""""
-"{{{
-
+colorscheme molokai "{{{
 let g:rehash256 = 1
-colorscheme molokai
 highlight MatchParen guibg=#3D3469 guifg=NONE
-
 "}}}
 
 
-"------------------------------------
-" fzf.vim
-"------------------------------------
-"{{{
+""""""""""""""""""""""""""""""
+" プラグインの設定
+""""""""""""""""""""""""""""""
+" fzf.vim {{{
 nnoremap <Leader>ef :<C-u>Files<CR>
 nnoremap <Leader>em :<C-u>Maps<CR>
 nnoremap <Leader>eb :<C-u>Buffers<CR>
 nnoremap <Leader>ag :<C-u>Ag<CR>
-
-command! Fmru FZFMru
-command! FZFMru call fzf#run({
-            \  'source':  v:oldfiles,
-            \  'sink':    'tabe',
-            \  'options': '-m -x +s',
-            \  'down':    '40%'})
-nnoremap <Leader>eh :<C-u>Fmru<CR>
+nnoremap <Leader>eh :<C-u>History<CR>
 "}}}
-
-
-"------------------------------------
-" ack.vim
-"------------------------------------
-"{{{
+" ack.vim {{{
 let g:ackprg = "ag --vimgrep"
-
 "}}}
-
-
-""""""""""""""""""""""""""""""
-" deoplete の設定
-""""""""""""""""""""""""""""""
-"{{{
+" deoplete の設定 {{{
 if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ deoplete#mappings#manual_complete()
 
-let g:deoplete#enable_at_startup = 1
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ deoplete#mappings#manual_complete()
-
-function! s:check_back_space() abort "{{{
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction "}}}
-
+  function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction "}}}
 endif
 "}}}
-
-
-""""""""""""""""""""""""""""""
-" deoplete python の設定
-""""""""""""""""""""""""""""""
-"{{{
-
+" deoplete python の設定 {{{
 if !empty(glob("~/.conda/envs/video/bin"))
 let g:deoplete#sources#jedi#python_path = expand("$HOME/.conda/envs/video/bin/python3")
-endif 
+endif
 
 if !empty(glob("~/miniconda3/envs/video/bin/"))
 let g:deoplete#sources#jedi#python_path = expand("$HOME/miniconda3/envs/video/bin/python")
-endif 
-
+endif
 "}}}
-
-
-""""""""""""""""""""""""""""""
-" NeoComplete の設定
-""""""""""""""""""""""""""""""
-" {{{
+" NeoComplete の設定 {{{
 if has('lua') && !has('nvim')
-"Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+  "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+  " Disable AutoComplPop.
+  let g:acp_enableAtStartup = 0
+  " Use neocomplete.
+  let g:neocomplete#enable_at_startup = 1
+  " Use smartcase.
+  let g:neocomplete#enable_smart_case = 1
+  " Set minimum syntax keyword length.
+  let g:neocomplete#sources#syntax#min_keyword_length = 3
 
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
+  " Define dictionary.
+  let g:neocomplete#sources#dictionary#dictionaries = {
+        \ 'default' : '',
+        \ 'vimshell' : $HOME.'/.vimshell_hist',
+        \ 'scheme' : $HOME.'/.gosh_completions'
         \ }
 
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
+  " Define keyword.
+  if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+  endif
+  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+  " Plugin key-mappings.
+  inoremap <expr><C-g>     neocomplete#undo_completion()
+  inoremap <expr><C-l>     neocomplete#complete_common_string()
 
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+  " Recommended key-mappings.
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? "\<C-y>" : "\<CR>"
+  endfunction
+  " <TAB>: completion.
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+  " Close popup by <Space>.
+  inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  " Enable omni completion.
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+  " Enable heavy omni completion.
+  if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+  endif
+  let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+  let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-" javascript補完
-let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\|[^. \t]\.\w*\|\$\w*'
+  " For perlomni.vim setting.
+  " https://github.com/c9s/perlomni.vim
+  let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+  " javascript補完
+  let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\|[^. \t]\.\w*\|\$\w*'
 
 endif
 " }}}
-
-
-""""""""""""""""""""""""""""""
-" NeoComplCache の設定
-""""""""""""""""""""""""""""""
-" {{{
+" NeoComplCache の設定 {{{
 if !has('lua') && !has('nvim')
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -490,6 +297,65 @@ inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 endif
 " }}}
+" ALE configureation {{{
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_fixers = {
+\ 'python': [
+\ 'autopep8',
+\ 'yapf',
+\ 'isort'],
+\ 'javascript': [
+\ 'prettier',
+\ 'eslint'],
+\ 'css': [
+\ 'prettier'],
+\ 'html': [
+\ 'remove_trailing_lines', 'trim_whitespace']
+\ }
+let g:ale_fix_on_save = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_virtualenv_dir_names = []
+"}}}
+" light line config "{{{
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left':[['mode', 'paste'],
+      \          ['readonly', 'relativepath', 'modified']]
+      \  },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \}
+"}}}
+" setting for neosnippet {{{
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
+"}}}
+" Emmet Settings "{{{
+let g:user_emmet_leader_key='<c-t>'
+"}}}
 
 
 """"""""""""""""""""""""""""""
@@ -543,7 +409,6 @@ augroup racket
   autocmd Syntax racket,scheme,lisp call rainbow_parentheses#load(0)
   autocmd Syntax racket,scheme,lisp call rainbow_parentheses#load(1)
 augroup END
-
 "}}}
 " Vue.js settings "{{{
 autocmd FileType vue syntax sync fromstart
@@ -552,5 +417,16 @@ autocmd FileType vue syntax sync fromstart
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
 "}}}
 " Help settings {{{
-autocmd FileType help wincmd H
+augroup Help
+  autocmd!
+  autocmd FileType help call InitHelp()
+augroup End
+
+function! InitHelp ()
+  wincmd H
+  vertical resize 80
+endfunction
 " }}}
+
+
+filetype indent plugin on
