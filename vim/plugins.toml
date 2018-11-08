@@ -21,6 +21,8 @@ repo = 'mileszs/ack.vim'
 repo = 'rhysd/accelerated-jk'
 [[plugins]]
 repo = 'junegunn/fzf.vim' #fuzzy search
+[[plugins]]
+repo = 'Shougo/neco-syntax'
 
 
 # Editor UI
@@ -37,6 +39,13 @@ repo = 'bronson/vim-trailing-whitespace'
 repo = "KeitaNakamura/neodark.vim"
 [[plugins]]
 repo = "tomasr/molokai"
+[[plugins]]
+repo = "chriskempson/base16-vim"
+
+
+# rainbow parentheses
+[[plugins]]
+repo = "kien/rainbow_parentheses.vim"
 
 
 # static analysis
@@ -63,6 +72,11 @@ repo = 'othree/csscomplete.vim'
 # javascript
 [[plugins]]
 repo = 'posva/vim-vue'
+
+
+# Racket
+[[plugins]]
+repo = 'wlangstroth/vim-racket'
 
 
 # toml

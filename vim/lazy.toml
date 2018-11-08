@@ -75,6 +75,7 @@ on_ft = ['fish']
 # VimScript
 [[plugins]]
 repo = 'Shougo/neco-vim'
+on_ft = ['vim']
 
 # Scheme
 [[plugins]]
