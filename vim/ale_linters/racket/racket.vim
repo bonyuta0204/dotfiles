@@ -34,14 +34,12 @@ function! ale_linters#racket#racket#Handle(buffer, lines) abort
     if !empty(l:match)
       let l:text = l:match[0]
       call add(l:output, {
-            \  'col': str2nr(l:match[2]),
+            \  'col': str2nr(l:match[2]) + 1,
             \  'lnum': str2nr(l:match[1]),
             \  'text': l:text,
             \})
     endif
   endfor
-
-  echo l:output
   return l:output
 endfunction
 
@@ -49,6 +47,6 @@ call ale#linter#Define('racket', {
       \   'name': 'racket',
       \   'output_stream': 'stderr',
       \   'executable': 'racket',
-      \   'command': 'racket %s',
+      \   'command': 'racket %t',
       \   'callback': 'ale_linters#racket#racket#Handle',
       \})

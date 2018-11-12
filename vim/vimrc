@@ -3,8 +3,8 @@
 """"""""""""""""""""""""""""""
 " Esesntial Settings  {{{
 set nocompatible
-filetype indent plugin on
-syntax on
+syntax enable
+
 set showcmd
 set hidden "keep buffers background
 set confirm "confirm to save files
@@ -66,10 +66,13 @@ let g:python3_host_skip_check=1
 let g:python_host_skip_check = 1
 let g:loaded_python_provider = 1
 if !empty(glob("/home/python/3.5/bin"))
-let g:python3_host_prog = expand("/home/python/3.5/bin/python")
+  let g:python3_host_prog = expand("/home/python/3.5/bin/python")
 endif
 if !empty(glob("/home/python/2.7/bin"))
-let g:python_host_prog = expand("/home/python/2.7/bin/python2")
+  let g:python_host_prog = expand("/home/python/2.7/bin/python2")
+endif
+if !empty(glob("/usr/bin/python3"))
+  let g:python3_host_prog = expand("/usr/bin/python3")
 endif
 "}}}
 
@@ -93,6 +96,7 @@ endif
 
 "extra runtimepath
 set runtimepath+=~/.fzf "fuzzy search
+set path+=~/.vim/dein/repos/github.com
 "}}}
 
 
@@ -151,14 +155,6 @@ inoremap *= <space>*=<space>
 "}}}
 
 
-""""""""""""""""""""""""""""""
-" ColorScheme
-""""""""""""""""""""""""""""""
-colorscheme molokai "{{{
-let g:rehash256 = 1
-highlight MatchParen guibg=#3D3469 guifg=NONE
-"}}}
-
 
 """"""""""""""""""""""""""""""
 " プラグインの設定
@@ -172,6 +168,10 @@ nnoremap <Leader>eh :<C-u>History<CR>
 "}}}
 " ack.vim {{{
 let g:ackprg = "ag --vimgrep"
+"}}}
+" quickrun {{{
+let g:quickrun_no_default_key_mappings = 1
+nnoremap <Leader>r :<C-u>QuickRun -runner terminal -runner/terminal/opener "vert new"<CR>
 "}}}
 " deoplete の設定 {{{
 if has('nvim')
@@ -195,6 +195,9 @@ endif
 if !empty(glob("~/miniconda3/envs/video/bin/"))
 let g:deoplete#sources#jedi#python_path = expand("$HOME/miniconda3/envs/video/bin/python")
 endif
+"}}}
+" neco-syntax の設定 {{{
+let g:necosyntax#min_keyword_length = 2
 "}}}
 " NeoComplete の設定 {{{
 if has('lua') && !has('nvim')
@@ -402,12 +405,13 @@ if executable("racket")
 endif
 
 
-augroup racket
+augroup SchemeCmd
   autocmd!
+  autocmd ColorScheme * call rainbow_parentheses#activate()
+  autocmd FileType racket,scheme inoremap <buffer> ' '
+  autocmd FileType racket,scheme call rainbow_parentheses#load(0)
+  autocmd BufWritePost,FileWritePost * if &filetype ==# 'racket' | Racket
   autocmd BufWinEnter *.rkt Racket
-  autocmd Syntax racket,scheme,lisp call rainbow_parentheses#activate()
-  autocmd Syntax racket,scheme,lisp call rainbow_parentheses#load(0)
-  autocmd Syntax racket,scheme,lisp call rainbow_parentheses#load(1)
 augroup END
 "}}}
 " Vue.js settings "{{{
@@ -420,6 +424,7 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
 augroup Help
   autocmd!
   autocmd FileType help call InitHelp()
+  autocmd BufEnter,WinEnter * if &filetype ==# 'help'| call InitHelp()
 augroup End
 
 function! InitHelp ()
@@ -428,5 +433,26 @@ function! InitHelp ()
 endfunction
 " }}}
 
+"Run CPP file in terminal{{{
+function! RunCpp()
+  let s:tempfile = tempname() . ".cpp"
+  let s:tempexe = tempname()
+  execute "write " . s:tempfile
+  let s:command = printf("g++ %s -o %s && %s", s:tempfile, s:tempexe, s:tempexe)
+  vertical new
+  let s:_bufnr = termopen(s:command)
+endfunction
 
+"}}}
+
+""""""""""""""""""""""""""""""
+" ColorScheme
+""""""""""""""""""""""""""""""
+"{{{
+let g:rehash256 = 1
+colorscheme molokai
+highlight MatchParen gui=bold,underline guibg=#3D3469 guifg=NONE
+"}}}
+
+" This must be written at the bottom of .vimrc
 filetype indent plugin on

@@ -80,4 +80,4 @@ on_ft = ['vim']
 # Scheme
 [[plugins]]
 repo = 'aharisu/vim_goshrepl'
-on_ft = ['sheme']
+on_ft = ['scheme']
