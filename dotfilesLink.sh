@@ -3,6 +3,7 @@ ln -si ~/dotfiles/vim/vimrc ~/.vimrc
 ln -si ~/dotfiles/vim/gvimrc ~/.gvimrc
 ln -si ~/dotfiles/bashrc ~/.bashrc
 ln -si ~/dotfiles/bash_profile ~/.bash_profile
+ln -si ~/dotfiles/tmux.conf ~/.tmux.conf
 
 
 SNIPPET_DIR=~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets

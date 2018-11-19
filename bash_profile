@@ -3,6 +3,7 @@
 # User specific environment and startup programs
 export PATH="$HOME/local/bin:$HOME/.local/bin:$PATH"
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
+export MANPAGER='nvim +Man!'
 
 TERM=xterm-256color
 

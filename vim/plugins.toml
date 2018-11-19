@@ -23,6 +23,8 @@ repo = 'rhysd/accelerated-jk'
 repo = 'junegunn/fzf.vim' #fuzzy search
 [[plugins]]
 repo = 'Shougo/neco-syntax'
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
 
 
 # Editor UI

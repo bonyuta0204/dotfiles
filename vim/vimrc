@@ -55,6 +55,7 @@ endif
 set clipboard=unnamed
 set pastetoggle=<F10>
 source $VIMRUNTIME/macros/matchit.vim
+runtime! ftplugin/man.vim
 " }}}
 
 
@@ -148,12 +149,6 @@ nnoremap <Leader>v :<C-u>vsplit<CR><C-w>l
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 "}}}
-" オペレーター前後のスペース補完 {{{
-inoremap += <space>+=<space>
-inoremap -= <space>-=<space>
-inoremap *= <space>*=<space>
-"}}}
-
 
 
 """"""""""""""""""""""""""""""
@@ -320,6 +315,7 @@ let g:ale_fix_on_save = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_virtualenv_dir_names = []
+nmap <F8> <Plug>(ale_fix)
 "}}}
 " light line config "{{{
 let g:lightline = {
@@ -359,11 +355,20 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/
 " Emmet Settings "{{{
 let g:user_emmet_leader_key='<c-t>'
 "}}}
+" IndentLine Settings"{{{
+let g:indentLine_bufTypeExclude = ['help','terminal']
+let g:indentLine_fileTypeExclude = ['help','man']
+"}}}
 
 
 """"""""""""""""""""""""""""""
 " Language Specific Configuration
 """"""""""""""""""""""""""""""
+" Terminal Mode Settings{{{
+  augroup MyTerminal
+    autocmd BufEnter,BufWinEnter * if &buftype ==# "terminal" | normal i
+  augroup END
+"}}}
 "Racket Settings "{{{
 function! OpenRacket()
   let s:current_file = @%
@@ -378,24 +383,6 @@ function! OpenRacket()
     execute "vertical belowright split #" . g:racket_buffer
   endif
   call chansend(g:racket_channel, [",enter " . s:current_file ,  ""])
-endfunction
-
-
-function! OpenRacketPreview()
-  if !exists("g:racket_loaded")
-    OpenRacket()
-  endif
-
-  let s:racket_window_id = win_findbuf(g:racket_buffer)[0]
-  call win_gotoid(s:racket_window_id)
-
-  if !exists("g:racket_preview_buffer")
-    execute "10split " . tempname()
-    let g:racket_preview_buffer = bufnr("%")
-    setlocal filetype=racket
-  elseif bufwinnr(g:racket_preview_buffer) ==# -1
-    execute "10split #" . g:racket_preview_buffer
-  endif
 endfunction
 
 
@@ -423,8 +410,9 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
 " Help settings {{{
 augroup Help
   autocmd!
-  autocmd FileType help call InitHelp()
+  autocmd FileType help,man call InitHelp()
   autocmd BufEnter,WinEnter * if &filetype ==# 'help'| call InitHelp()
+  autocmd BufEnter,WinEnter * if &filetype ==# 'man'| call InitHelp()
 augroup End
 
 function! InitHelp ()
@@ -432,7 +420,9 @@ function! InitHelp ()
   vertical resize 80
 endfunction
 " }}}
-
+"CPP header file{{{
+set path+=/usr/include/c++/5
+"}}}
 "Run CPP file in terminal{{{
 function! RunCpp()
   let s:tempfile = tempname() . ".cpp"
@@ -450,8 +440,10 @@ endfunction
 """"""""""""""""""""""""""""""
 "{{{
 let g:rehash256 = 1
-colorscheme molokai
-highlight MatchParen gui=bold,underline guibg=#3D3469 guifg=NONE
+augroup MyColorScheme
+  autocmd ColorScheme * highlight MatchParen gui=bold,underline guibg=#3D3469 guifg=NONE
+augroup END
+colorscheme base16-monokai
 "}}}
 
 " This must be written at the bottom of .vimrc
