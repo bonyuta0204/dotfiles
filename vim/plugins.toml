@@ -50,6 +50,11 @@ repo = "chriskempson/base16-vim"
 repo = "kien/rainbow_parentheses.vim"
 
 
+# gtags
+[[plugins]]
+repo = 'lighttiger2505/gtags.vim'
+
+
 # static analysis
 [[plugins]]
 repo = 'w0rp/ale'
@@ -74,6 +79,8 @@ repo = 'othree/csscomplete.vim'
 # javascript
 [[plugins]]
 repo = 'posva/vim-vue'
+[[plugins]]
+repo = 'carlitux/deoplete-ternjs' # JS completion
 
 
 # Racket
