@@ -3,7 +3,6 @@
 # User specific environment and startup programs
 export PATH="$HOME/local/script:$HOME/local/bin:$HOME/.local/bin:$PATH"
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
-export MANPAGER='nvim +Man!'
 
 TERM=xterm-256color
 
@@ -45,8 +44,13 @@ if command -v fish &> /dev/null; then
   exec fish
 fi
 
+# use nvim as man viewer when available
+if command -v nvim &> /dev/null; then
+  export MANPAGER='nvim +Man!'
+fi
 
-### LINE BELOW HERE WILL NOT BE EXCUTED
+
+### LINE BELOW HERE WILL NOT BE EXCUTED WHEN USING FISH SHELL
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then

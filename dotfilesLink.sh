@@ -13,15 +13,15 @@ VIM_DIR=~/.vim
 # vim setting
 if [ -d $HOME/.vim/dein > /dev/null ]; then
   mkdir -p $HOME/.vim/dein
-  ln -si ~/dotfiles/vim/plugins.toml ~/.vim/dein
-  ln -si ~/dotfiles/vim/lazy.toml ~/.vim/dein
+  ln -si ~/dotfiles/vim/plugins.toml ~/.vim/dein/plugins.toml
+  ln -si ~/dotfiles/vim/lazy.toml ~/.vim/dein/lazy.toml
 fi
 
 
 # vim after directory should be placed on
 # e.g. ~/dotfiles/after/ftplugin/python.vim
 if [ -d ${VIM_DIR} > /dev/null ]; then
-  ln -siT ~/dotfiles/vim/after "${VIM_DIR}/after"
+  ln -sfh ~/dotfiles/vim/after "${VIM_DIR}/after"
 fi
 
 
@@ -34,9 +34,9 @@ fi
 
 # symlink for nvim
 if command -v nvim > /dev/null ; then
-  ln -siT ~/.vim ~/.config/nvim
-  ln -siT ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
-  ln -siT ~/dotfiles/vim/ale_linters ~/.vim/ale_linters
+  ln -sifh ~/.vim ~/.config/nvim
+  ln -sifh ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
+  ln -sifh ~/dotfiles/vim/ale_linters ~/.vim/ale_linters
 fi
 
 
@@ -48,7 +48,10 @@ fish_symlink(){
   fishroot="$HOME/.config"
   ln -si "$dotroot/fish/config.fish" "$fishroot/fish/config.fish"
   ln -si "$dotroot/fish/fishfile" "$fishroot/fish/fishfile"
-  ln -si --target-directory="$HOME/.config/fish/functions" $HOME/dotfiles/config/fish/functions/*
+  if [ ! -d $HOME/.config/fish/functions > /dev/null ]; then
+    mkdir -p "$HOME/.config/fish/functions"
+  fi
+  ln -si $HOME/dotfiles/config/fish/functions/* "$HOME/.config/fish/functions"
 }
 
 

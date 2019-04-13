@@ -36,9 +36,6 @@ alias diff="diff -u"
 alias ssh="ssh -X -Y"
 alias view="vim -R"
 alias gr="grep -i -r"
-alias ls='ls -CF --color=auto'
-alias ll='ls -AlFh --show-control-chars --color=auto'
-alias la='ls -CFal --color=auto'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
