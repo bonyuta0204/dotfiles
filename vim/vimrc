@@ -159,7 +159,6 @@ nnoremap <Leader>ef :<C-u>Files<CR>
 nnoremap <Leader>em :<C-u>Maps<CR>
 nnoremap <Leader>eb :<C-u>Buffers<CR>
 nnoremap <Leader>ag :<C-u>Ag<CR>
-nnoremap <Leader>eh :<C-u>History<CR>
 "}}}
 " ack.vim {{{
 let g:ackprg = "ag --vimgrep"
@@ -311,9 +310,7 @@ let g:ale_fixers = {
 \ 'html': [
 \ 'remove_trailing_lines', 'trim_whitespace']
 \ }
-let g:ale_fix_on_save = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
+"let g:ale_fix_on_save = 1
 let g:ale_virtualenv_dir_names = []
 nmap <F8> <Plug>(ale_fix)
 "}}}
@@ -359,6 +356,14 @@ let g:user_emmet_leader_key='<c-t>'
 let g:indentLine_bufTypeExclude = ['help','terminal']
 let g:indentLine_fileTypeExclude = ['help','man']
 "}}}
+" deoplete-ternjs setting{{{
+let g:tern#filetypes = [
+            \ 'jsx',
+            \ 'javascript.jsx',
+            \ 'vue',
+            \ 'slim'
+            \ ]
+"}}}
 
 
 """"""""""""""""""""""""""""""
@@ -397,7 +402,9 @@ augroup SchemeCmd
   autocmd ColorScheme * call rainbow_parentheses#activate()
   autocmd FileType racket,scheme inoremap <buffer> ' '
   autocmd FileType racket,scheme call rainbow_parentheses#load(0)
-  autocmd BufWritePost,FileWritePost * if &filetype ==# 'racket' | Racket
+  "autocmd BufWritePost,FileWritePost * if &filetype ==# 'racket' | Racket
+  autocmd FileType racket nnoremap <buffer> <F11> :<C-u>Racket<CR>
+  autocmd FileType racket setlocal foldmethod=indent
   autocmd BufWinEnter *.rkt Racket
 augroup END
 "}}}
