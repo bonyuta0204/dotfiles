@@ -34,6 +34,8 @@ repo = 'itchyny/lightline.vim' #status line
 repo = 'Yggdroot/indentLine'
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
+[[plugins]]
+repo = 'scrooloose/nerdtree'
 
 
 # ColorSchemes
@@ -81,6 +83,8 @@ repo = 'othree/csscomplete.vim'
 repo = 'posva/vim-vue'
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs' # JS completion
+#[[plugins]]
+#repo = 'digitaltoad/vim-pug' # JS completion
 
 
 # Racket
