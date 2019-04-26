@@ -1,4 +1,5 @@
 .vim/bundle
+bashrc.d/bash_local
 config/fish/conf.d/z.fish
 config/fish/functions/fzf_key_bindings.fish
 config/fish/functions/__fzf_cd.fish

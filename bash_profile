@@ -1,10 +1,31 @@
 #!/bin/bash
 # .bash_profile
+
+# Get aliases and functions
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
+
+DOTFILES="$HOME/dotfiles"
+
+
+# Read local settings
+if [ -f $DOTFILES/bashrc.d/bash_local ]; then
+  . $DOTFILES/bashrc.d/bash_local
+fi
+
+
 # User specific environment and startup programs
 export PATH="$HOME/local/script:$HOME/local/bin:$HOME/.local/bin:$PATH"
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 
 TERM=xterm-256color
+
+# use nvim as man viewer when available
+if command -v nvim &> /dev/null; then
+  export MANPAGER='nvim +Man!'
+fi
+
 
 if [ -d ~/.node_modules_global ]; then
   export PATH="$PATH:$HOME/.node_modules_global/bin"
@@ -38,21 +59,11 @@ if [ -d $HOME/racket/bin ]; then
   export PATH="$PATH:$HOME/racket/bin"
 fi
 
+# auto start tmux
+. $DOTFILES/bashrc.d/auto_start_tmux.sh
 
 # use fish when available
 if command -v fish &> /dev/null; then
   exec fish
 fi
-
-# use nvim as man viewer when available
-if command -v nvim &> /dev/null; then
-  export MANPAGER='nvim +Man!'
-fi
-
-
-### LINE BELOW HERE WILL NOT BE EXCUTED WHEN USING FISH SHELL
-
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
-fi
+### LINE BELOW THIS LINE WILL NOT BE EXCUTED WHEN USING FISH SHELL
