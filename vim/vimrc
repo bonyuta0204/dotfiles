@@ -18,6 +18,7 @@ set expandtab
 "}}}
 " backup files {{{
 set noswapfile
+call mkdir($HOME . '/.vim/temp', "p")
 set backupdir=~/.vim/temp/
 set directory=~/.vim/temp/
 set undodir=~/.vim/temp/
