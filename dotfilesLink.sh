@@ -1,9 +1,9 @@
 #!/bin/sh
-ln -si ~/dotfiles/vim/vimrc ~/.vimrc
-ln -si ~/dotfiles/vim/gvimrc ~/.gvimrc
-ln -si ~/dotfiles/bashrc ~/.bashrc
-ln -si ~/dotfiles/bash_profile ~/.bash_profile
-ln -si ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
+ln -sf ~/dotfiles/vim/gvimrc ~/.gvimrc
+ln -sf ~/dotfiles/bashrc ~/.bashrc
+ln -sf ~/dotfiles/bash_profile ~/.bash_profile
+ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 
 
 SNIPPET_DIR=~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets
@@ -13,8 +13,8 @@ VIM_DIR=~/.vim
 # vim setting
 if [ -d $HOME/.vim/dein > /dev/null ]; then
   mkdir -p $HOME/.vim/dein
-  ln -si ~/dotfiles/vim/plugins.toml ~/.vim/dein/plugins.toml
-  ln -si ~/dotfiles/vim/lazy.toml ~/.vim/dein/lazy.toml
+  ln -sf ~/dotfiles/vim/plugins.toml ~/.vim/dein/plugins.toml
+  ln -sf ~/dotfiles/vim/lazy.toml ~/.vim/dein/lazy.toml
 fi
 
 
@@ -34,9 +34,12 @@ fi
 
 # symlink for nvim
 if command -v nvim > /dev/null ; then
-  ln -sifh ~/.vim ~/.config/nvim
-  ln -sifh ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
-  ln -sifh ~/dotfiles/vim/ale_linters ~/.vim/ale_linters
+  if [ ! -d $HOME/.config/nvim ]; then
+    mkdir -p $HOME/.config/nvim
+  fi
+  ln -sfh ~/.vim ~/.config/nvim
+  ln -sfh ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
+  ln -sfh ~/dotfiles/vim/ale_linters ~/.vim/ale_linters
 fi
 
 
