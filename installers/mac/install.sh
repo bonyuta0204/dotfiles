@@ -4,7 +4,10 @@ if ! command -v brew > /dev/null;then
 fi
 # install latest VIM
 brew install vim
+# install neovim
+brew install python3
 brew install neovim
+pip3 install neovim
 
 # install tmux
 brew install tmux
@@ -12,9 +15,5 @@ brew install tmux
 # install tig
 brew install tig
 
-# set symlink
-source dotfilesLink.sh
-
-# install dein.vim
-source installers/install_dein.sh
-
+# install fish
+brew install fish

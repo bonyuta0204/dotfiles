@@ -6,7 +6,7 @@ ln -sf ~/dotfiles/bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 
 
-SNIPPET_DIR=~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets
+SNIPPET_DIR=~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets/snippets
 VIM_DIR=~/.vim
 
 
@@ -28,7 +28,7 @@ fi
 # snippets files should place on
 # e.g. ~/dotfiles/snippets/ruby.snip
 if [ -d ${SNIPPET_DIR} > /dev/null ]; then
-  ln -si ~/dotfiles/vim/snippets ${SNIPPET_DIR}
+  ln -sfh ~/dotfiles/vim/snippets ${SNIPPET_DIR}
 fi
 
 
@@ -49,12 +49,12 @@ fish_symlink(){
   local fishroot
   dotroot="$HOME/dotfiles/config"
   fishroot="$HOME/.config"
-  ln -si "$dotroot/fish/config.fish" "$fishroot/fish/config.fish"
-  ln -si "$dotroot/fish/fishfile" "$fishroot/fish/fishfile"
+  ln -sf "$dotroot/fish/config.fish" "$fishroot/fish/config.fish"
+  ln -sf "$dotroot/fish/fishfile" "$fishroot/fish/fishfile"
   if [ ! -d $HOME/.config/fish/functions > /dev/null ]; then
     mkdir -p "$HOME/.config/fish/functions"
   fi
-  ln -si $HOME/dotfiles/config/fish/functions/* "$HOME/.config/fish/functions"
+  ln -sf $HOME/dotfiles/config/fish/functions/* "$HOME/.config/fish/functions"
 }
 
 

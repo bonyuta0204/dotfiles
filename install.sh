@@ -14,3 +14,13 @@ if [[ $MACHINE == "Mac" ]]; then
  echo 'mac'
  source installers/mac/install.sh
 fi
+
+# set symlink
+source dotfilesLink.sh
+
+# install dein.vim
+source installers/install_dein.sh
+
+# install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+$HOME/.fzf/install
