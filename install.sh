@@ -11,7 +11,6 @@ case "${unameOut}" in
 esac
 
 if [[ $MACHINE == "Mac" ]]; then
- echo 'mac'
  source installers/mac/install.sh
 fi
 
@@ -23,4 +22,4 @@ source installers/install_dein.sh
 
 # install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-$HOME/.fzf/install
+yes | $HOME/.fzf/install

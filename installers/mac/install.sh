@@ -17,3 +17,4 @@ brew install tig
 
 # install fish
 brew install fish
+fish -c 'fisher'
