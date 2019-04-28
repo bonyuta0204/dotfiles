@@ -15,5 +15,9 @@ brew install tmux
 # install tig
 brew install tig
 
+# install ag
+brew install ag
+
 # install fish
 brew install fish
+fish -c 'fisher'
