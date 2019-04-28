@@ -45,6 +45,14 @@ if [ -d ~/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
+if [ -d ~/.ndenv ]; then
+  export PATH="$HOME/.ndenv/bin:$PATH"
+  eval "$(ndenv init -)"
+fi
+
+if [ -d ~/.yarn ]; then
+  export PATH="$HOME/.yarn/bin:$PATH"
+fi
 
 if [ -d /home/python/2.7/bin ]; then
   export PATH="$PATH:/home/python/2.7/bin"
