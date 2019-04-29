@@ -40,6 +40,8 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 
+export EDITOR='vim'
+
 # functions for alias
 if command -v bundle &> /dev/null; then
   rl() {
