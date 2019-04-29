@@ -308,6 +308,8 @@ let g:ale_fixers = {
 \ 'autopep8',
 \ 'yapf',
 \ 'isort'],
+\ 'ruby': [
+\ 'rubocop'],
 \ 'javascript': [
 \ 'prettier',
 \ 'eslint'],
@@ -316,7 +318,7 @@ let g:ale_fixers = {
 \ 'html': [
 \ 'remove_trailing_lines', 'trim_whitespace']
 \ }
-"let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_virtualenv_dir_names = []
 nmap <F8> <Plug>(ale_fix)
 "}}}
@@ -370,7 +372,25 @@ let g:tern#filetypes = [
             \ 'slim'
             \ ]
 "}}}
+" matchit setting{{{
+if !exists('loaded_matchit')
+  " matchitを有効化
+  runtime macros/matchit.vim
+endif
+"}}}
 
+""""""""""""""""""""""""""""""
+" Original Commans
+""""""""""""""""""""""""""""""
+"{{{
+function! RSpec()
+  let s:current_file = @%
+  vertical belowright new
+  echomsg "bundle exec rspec"  .  " " . s:current_file
+  let s:spec_channel = termopen("bundle exec rspec"  .  " " . s:current_file)
+endfunction
+
+"}}}
 
 """"""""""""""""""""""""""""""
 " Language Specific Configuration
