@@ -43,6 +43,7 @@ repo = "KeitaNakamura/neodark.vim"
 repo = "tomasr/molokai"
 [[plugins]]
 repo = "chriskempson/base16-vim"
+if = '''has('nvim')'''
 
 
 # rainbow parentheses
