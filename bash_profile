@@ -18,6 +18,7 @@ fi
 # User specific environment and startup programs
 export PATH="$HOME/local/script:$HOME/local/bin:$HOME/.local/bin:$PATH"
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 TERM=xterm-256color
 
@@ -68,7 +69,9 @@ if [ -d $HOME/racket/bin ]; then
 fi
 
 # auto start tmux
+if command -v tmux &> /dev/null; then
 . $DOTFILES/bashrc.d/auto_start_tmux.sh
+fi
 
 # use fish when available
 if command -v fish &> /dev/null; then
