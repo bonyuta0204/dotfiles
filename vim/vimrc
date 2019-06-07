@@ -19,7 +19,7 @@ set expandtab
 " backup files {{{
 set noswapfile
 
-if !empty(glob('~/.vim/temp'))
+if empty(glob('~/.vim/temp'))
   call mkdir(expand('~/.vim/temp'), "p")
 endif
 
