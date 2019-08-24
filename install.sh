@@ -11,15 +11,20 @@ case "${unameOut}" in
 esac
 
 if [[ $MACHINE == "Mac" ]]; then
- source installers/mac/install.sh
+ source installers/mac/essentials.sh
 fi
 
+if command -v apt > /dev/null ; then
+  echo "installing package using apt..."
+  source installers/apt/essentials.sh
+fi
 # set symlink
 source dotfilesLink.sh
 
 # install dein.vim
 source installers/install_dein.sh
+source dotfilesLink.sh
+vim -cx "call dein#install()"
 
 # install fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-yes | $HOME/.fzf/install
+source installers/install_fzf.sh
