@@ -9,8 +9,13 @@
 
 # Options are different between linux and BSD(mac)
 
-LN_OPTS="-sfT"
+LN_OPTS=""
 
+case "$(uname -s)" in
+  Linux*) LN_OPTS="-sfT";;
+  Darwin*) LN_OPTS="-sfh";;
+  *) echo "Unknown OS type"; exit 1;;
+esac
 
 ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 ln $LN_OPTS ~/dotfiles/vim/gvimrc ~/.gvimrc
