@@ -22,9 +22,9 @@ fi
 source dotfilesLink.sh
 
 # install dein.vim
-source installers/install_dein.sh
+source installers/dein.sh
 source dotfilesLink.sh
 vim -cx "call dein#install()"
 
 # install fzf
-source installers/install_fzf.sh
+source installers/fzf.sh

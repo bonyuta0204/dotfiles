@@ -75,7 +75,6 @@ fish_symlink(){
   fi
   ls $HOME/dotfiles/config/fish/functions | while read FUNC_NAME;
 do
-  echo $FUNC_NAME
   ln $LN_OPTS $HOME/dotfiles/config/fish/functions/$FUNC_NAME "$HOME/.config/fish/functions/$FUNC_NAME";
 done
 }
