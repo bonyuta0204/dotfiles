@@ -51,6 +51,11 @@ if [ -d ~/.ndenv ]; then
   eval "$(ndenv init -)"
 fi
 
+if [ -d ~/.nodenv ]; then
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  eval "$(nodenv init -)"
+fi
+
 if [ -d ~/.yarn ]; then
   export PATH="$HOME/.yarn/bin:$PATH"
 fi
@@ -66,6 +71,10 @@ fi
 
 if [ -d $HOME/racket/bin ]; then
   export PATH="$PATH:$HOME/racket/bin"
+fi
+
+if [ -d $HOME/go/bin ]; then
+  export PATH="$PATH:$HOME/go/bin"
 fi
 
 # auto start tmux
