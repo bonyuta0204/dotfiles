@@ -1,4 +1,4 @@
-
+#!/bin/bash
 printf "password: "
 read PASSWORD
 
@@ -27,3 +27,4 @@ apt-install fish
 apt-install python-neovim
 apt-install python3-neovim
 apt-install tig
+apt-install python3-pip
