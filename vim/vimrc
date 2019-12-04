@@ -15,6 +15,8 @@ set autoindent
 set shiftwidth=2
 set tabstop=2
 set expandtab
+" for windows
+set shellslash
 "}}}
 " backup files {{{
 set noswapfile
@@ -92,8 +94,7 @@ endif
 let s:dein_dir = finddir('dein.vim', '.;')
 if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
   if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
-    let s:dein_dir = expand('~/.vim/dein')
-          \. '/repos/github.com/Shougo/dein.vim'
+    let s:dein_dir = expand('~/.vim/dein/repos/github.com/Shougo/dein.vim')
     if !isdirectory(s:dein_dir)
       execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
     endif
