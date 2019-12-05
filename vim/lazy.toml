@@ -14,9 +14,24 @@ if = '''has('nvim')'''
 hook_post_source = '''
 " Use smartcase.
 call deoplete#custom#option('smart_case', v:true)
-echom "deoplete loaded"
 '''
 on_event = ['FocusLost', 'CursorHold', 'CursorHoldI', 'InsertLeave']
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev='next'
+build='bash install.sh'
+if = '''has('nvim')'''
+hook_add = '''
+set hidden
+let g:LanguageClient_autoStart = 1
+echo "LSP Client is loadded"
+let g:LanguageClient_serverCommands = {
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio']
+    \ }
+'''
+on_event = ['FocusLost', 'CursorHold', 'CursorHoldI', 'InsertLeave']
+
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 if = '''!has('nvim') && has('lua')'''
@@ -55,6 +70,11 @@ repo = 'ternjs/tern_for_vim'
 on_ft = ['javascript']
 build = 'npm install'
 if = '''!has('nvim') || !has('python3')'''
+
+# Vue.js
+[[plugins]]
+repo = 'posva/vim-vue' #hight for vue.js
+on_ft = ['vue']
 
 # Ruby, Ruby on Rails
 [[plugins]]

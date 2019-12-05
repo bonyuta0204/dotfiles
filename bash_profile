@@ -40,6 +40,11 @@ if [ -d ~/.pyenv ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+if [ -d ~/go ]; then
+  echo "go installed"
+  export PATH="~/go/bin:$PATH"
+fi
+
 
 if [ -d ~/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
