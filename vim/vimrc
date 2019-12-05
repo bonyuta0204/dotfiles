@@ -500,11 +500,9 @@ let g:rehash256 = 1
 augroup MyColorScheme
   autocmd ColorScheme * highlight MatchParen gui=bold,underline guibg=#3D3469 guifg=NONE
 augroup END
-if has('nvim')
-colorscheme base16-monokai
-else
+
 colorscheme molokai
-end
+
 "}}}
 
 " This must be written at the bottom of .vimrc
