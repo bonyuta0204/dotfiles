@@ -10,7 +10,7 @@ on_i = 1
 # Completion
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-if = '''has('nvim')'''
+if = '''has('nvim') && has('python')'''
 hook_post_source = '''
 " Use smartcase.
 call deoplete#custom#option('smart_case', v:true)
@@ -25,10 +25,23 @@ if = '''has('nvim')'''
 hook_add = '''
 set hidden
 let g:LanguageClient_autoStart = 1
-echo "LSP Client is loadded"
-let g:LanguageClient_serverCommands = {
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio']
-    \ }
+
+let s:solargraph_path = exepath('solargraph')
+let s:vls_path = exepath('vls')
+let s:tls_path = exepath('typescript-language-server')
+
+let g:LanguageClient_serverCommands ={
+      \'ruby' : [s:solargraph_path, "stdio"],
+      \ 'vue' : [s:vls_path, "--stdio"],
+      \'javascript' : [s:tls_path,"--stdio"]
+      \}
+
+nnoremap <F12> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 '''
 on_event = ['FocusLost', 'CursorHold', 'CursorHoldI', 'InsertLeave']
 
