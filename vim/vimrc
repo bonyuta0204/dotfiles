@@ -501,7 +501,7 @@ augroup MyColorScheme
   autocmd ColorScheme * highlight MatchParen gui=bold,underline guibg=#3D3469 guifg=NONE
 augroup END
 
-colorscheme molokai
+colorscheme neodark
 
 "}}}
 

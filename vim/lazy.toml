@@ -10,7 +10,7 @@ on_i = 1
 # Completion
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-if = '''has('nvim') && has('python')'''
+if = '''has('nvim') && has('python3')'''
 hook_post_source = '''
 " Use smartcase.
 call deoplete#custom#option('smart_case', v:true)

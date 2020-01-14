@@ -8,6 +8,10 @@ set __fish_git_prompt_color_branch yellow
 set __fish_git_prompt_color_upstream_ahead green
 set __fish_git_prompt_color_upstream_behind red
 
+# load PATH variable set by other shell(e.g. bash)
+echo $PATH
+echo $TO_FISH_PATH
+set PATH $TO_FISH_PATH $PATH
 
 # settinf for fzf
 set  FZF_DEFAULT_OPTS '--height 40% --reverse --border'
