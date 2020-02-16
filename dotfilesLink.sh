@@ -69,6 +69,7 @@ fish_symlink(){
   local fishroot
   dotroot="$HOME/dotfiles/config"
   fishroot="$HOME/.config"
+  mkdir -p "$fishroot/fish"
   ln $LN_OPTS "$dotroot/fish/config.fish" "$fishroot/fish/config.fish"
   ln $LN_OPTS "$dotroot/fish/fishfile" "$fishroot/fish/fishfile"
   if [ ! -d $HOME/.config/fish/functions > /dev/null ]; then
