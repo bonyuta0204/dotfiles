@@ -56,7 +56,7 @@ if command -v nvim > /dev/null ; then
   if [ -d $HOME/.config/nvim ]; then
     rm -rf $HOME/.config/nvim
   fi
-  mkdir -p $HOME/.config/nvim
+  mkdir -p $HOME/.config
   ln $LN_OPTS ~/.vim ~/.config/nvim
   ln $LN_OPTS ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
   ln $LN_OPTS ~/dotfiles/vim/ale_linters ~/.vim/ale_linters
