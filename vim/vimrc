@@ -449,7 +449,7 @@ endif
 
 augroup SchemeCmd
   autocmd!
-  autocmd ColorScheme * call rainbow_parentheses#activate()
+  "autocmd ColorScheme * call rainbow_parentheses#activate()
   autocmd FileType racket,scheme inoremap <buffer> ' '
   autocmd FileType racket,scheme call rainbow_parentheses#load(0)
   "autocmd BufWritePost,FileWritePost * if &filetype ==# 'racket' | Racket
@@ -501,7 +501,7 @@ augroup MyColorScheme
   autocmd ColorScheme * highlight MatchParen gui=bold,underline guibg=#3D3469 guifg=NONE
 augroup END
 
-colorscheme neodark
+"colorscheme neodark
 
 "}}}
 

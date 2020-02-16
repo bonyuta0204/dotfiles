@@ -32,9 +32,9 @@ VIM_DIR="~/.vim"
 # vim setting
 if [ ! -d $HOME/.vim/dein > /dev/null ]; then
   mkdir -p $HOME/.vim/dein
-  ln $LN_OPTS ~/dotfiles/vim/plugins.toml ~/.vim/dein/plugins.toml
-  ln $LN_OPTS ~/dotfiles/vim/lazy.toml ~/.vim/dein/lazy.toml
 fi
+ln $LN_OPTS ~/dotfiles/vim/plugins.toml ~/.vim/dein/plugins.toml
+ln $LN_OPTS ~/dotfiles/vim/lazy.toml ~/.vim/dein/lazy.toml
 
 
 # vim after directory should be placed on
