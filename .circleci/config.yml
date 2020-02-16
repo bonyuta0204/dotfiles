@@ -5,6 +5,7 @@ jobs:
   build:
     docker:
       - image: ubuntu:latest
+    working_directory: ~/dotfiles
     steps:
       - checkout
       - run: /bin/bash install.sh
