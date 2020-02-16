@@ -16,8 +16,8 @@ jobs:
     steps:
       - checkout
       - run: 
-        command: bash install.sh
-        shell: bash.exe
+          command: bash install.sh
+          shell: bash.exe
       - run: 
-        command: bash test/main.sh
-        shell: bash.exe
+          command: bash test/main.sh
+          shell: bash.exe
