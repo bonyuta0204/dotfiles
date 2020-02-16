@@ -63,6 +63,7 @@ set clipboard=unnamed
 set pastetoggle=<F10>
 source $VIMRUNTIME/macros/matchit.vim
 runtime! ftplugin/man.vim
+
 " }}}
 
 
@@ -496,6 +497,12 @@ endfunction
 " ColorScheme
 """"""""""""""""""""""""""""""
 "{{{
+try
+  colorscheme molokai
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+endtry
+
 let g:rehash256 = 1
 augroup MyColorScheme
   autocmd ColorScheme * highlight MatchParen gui=bold,underline guibg=#3D3469 guifg=NONE
