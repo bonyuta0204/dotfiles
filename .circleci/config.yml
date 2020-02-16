@@ -20,7 +20,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: scoop install neovim
+          command: choco install -y neovim
           shell: cmd.exe
       - run: 
           command: dotfilesLink.bat 
