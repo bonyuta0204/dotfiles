@@ -12,12 +12,13 @@ apt-install(){
 apt-add-repo(){
   apt-add-repository $@
 }
-
+apt-get update
+## apt-add-repo is included in software-properties-common
+apt-install software-properties-common
 
 apt-add-repo ppa:fish-shell/release-3
 apt-add-repo ppa:neovim-ppa/stable
 
-apt-get update
 
 apt-install git
 apt-install build-essential
