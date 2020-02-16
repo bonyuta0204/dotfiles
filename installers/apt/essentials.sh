@@ -1,16 +1,15 @@
 #!/bin/bash
-
-sudo-cmd(){
-  echo $PASSWORD | sudo -S $@
-}
-
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 
+   exit 1
+fi
 
 apt-install(){
-  sudo-cmd apt-get -y install $@
+ apt-get -y install $@
 }
 
 apt-add-repo(){
-  sudo-cmd apt-add-repository $@
+  apt-add-repository $@
 }
 
 
