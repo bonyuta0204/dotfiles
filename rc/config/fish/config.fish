@@ -29,14 +29,14 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 
+function fco -d "Fuzzy-find and checkout a branch"
+  git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
+end
+
+function fpr -d "Fuzzy-find and checkout a github pull request"
+  gh pr list | fzf | read -l result; and echo "$result" | awk '{print $1}' | read -l pr_id; and gh pr checkout $pr_id
+end
+
 if test -d $HOME/.rbenv
   status --is-interactive; and source (rbenv init -|psub)
-end
-
-if test -d /home/python/2.7/etc/fish/conf.d
-  source /home/python/2.7/etc/fish/conf.d/conda.fish
-end
-
-if test -d $HOME/.conda/envs/video
-  conda activate video
 end
