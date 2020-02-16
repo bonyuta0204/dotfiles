@@ -7,4 +7,6 @@ jobs:
       - image: lambdalisue/neovim-ci:v0.4.2
     steps:
       - checkout
+      - run: ls
+      - run: pwd
       - run: ~/dotfiles/install.sh
