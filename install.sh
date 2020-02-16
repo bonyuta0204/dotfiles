@@ -27,8 +27,8 @@ else
   source dotfilesLink.sh
 fi
 
-vim -cx "call dein#install()"
-nvim -cx "call dein#install()"
+vim -c "call dein#install()" -c "quit"
+nvim -c "call dein#install()" -c "quit"
 
 
 # install fzf

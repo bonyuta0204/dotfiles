@@ -23,13 +23,10 @@ jobs:
           command: choco install -y neovim
           shell: cmd.exe
       - run: 
-          command: dotfilesLink.bat 
-          shell: cmd.exe
+          command: bash dotfilesLink.sh
+          shell: bash.exe
       - run: 
           command: bash test/main.sh
-          shell: bash.exe 
-      - run: 
-          command: bash test/vim/main.sh
           shell: bash.exe 
 workflows:
   version: 2
