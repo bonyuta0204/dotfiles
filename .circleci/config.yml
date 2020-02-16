@@ -4,9 +4,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: lambdalisue/neovim-ci:v0.4.2
+      - image: ubuntu:latest
     steps:
       - checkout
-      - run: ls
-      - run: pwd
       - run: /bin/bash install.sh
