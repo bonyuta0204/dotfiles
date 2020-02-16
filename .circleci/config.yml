@@ -16,6 +16,7 @@ jobs:
   build-windows:
     executor: 
       name: win/default # executor type
+    working_directory: ~/dotfiles
     steps:
       - checkout
       - run: 
