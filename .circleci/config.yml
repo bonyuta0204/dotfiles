@@ -19,12 +19,18 @@ jobs:
     working_directory: ~/dotfiles
     steps:
       - checkout
+      - run:
+          command: scoop install neovim
+          shell: cmd.exe
       - run: 
-          command: bash install.sh
-          shell: bash.exe
+          command: dotfilesLink.bat 
+          shell: cmd.exe
       - run: 
           command: bash test/main.sh
-          shell: bash.exe
+          shell: bash.exe 
+      - run: 
+          command: bash test/vim/main.sh
+          shell: bash.exe 
 workflows:
   version: 2
   build_and_test:
