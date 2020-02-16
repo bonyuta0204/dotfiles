@@ -25,7 +25,8 @@ repo = 'junegunn/fzf.vim' #fuzzy search
 repo = 'Shougo/neco-syntax'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
 
 # Editor UI
 [[plugins]]
