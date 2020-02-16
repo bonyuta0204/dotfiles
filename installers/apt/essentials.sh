@@ -22,6 +22,7 @@ apt-add-repo ppa:neovim-ppa/stable
 
 apt-install git
 apt-install curl
+apt-install vim
 apt-install build-essential
 apt-install neovim
 apt-install fish

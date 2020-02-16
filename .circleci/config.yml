@@ -9,3 +9,4 @@ jobs:
     steps:
       - checkout
       - run: /bin/bash install.sh
+      - run: /bin/bash test/main.sh
