@@ -1,26 +1,27 @@
 #!/bin/bash
-printf "password: "
-read PASSWORD
-
-sudo-cmd(){
-  echo $PASSWORD | sudo -S $@
-}
-
+set -ex
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 
+   exit 1
+fi
 
 apt-install(){
-  sudo-cmd apt-get -y install $@
+ apt-get -y install $@
 }
 
 apt-add-repo(){
-  sudo-cmd apt-add-repository $@
+  apt-add-repository -y $@
 }
-
+apt-get update
+## apt-add-repo is included in software-properties-common
+apt-install software-properties-common
 
 apt-add-repo ppa:fish-shell/release-3
 apt-add-repo ppa:neovim-ppa/stable
 
-sudo-cmd apt-get update
 
+apt-install git
+apt-install curl
 apt-install build-essential
 apt-install neovim
 apt-install fish

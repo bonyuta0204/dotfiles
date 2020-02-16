@@ -30,11 +30,11 @@ VIM_DIR="~/.vim"
 
 
 # vim setting
-if [ -d $HOME/.vim/dein > /dev/null ]; then
+if [ ! -d $HOME/.vim/dein > /dev/null ]; then
   mkdir -p $HOME/.vim/dein
-  ln $LN_OPTS ~/dotfiles/vim/plugins.toml ~/.vim/dein/plugins.toml
-  ln $LN_OPTS ~/dotfiles/vim/lazy.toml ~/.vim/dein/lazy.toml
 fi
+ln $LN_OPTS ~/dotfiles/vim/plugins.toml ~/.vim/dein/plugins.toml
+ln $LN_OPTS ~/dotfiles/vim/lazy.toml ~/.vim/dein/lazy.toml
 
 
 # vim after directory should be placed on
@@ -56,7 +56,7 @@ if command -v nvim > /dev/null ; then
   if [ -d $HOME/.config/nvim ]; then
     rm -rf $HOME/.config/nvim
   fi
-
+  mkdir -p $HOME/.config
   ln $LN_OPTS ~/.vim ~/.config/nvim
   ln $LN_OPTS ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
   ln $LN_OPTS ~/dotfiles/vim/ale_linters ~/.vim/ale_linters
@@ -69,6 +69,7 @@ fish_symlink(){
   local fishroot
   dotroot="$HOME/dotfiles/config"
   fishroot="$HOME/.config"
+  mkdir -p "$fishroot/fish"
   ln $LN_OPTS "$dotroot/fish/config.fish" "$fishroot/fish/config.fish"
   ln $LN_OPTS "$dotroot/fish/fishfile" "$fishroot/fish/fishfile"
   if [ ! -d $HOME/.config/fish/functions > /dev/null ]; then
