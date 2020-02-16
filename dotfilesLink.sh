@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -ex
+
 # always use `ln target link_name` format
 # for example
 # ln vimrc $HOME/.vimrc
