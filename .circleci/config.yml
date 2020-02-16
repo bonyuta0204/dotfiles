@@ -9,3 +9,4 @@ jobs:
     steps:
       - checkout
       - run: /bin/bash install.sh
+      - run: find test -name "*.sh" -exec /bin/bash {} \;
