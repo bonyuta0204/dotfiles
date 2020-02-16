@@ -10,3 +10,8 @@ jobs:
       - checkout
       - run: /bin/bash install.sh
       - run: /bin/bash test/main.sh
+  build-windows:
+    executor: win/default # executor type
+    steps:
+      - run: /bin/bash install.sh
+      - run: /bin/bash test/main.sh
