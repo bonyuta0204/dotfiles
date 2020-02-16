@@ -6,7 +6,8 @@ case "${unameOut}" in
     Linux*)     MACHINE=Linux;;
     Darwin*)    MACHINE=Mac;;
     CYGWIN*)    MACHINE=Cygwin;;
-    MINGW*)     MACHINE=MinGw;;
+    MINGW*)     MACHINE=Windows;;
+    MSYS_NT*)   MACHINE=Windows;;
     *)          MACHINE="UNKNOWN:${unameOut}"
 esac
 
@@ -18,12 +19,14 @@ if command -v apt > /dev/null ; then
   echo "installing package using apt..."
   source installers/apt/essentials.sh
 fi
-# set symlink
-source dotfilesLink.sh
 
-# install dein.vim
-source installers/dein.sh
-source dotfilesLink.sh
+if [[ $MACHINE == "Windows" ]]; then
+  ./dotfilesLink.bat
+else
+  # set symlink
+  source dotfilesLink.sh
+fi
+
 vim -cx "call dein#install()"
 nvim -cx "call dein#install()"
 
