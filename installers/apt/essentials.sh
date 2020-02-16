@@ -10,7 +10,7 @@ apt-install(){
 }
 
 apt-add-repo(){
-  apt-add-repository $@
+  apt-add-repository -y $@
 }
 apt-get update
 ## apt-add-repo is included in software-properties-common
