@@ -8,4 +8,5 @@ if [ -d ~/.vim/dein/.cache/.vimrc/.dein ];then
   echo "OK"
 else
   echo "NG"
+  exit 1
 fi
