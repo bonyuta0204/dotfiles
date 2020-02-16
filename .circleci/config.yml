@@ -21,3 +21,9 @@ jobs:
       - run: 
           command: bash test/main.sh
           shell: bash.exe
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - build-windows
