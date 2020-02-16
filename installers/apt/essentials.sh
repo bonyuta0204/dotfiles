@@ -1,6 +1,4 @@
 #!/bin/bash
-printf "password: "
-read PASSWORD
 
 sudo-cmd(){
   echo $PASSWORD | sudo -S $@
