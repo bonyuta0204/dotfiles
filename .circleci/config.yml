@@ -13,5 +13,9 @@ jobs:
   build-windows:
     executor: win/default # executor type
     steps:
-      - run: /bin/bash install.sh
-      - run: /bin/bash test/main.sh
+      - run: 
+        command: bash install.sh
+        shell: bash.exe
+      - run: 
+        command: bash test/main.sh
+        shell: bash.exe
