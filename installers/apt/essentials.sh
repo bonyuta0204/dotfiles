@@ -16,8 +16,9 @@ apt-add-repo(){
 apt-add-repo ppa:fish-shell/release-3
 apt-add-repo ppa:neovim-ppa/stable
 
-sudo-cmd apt-get update
+apt-get update
 
+apt-install git
 apt-install build-essential
 apt-install neovim
 apt-install fish
