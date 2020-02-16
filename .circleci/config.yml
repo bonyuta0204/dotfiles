@@ -9,4 +9,4 @@ jobs:
       - checkout
       - run: ls
       - run: pwd
-      - run: ~/dotfiles/install.sh
+      - run: /bin/bash install.sh
