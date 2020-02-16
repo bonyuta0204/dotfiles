@@ -25,6 +25,8 @@ source dotfilesLink.sh
 source installers/dein.sh
 source dotfilesLink.sh
 vim -cx "call dein#install()"
+nvim -cx "call dein#install()"
+
 
 # install fzf
 source installers/fzf.sh
