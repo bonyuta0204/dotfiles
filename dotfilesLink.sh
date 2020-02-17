@@ -16,6 +16,7 @@ LN_OPTS=""
 case "$(uname -s)" in
   Linux*) LN_OPTS="-sfT";;
   MINGW64_NT*) LN_OPTS="-sfT";;
+  MSYS_NT*) LN_OPTS="-sfT";;
   Darwin*) LN_OPTS="-sfh";;
   *) echo "Unknown OS type"; exit 1;;
 esac
