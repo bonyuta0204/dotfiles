@@ -84,8 +84,6 @@ repo = 'othree/csscomplete.vim'
 [[plugins]]
 repo = 'posva/vim-vue'
 [[plugins]]
-repo = 'carlitux/deoplete-ternjs' # JS completion
-[[plugins]]
 repo = 'digitaltoad/vim-pug' # JS syntax highlight
 
 
