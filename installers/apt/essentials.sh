@@ -16,17 +16,9 @@ apt-get update
 ## apt-add-repo is included in software-properties-common
 apt-install software-properties-common
 
-apt-add-repo ppa:fish-shell/release-3
-apt-add-repo ppa:neovim-ppa/stable
+apt-add-repo ppa:ansible/ansible
 
-
-apt-install git
-apt-install curl
-apt-install vim
 apt-install build-essential
-apt-install neovim
-apt-install fish
-apt-install python-neovim
-apt-install python3-neovim
-apt-install tig
-apt-install python3-pip
+apt-install ansible
+apt-install git
+
