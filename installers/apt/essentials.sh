@@ -20,4 +20,5 @@ apt-add-repo ppa:ansible/ansible
 
 apt-install build-essential
 apt-install ansible
+apt-install git
 
