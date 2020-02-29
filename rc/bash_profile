@@ -10,8 +10,8 @@ DOTFILES="$HOME/dotfiles"
 
 
 # Read local settings
-if [ -f $DOTFILES/bashrc.d/bash_local ]; then
-  . $DOTFILES/bashrc.d/bash_local
+if [ -f $DOTFILES/rc/bashrc.d/bash_local ]; then
+  . $DOTFILES/rc/bashrc.d/bash_local
 fi
 
 
@@ -84,7 +84,7 @@ fi
 
 # auto start tmux
 if command -v tmux &> /dev/null; then
-. $DOTFILES/bashrc.d/auto_start_tmux.sh
+. $DOTFILES/rc/bashrc.d/auto_start_tmux.sh
 fi
 
 # use fish when available

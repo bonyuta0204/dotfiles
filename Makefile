@@ -1,13 +1,20 @@
 DOTFILES_SRC := $(shell find rc/ -type f -print)
+RC_DIR := $(realpath rc/)
 DOTFILES := $(patsubst rc/%, ~/.%, $(DOTFILES_SRC))
+NEOVIM_RC := $(HOME)/.config/nvim/init.vim
 
 $(warning DOTFILES := $(DOTFILES))
+$(warning RC_DIR := $(RC_DIR))
 $(warning DOTFILES_SRC := $(DOTFILES_SRC))
 
-deploy: $(DOTFILES)
+deploy: link_files
 
-link_files: $(DOTFILES)
+link_files: $(DOTFILES) $(NEOVIM_RC)
 
-$(DOTFILES): $(HOME)/.%: rc/%
-	mkdir -p $(dir $@)
-	ln $@ $<
+$(DOTFILES): $(HOME)/.%: $(RC_DIR)/%
+	-mkdir -p $(dir $@)
+	-ln -sfT  $< $@
+
+$(NEOVIM_RC): $(RC_DIR)/vimrc
+	-mkdir -p $(dir $@)
+	-ln -sfT  $< $@
