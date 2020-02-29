@@ -18,12 +18,10 @@ if command -v apt > /dev/null ; then
   echo "installing package using apt..."
   source installers/apt/essentials.sh
 fi
-# set symlink
-source dotfilesLink.sh
 
-# install dein.vim
-source installers/dein.sh
-source dotfilesLink.sh
+# set symlink
+make deploy
+
 vim -c "call dein#install()" -c "quit"
 nvim -c "call dein#install()" -c "quit"
 
