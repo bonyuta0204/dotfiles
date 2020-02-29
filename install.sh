@@ -22,8 +22,8 @@ fi
 # set symlink
 make deploy
 
-vim -c "call dein#install()" -c "quit"
-nvim -c "call dein#install()" -c "quit"
+vim -u ~/.vimrc -e -s -c "call dein#install()" -c "quit"
+nvim -u ~/.config/nvim/init.vim -e -s -c "call dein#install()" -c "quit"
 
 
 # install fzf
