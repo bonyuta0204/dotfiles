@@ -3,6 +3,8 @@ RC_DIR := $(realpath rc/)
 DOTFILES := $(patsubst rc/%, ~/.%, $(DOTFILES_SRC))
 NEOVIM_RC := $(HOME)/.config/nvim/init.vim
 
+.PHONY: deploy link_files ansible
+
 $(warning DOTFILES := $(DOTFILES))
 $(warning RC_DIR := $(RC_DIR))
 $(warning DOTFILES_SRC := $(DOTFILES_SRC))
@@ -18,3 +20,6 @@ $(DOTFILES): $(HOME)/.%: $(RC_DIR)/%
 $(NEOVIM_RC): $(RC_DIR)/vimrc
 	-mkdir -p $(dir $@)
 	-ln -sfT  $< $@
+
+ansible:
+	ansible-playbook -i localhost, -c local ansible/site.yml
