@@ -5,6 +5,8 @@ jobs:
   build:
     docker:
       - image: ubuntu:latest
+    environment:
+      USER: root
     working_directory: ~/dotfiles
     steps:
       - checkout
