@@ -40,8 +40,11 @@ if [ -d ~/.pyenv ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+if [ -d /usr/local/go ]; then
+  export PATH="/usr/local/go/bin:$PATH"
+fi
+
 if [ -d ~/go ]; then
-  echo "go installed"
   export PATH="~/go/bin:$PATH"
 fi
 
@@ -76,6 +79,10 @@ fi
 
 if [ -d $HOME/racket/bin ]; then
   export PATH="$PATH:$HOME/racket/bin"
+fi
+
+if [ -d $HOME/go/bin ]; then
+  export PATH="$PATH:$HOME/go/bin"
 fi
 
 if [ -d $HOME/go/bin ]; then
