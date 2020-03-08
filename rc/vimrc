@@ -349,16 +349,16 @@ let g:ale_virtualenv_dir_names = []
 nmap <F8> <Plug>(ale_fix)
 "}}}
 " light line config "{{{
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left':[['mode', 'paste'],
-      \          ['readonly', 'relativepath', 'modified']]
-      \  },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \}
+"let g:lightline = {
+      "\ 'colorscheme': 'wombat',
+      "\ 'active': {
+      "\   'left':[['mode', 'paste'],
+      "\          ['readonly', 'relativepath', 'modified']]
+      "\  },
+      "\ 'component_function': {
+      "\   'gitbranch': 'fugitive#head'
+      "\ },
+      "\}
 "}}}
 " setting for neosnippet {{{
 " Plugin key-mappings.
@@ -403,6 +403,9 @@ if !exists('loaded_matchit')
   " matchitを有効化
   runtime macros/matchit.vim
 endif
+"}}}
+" vim-ariline settings{{{
+let g:airline_powerline_fonts = 1
 "}}}
 
 """"""""""""""""""""""""""""""
@@ -499,7 +502,8 @@ endfunction
 """"""""""""""""""""""""""""""
 "{{{
 try
-  colorscheme molokai
+  colorscheme gruvbox
+  set background=dark
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
 endtry

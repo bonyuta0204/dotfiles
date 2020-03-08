@@ -33,8 +33,12 @@ repo = 'honza/vim-snippets'
 repo = 'easymotion/vim-easymotion'
 
 # Editor UI
+#[[plugins]]
+#repo = 'itchyny/lightline.vim' #Use vim-airline instead
 [[plugins]]
-repo = 'itchyny/lightline.vim' #status line
+repo = 'vim-airline/vim-airline' #status line
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes' #status line
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 [[plugins]]
@@ -48,6 +52,8 @@ repo = 'scrooloose/nerdtree'
 repo = "KeitaNakamura/neodark.vim"
 [[plugins]]
 repo = "tomasr/molokai"
+[[plugins]]
+repo = "morhetz/gruvbox"
 # [[plugins]]
 # repo = "chriskempson/base16-vim"
 # if = '''has('nvim')'''
