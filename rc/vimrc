@@ -398,6 +398,11 @@ let g:tern#filetypes = [
             \ 'slim'
             \ ]
 "}}}
+"
+" easymotion settings{{{
+nmap s <Plug>(easymotion-s2)
+" }}}
+
 " matchit setting{{{
 if !exists('loaded_matchit')
   " matchitを有効化
