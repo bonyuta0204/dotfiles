@@ -16,6 +16,8 @@ repo = 'thinca/vim-ref'
 [[plugins]]
 repo = 'tpope/vim-fugitive' #git client
 [[plugins]]
+repo = 'tpope/vim-rhubarb' #git client
+[[plugins]]
 repo = 'mileszs/ack.vim'
 [[plugins]]
 repo = 'rhysd/accelerated-jk'
