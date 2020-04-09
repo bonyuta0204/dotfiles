@@ -400,7 +400,8 @@ let g:tern#filetypes = [
 "}}}
 "
 " easymotion settings{{{
-nmap s <Plug>(easymotion-s2)
+nmap s <Plug>(easymotion-overwin-f2)
+let g:EasyMotion_smartcase = 1
 " }}}
 
 " matchit setting{{{
@@ -410,7 +411,7 @@ if !exists('loaded_matchit')
 endif
 "}}}
 " vim-ariline settings{{{
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 "}}}
 
 """"""""""""""""""""""""""""""
