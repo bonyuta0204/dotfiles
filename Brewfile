@@ -1,4 +1,5 @@
 tap "homebrew/cask"
+tap "github/gh"
 
 cask_args appdir: "~/Applications"
 
