@@ -12,7 +12,7 @@ else
 	$(error unknown OS $(OS)))
 endif
 
-.PHONY: deploy link_files ansible submodule
+.PHONY: deploy link_files ansible submodule fzf
 
 $(warning $(OS))
 $(warning $(LN_FLAGS))
@@ -40,3 +40,6 @@ submodule:
 brew:
 	@if ! command -v brew > /dev/null; then /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; fi
 	brew bundle
+
+fzf:
+	bash installers/fzf.sh

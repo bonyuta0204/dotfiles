@@ -2,7 +2,8 @@
 if command -v fzf > /dev/null;then
   PERCOL=fzf
 fi
-if [[ ! -n $TMUX ]]; then
+
+if [[ ! -n $TMUX && ! -n $SSH_CLIENT ]]; then
   # get the IDs
   ID="`tmux list-sessions`"
   echo "id; $ID"
