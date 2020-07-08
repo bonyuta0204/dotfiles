@@ -36,3 +36,7 @@ submodule:
 	git submodule init
 	git submodule update
 	git submodule foreach git pull origin master
+
+brew:
+	@if ! command -v brew > /dev/null; then /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; fi
+	brew bundle

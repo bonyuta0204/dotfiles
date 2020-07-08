@@ -66,27 +66,6 @@ runtime! ftplugin/man.vim
 
 " }}}
 
-
-
-""""""""""""""""""""""""""""""
-" Neovim Configuration
-""""""""""""""""""""""""""""""
-"{{{
-let g:python3_host_skip_check=1
-let g:python_host_skip_check = 1
-let g:loaded_python_provider = 1
-if !empty(glob("/home/python/3.5/bin"))
-  let g:python3_host_prog = expand("/home/python/3.5/bin/python")
-endif
-if !empty(glob("/home/python/2.7/bin"))
-  let g:python_host_prog = expand("/home/python/2.7/bin/python2")
-endif
-if !empty(glob("/usr/bin/python3"))
-  let g:python3_host_prog = expand("/usr/bin/python3")
-endif
-"}}}
-
-
 """"""""""""""""""""""""""""""
 " dein.vimの設定
 """"""""""""""""""""""""""""""
@@ -126,6 +105,7 @@ endif
 
 "extra runtimepath
 set runtimepath+=~/.fzf "fuzzy search
+set runtimepath+=/usr/local/bin "fuzzy search
 set path+=~/.vim/dein/repos/github.com
 "}}}
 
