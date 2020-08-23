@@ -1,4 +1,3 @@
-# Essential Plugins
 [[plugins]]
 repo = 'Shougo/dein.vim'
 [[plugins]]

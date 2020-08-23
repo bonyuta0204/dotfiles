@@ -13,6 +13,7 @@ repo = 'Shougo/deoplete.nvim'
 if = '''has('nvim') && has('python3')'''
 hook_post_source = '''
 " Use smartcase.
+call deoplete#enable()
 call deoplete#custom#option('smart_case', v:true)
 '''
 on_event = ['FocusLost', 'CursorHold', 'CursorHoldI', 'InsertLeave']
@@ -28,17 +29,6 @@ on_i = 1
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 on_i = 1
-
-
-# Python
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-if = '''!has('nvim') && (has('python3') || has('python'))'''
-on_ft = ['python']
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-if = '''has('nvim') && (has('python3') || has('python'))'''
-on_ft = ['python']
 
 
 # javascript

@@ -404,6 +404,8 @@ let g:airline_powerline_fonts = 0
 let g:vue_pre_processors = ['pug', 'scss']
 
 " nvim-lsp settings
+"
+if has('nvim')
 lua << END
   require'nvim_lsp'.tsserver.setup{}
   require'nvim_lsp'.solargraph.setup{}
@@ -412,9 +414,9 @@ lua << END
   require'nvim_lsp'.sumneko_lua.setup{}
 END
 
-nnoremap <silent>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent>gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent>K     <cmd>lua vim.lsp.buf.hover()<CR>
+endif
 
 set omnifunc=v:lua.vim.lsp.omnifunc
 
