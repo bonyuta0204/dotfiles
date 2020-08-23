@@ -19,3 +19,4 @@ config/fish/functions/getopts.fish
 config/fish/functions/z.awk
 config/fish/functions/zadd.awk
 config/fish/functions/zclean.awk
+Brewfile.lock.json

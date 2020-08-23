@@ -32,6 +32,7 @@ cask 'docker'
 cask 'visual-studio-code'
 cask "karabiner-elements"
 cask "sequel-pro"
+cask "firefox"
 
 
 cask "slack"

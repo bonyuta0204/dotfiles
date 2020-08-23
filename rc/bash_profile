@@ -89,6 +89,8 @@ if [ -d $HOME/go/bin ]; then
   export PATH="$PATH:$HOME/go/bin"
 fi
 
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+
 # auto start tmux
 if command -v tmux &> /dev/null; then
 . $DOTFILES/rc/bashrc.d/auto_start_tmux.sh
