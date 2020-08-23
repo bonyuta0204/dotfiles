@@ -33,6 +33,8 @@ repo = 'SirVer/ultisnips'
 repo = 'honza/vim-snippets'
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
+[[plugins]]
+repo = 'neovim/nvim-lsp'
 
 # Editor UI
 #[[plugins]]
