@@ -409,11 +409,14 @@ lua << END
   require'nvim_lsp'.solargraph.setup{}
   require'nvim_lsp'.vimls.setup{}
   require'nvim_lsp'.vuels.setup{}
+  require'nvim_lsp'.sumneko_lua.setup{}
 END
 
 nnoremap <silent>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent>K     <cmd>lua vim.lsp.buf.hover()<CR>ND
+nnoremap <silent>K     <cmd>lua vim.lsp.buf.hover()<CR>
+
+set omnifunc=v:lua.vim.lsp.omnifunc
 
 """"""""""""""""""""""""""""""
 " Original Commans
