@@ -412,6 +412,7 @@ lua << END
   require'nvim_lsp'.vimls.setup{}
   require'nvim_lsp'.vuels.setup{}
   require'nvim_lsp'.sumneko_lua.setup{}
+  require'nvim_lsp'.bashls.setup{}
 END
 
 nnoremap <silent>gd    <cmd>lua vim.lsp.buf.definition()<CR>
