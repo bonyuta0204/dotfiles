@@ -402,6 +402,13 @@ endif
 let g:airline_powerline_fonts = 0
 "}}}
 
+
+""""""""""""""""""""""""""""""
+" vim-vue settings
+""""""""""""""""""""""""""""""
+let g:vue_pre_processors = ['pug', 'scss']
+
+
 """"""""""""""""""""""""""""""
 " Original Commans
 """"""""""""""""""""""""""""""
