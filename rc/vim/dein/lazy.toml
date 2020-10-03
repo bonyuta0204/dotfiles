@@ -19,6 +19,11 @@ call deoplete#custom#option('smart_case', v:true)
 on_event = ['FocusLost', 'CursorHold', 'CursorHoldI', 'InsertLeave']
 
 [[plugins]]
+repo = 'Shougo/deoplete-lsp.nvim'
+if = '''has('nvim') && has('python3')'''
+on_event = ['FocusLost', 'CursorHold', 'CursorHoldI', 'InsertLeave']
+
+[[plugins]]
 repo = 'Shougo/neocomplete.vim'
 if = '''!has('nvim') && has('lua')'''
 on_i = 1

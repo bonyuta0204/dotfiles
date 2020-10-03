@@ -417,6 +417,7 @@ END
 
 nnoremap <silent>gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent>K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent>gr    <cmd>lua vim.lsp.buf.references()<CR>
 endif
 
 set omnifunc=v:lua.vim.lsp.omnifunc
