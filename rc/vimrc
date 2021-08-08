@@ -306,6 +306,8 @@ inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 endif
 " }}}
+
+
 " ALE configureation {{{
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_text_changed = 0
@@ -378,19 +380,12 @@ let g:user_emmet_leader_key='<c-t>'
 let g:indentLine_bufTypeExclude = ['help','terminal']
 let g:indentLine_fileTypeExclude = ['help','man']
 "}}}
-" deoplete-ternjs setting{{{
-let g:tern#filetypes = [
-            \ 'jsx',
-            \ 'javascript.jsx',
-            \ 'vue',
-            \ 'slim'
-            \ ]
-"}}}
-"
+
 " easymotion settings{{{
 nmap s <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
 " }}}
+
 
 " matchit setting{{{
 if !exists('loaded_matchit')
@@ -407,7 +402,30 @@ let g:airline_powerline_fonts = 0
 " vim-vue settings
 """"""""""""""""""""""""""""""
 let g:vue_pre_processors = ['pug', 'scss']
+" 参考: https://qiita.com/macoshita/items/3f95a6d61af41085db58
+autocmd FileType vue syntax sync fromstart
 
+
+" nvim-lsp settings
+"
+if has('nvim-0.5')
+lua << END
+  require'lspconfig'.tsserver.setup{}
+  require'lspconfig'.solargraph.setup{}
+  require'lspconfig'.vimls.setup{}
+  require'lspconfig'.vuels.setup{}
+  require'lspconfig'.sumneko_lua.setup{}
+  require'lspconfig'.bashls.setup{}
+END
+
+nnoremap <silent>gd    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent>K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent>gr    <cmd>lua vim.lsp.buf.references()<CR>
+
+set omnifunc=v:lua.vim.lsp.omnifunc
+else
+  echo 'Please use neovim v0.5.0 or later to use lsp feature'
+endif
 
 """"""""""""""""""""""""""""""
 " Original Commans
@@ -464,12 +482,15 @@ augroup SchemeCmd
   autocmd BufWinEnter *.rkt Racket
 augroup END
 "}}}
+
+
 " Vue.js settings "{{{
 autocmd FileType vue syntax sync fromstart
 "}}}
 " CSS settings "{{{
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
 "}}}
+
 " Help settings {{{
 augroup Help
   autocmd!
@@ -514,9 +535,12 @@ augroup MyColorScheme
   autocmd ColorScheme * highlight MatchParen gui=bold,underline guibg=#3D3469 guifg=NONE
 augroup END
 
-"pcolorscheme neodark
-
 "}}}
+"
+
+" temp settings
+lua vim.lsp.set_log_level("debug")
+
 
 " This must be written at the bottom of .vimrc
 filetype indent plugin on

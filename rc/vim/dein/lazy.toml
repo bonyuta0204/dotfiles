@@ -13,36 +13,14 @@ repo = 'Shougo/deoplete.nvim'
 if = '''has('nvim') && has('python3')'''
 hook_post_source = '''
 " Use smartcase.
+call deoplete#enable()
 call deoplete#custom#option('smart_case', v:true)
 '''
 on_event = ['FocusLost', 'CursorHold', 'CursorHoldI', 'InsertLeave']
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev='next'
-build='bash install.sh'
-if = '''has('nvim')'''
-hook_add = '''
-set hidden
-let g:LanguageClient_autoStart = 1
-
-let s:solargraph_path = exepath('solargraph')
-let s:vls_path = exepath('vls')
-let s:tls_path = exepath('typescript-language-server')
-
-let g:LanguageClient_serverCommands ={
-      \'ruby' : [s:solargraph_path, "stdio"],
-      \ 'vue' : [s:vls_path, "--stdio"],
-      \'javascript' : [s:tls_path,"--stdio"]
-      \}
-
-nnoremap <F12> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-'''
+repo = 'Shougo/deoplete-lsp'
+if = '''has('nvim') && has('python3')'''
 on_event = ['FocusLost', 'CursorHold', 'CursorHoldI', 'InsertLeave']
 
 [[plugins]]
@@ -58,31 +36,10 @@ repo = 'Shougo/neosnippet.vim'
 on_i = 1
 
 
-# Python
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-if = '''!has('nvim') && (has('python3') || has('python'))'''
-on_ft = ['python']
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-if = '''has('nvim') && (has('python3') || has('python'))'''
-on_ft = ['python']
-
-
 # javascript
 [[plugins]]
 repo = 'othree/yajs.vim' #hight for ES6 Syntax
 on_ft = ['javascript']
-[[plugins]]
-repo = 'carlitux/deoplete-ternjs'
-on_ft = ['javascript']
-build = 'npm install'
-if = '''has('nvim') && has('python3')'''
-[[plugins]]
-repo = 'ternjs/tern_for_vim'
-on_ft = ['javascript']
-build = 'npm install'
-if = '''!has('nvim') || !has('python3')'''
 
 # Vue.js
 [[plugins]]
