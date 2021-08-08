@@ -33,7 +33,7 @@ repo = 'honza/vim-snippets'
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 [[plugins]]
-repo = 'neovim/nvim-lsp'
+repo = 'neovim/nvim-lspconfig'
 
 # Editor UI
 #[[plugins]]
@@ -93,9 +93,6 @@ repo = 'slim-template/vim-slim'
 repo = 'othree/csscomplete.vim'
 
 
-# javascript
-[[plugins]]
-repo = 'posva/vim-vue'
 [[plugins]]
 repo = 'digitaltoad/vim-pug' # JS syntax highlight
 
