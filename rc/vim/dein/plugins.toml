@@ -32,6 +32,8 @@ repo = 'honza/vim-snippets'
 repo = 'easymotion/vim-easymotion'
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
+[[plugins]]
+repo = 'williamboman/nvim-lsp-installer'
 
 # Editor UI
 #[[plugins]]
