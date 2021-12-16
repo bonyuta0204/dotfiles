@@ -27,13 +27,13 @@ repo = 'Shougo/neco-syntax'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
-repo = 'SirVer/ultisnips'
-[[plugins]]
 repo = 'honza/vim-snippets'
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
+[[plugins]]
+repo = 'williamboman/nvim-lsp-installer'
 
 # Editor UI
 #[[plugins]]
