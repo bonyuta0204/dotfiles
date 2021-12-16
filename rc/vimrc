@@ -179,134 +179,10 @@ let g:ackprg = "ag --vimgrep"
 let g:quickrun_no_default_key_mappings = 1
 nnoremap <Leader>r :<C-u>QuickRun -runner terminal -runner/terminal/opener "vert new"<CR>
 "}}}
-" deoplete の設定 {{{
-if has('nvim')
-  let g:deoplete#enable_at_startup = 1
-  inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ deoplete#mappings#manual_complete()
-
-  function! s:check_back_space() abort "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-  endfunction "}}}
-endif
-"}}}
-" deoplete python の設定 {{{
-if !empty(glob("~/.conda/envs/video/bin"))
-let g:deoplete#sources#jedi#python_path = expand("$HOME/.conda/envs/video/bin/python3")
-endif
-
-if !empty(glob("~/miniconda3/envs/video/bin/"))
-let g:deoplete#sources#jedi#python_path = expand("$HOME/miniconda3/envs/video/bin/python")
-endif
-"}}}
+"
 " neco-syntax の設定 {{{
 let g:necosyntax#min_keyword_length = 2
 "}}}
-" NeoComplete の設定 {{{
-if has('lua') && !has('nvim')
-  "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-  " Disable AutoComplPop.
-  let g:acp_enableAtStartup = 0
-  " Use neocomplete.
-  let g:neocomplete#enable_at_startup = 1
-  " Use smartcase.
-  let g:neocomplete#enable_smart_case = 1
-  " Set minimum syntax keyword length.
-  let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-  " Define dictionary.
-  let g:neocomplete#sources#dictionary#dictionaries = {
-        \ 'default' : '',
-        \ 'vimshell' : $HOME.'/.vimshell_hist',
-        \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-  " Define keyword.
-  if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-  endif
-  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-  " Plugin key-mappings.
-  inoremap <expr><C-g>     neocomplete#undo_completion()
-  inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-  " Recommended key-mappings.
-  " <CR>: close popup and save indent.
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
-    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-    " For no inserting <CR> key.
-    "return pumvisible() ? "\<C-y>" : "\<CR>"
-  endfunction
-  " <TAB>: completion.
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  " <C-h>, <BS>: close popup and delete backword char.
-  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-  " Close popup by <Space>.
-  inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-  " Enable omni completion.
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-  " Enable heavy omni completion.
-  if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-  endif
-  let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-  let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-  " For perlomni.vim setting.
-  " https://github.com/c9s/perlomni.vim
-  let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-  " javascript補完
-  let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\|[^. \t]\.\w*\|\$\w*'
-
-endif
-" }}}
-" NeoComplCache の設定 {{{
-if !has('lua') && !has('nvim')
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-						\ 'default' : ''
-						\ }
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-		return neocomplcache#smart_close_popup() . "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-endif
-" }}}
-
 
 " ALE configureation {{{
 let g:ale_lint_on_insert_leave = 1
@@ -319,6 +195,10 @@ let g:ale_fixers = {
     \ ],
 \ 'ruby': ['rubocop'],
 \ 'javascript': [
+    \ 'prettier',
+    \ 'eslint'
+    \ ],
+\ 'typescript': [
     \ 'prettier',
     \ 'eslint'
     \ ],
@@ -338,41 +218,7 @@ let g:ale_fix_on_save = 0
 let g:ale_virtualenv_dir_names = []
 nmap <F8> <Plug>(ale_fix)
 "}}}
-" light line config "{{{
-"let g:lightline = {
-      "\ 'colorscheme': 'wombat',
-      "\ 'active': {
-      "\   'left':[['mode', 'paste'],
-      "\          ['readonly', 'relativepath', 'modified']]
-      "\  },
-      "\ 'component_function': {
-      "\   'gitbranch': 'fugitive#head'
-      "\ },
-      "\}
-"}}}
-" setting for neosnippet {{{
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
-"}}}
 " Emmet Settings "{{{
 let g:user_emmet_leader_key='<c-t>'
 "}}}
@@ -393,6 +239,7 @@ if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
 "}}}
+"
 " vim-ariline settings{{{
 let g:airline_powerline_fonts = 0
 "}}}
@@ -423,6 +270,7 @@ nnoremap <silent>K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent>gr    <cmd>lua vim.lsp.buf.references()<CR>
 
 set omnifunc=v:lua.vim.lsp.omnifunc
+
 else
   echo 'Please use neovim v0.5.0 or later to use lsp feature'
 endif
@@ -448,44 +296,7 @@ endfunction
     autocmd BufEnter,BufWinEnter * if &buftype ==# "terminal" | normal i
   augroup END
 "}}}
-"Racket Settings "{{{
-function! OpenRacket()
-  let s:current_file = @%
-  if !exists("g:racket_loaded")
-    vertical belowright new
-    let s:channel = termopen("racket")
-    let g:racket_loaded = 1
-    let g:racket_buffer = bufnr("%")
-    let g:racket_channel = s:channel
-    setlocal filetype=racket
-  elseif bufwinnr(g:racket_buffer) ==# -1
-    execute "vertical belowright split #" . g:racket_buffer
-  endif
-  call chansend(g:racket_channel, [",enter " . s:current_file ,  ""])
-endfunction
 
-
-if executable("racket")
-  command! -nargs=0 Racket :call OpenRacket()
-  command! -nargs=0 RacketPreview :call OpenRacketPreview()
-endif
-
-
-augroup SchemeCmd
-  autocmd!
-  "autocmd ColorScheme * call rainbow_parentheses#activate()
-  autocmd FileType racket,scheme inoremap <buffer> ' '
-  autocmd FileType racket,scheme call rainbow_parentheses#load(0)
-  "autocmd BufWritePost,FileWritePost * if &filetype ==# 'racket' | Racket
-  autocmd FileType racket nnoremap <buffer> <F11> :<C-u>Racket<CR>
-  autocmd FileType racket setlocal foldmethod=indent
-  autocmd BufWinEnter *.rkt Racket
-augroup END
-"}}}
-
-
-" Vue.js settings "{{{
-autocmd FileType vue syntax sync fromstart
 "}}}
 " CSS settings "{{{
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
@@ -504,9 +315,11 @@ function! InitHelp ()
   vertical resize 80
 endfunction
 " }}}
+"
 "CPP header file{{{
 set path+=/usr/include/c++/5
 "}}}
+
 "Run CPP file in terminal{{{
 function! RunCpp()
   let s:tempfile = tempname() . ".cpp"
@@ -537,10 +350,6 @@ augroup END
 
 "}}}
 "
-
-" temp settings
-lua vim.lsp.set_log_level("debug")
-
 
 " This must be written at the bottom of .vimrc
 filetype indent plugin on

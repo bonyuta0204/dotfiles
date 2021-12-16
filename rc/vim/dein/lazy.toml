@@ -6,23 +6,6 @@ on_i = 1
 repo = 'scrooloose/nerdcommenter'
 on_i = 1
 
-
-# Completion
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-if = '''has('nvim') && has('python3')'''
-hook_post_source = '''
-" Use smartcase.
-call deoplete#enable()
-call deoplete#custom#option('smart_case', v:true)
-'''
-on_event = ['FocusLost', 'CursorHold', 'CursorHoldI', 'InsertLeave']
-
-[[plugins]]
-repo = 'Shougo/deoplete-lsp'
-if = '''has('nvim') && has('python3')'''
-on_event = ['FocusLost', 'CursorHold', 'CursorHoldI', 'InsertLeave']
-
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 if = '''!has('nvim') && has('lua')'''
