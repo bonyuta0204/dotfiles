@@ -32,6 +32,10 @@ if [ -d ~/.node_modules_global ]; then
   export PATH="$PATH:$HOME/.node_modules_global/bin"
 fi
 
+if command -v anyenv &> /dev/null; then
+  eval "$(anyenv init -)"
+fi
+
 
 if [ -d ~/.pyenv ]; then
   export PYENV_ROOT="$HOME/.pyenv"
