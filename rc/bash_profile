@@ -6,8 +6,16 @@ if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
 
-DOTFILES="$HOME/dotfiles"
 
+DOTFILES="$HOME/dotfiles"
+TERM=xterm-256color
+
+
+# for debugging
+echo-path(){
+echo $PATH | sed 's/:/\
+/g'
+}
 
 # Read local settings
 if [ -f $DOTFILES/rc/bashrc.d/bash_local ]; then
@@ -20,7 +28,6 @@ export PATH="$HOME/local/script:$HOME/local/bin:$HOME/.local/bin:$PATH"
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-TERM=xterm-256color
 
 # use nvim as man viewer when available
 if command -v nvim &> /dev/null; then
@@ -28,14 +35,10 @@ if command -v nvim &> /dev/null; then
 fi
 
 
-if [ -d ~/.node_modules_global ]; then
-  export PATH="$PATH:$HOME/.node_modules_global/bin"
-fi
-
+# Setting PATH for XXXenv Library
 if command -v anyenv &> /dev/null; then
   eval "$(anyenv init -)"
 fi
-
 
 if [ -d ~/.pyenv ]; then
   export PYENV_ROOT="$HOME/.pyenv"
@@ -43,15 +46,6 @@ if [ -d ~/.pyenv ]; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
-
-if [ -d /usr/local/go ]; then
-  export PATH="/usr/local/go/bin:$PATH"
-fi
-
-if [ -d ~/go ]; then
-  export PATH="~/go/bin:$PATH"
-fi
-
 
 if [ -d ~/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
@@ -68,37 +62,38 @@ if [ -d ~/.nodenv ]; then
   eval "$(nodenv init -)"
 fi
 
-if [ -d ~/.yarn ]; then
-  export PATH="$HOME/.yarn/bin:$PATH"
+
+# Setting PATH for go lang
+if [ -d /usr/local/go ]; then
+  export PATH="/usr/local/go/bin:$PATH"
 fi
 
-if [ -d /home/python/2.7/bin ]; then
-  export PATH="$PATH:/home/python/2.7/bin"
+if [ -d ~/go ]; then
+  export PATH="~/go/bin:$PATH"
 fi
 
 
-if [ -d /home/python/3.5/bin ]; then
-  export PATH="$PATH:/home/python/3.5/bin"
+# Setting PATH for Npm & Yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+if [ -d ~/.node_modules_global ]; then
+  export PATH="$PATH:$HOME/.node_modules_global/bin"
 fi
 
-if [ -d $HOME/racket/bin ]; then
-  export PATH="$PATH:$HOME/racket/bin"
-fi
 
-if [ -d $HOME/go/bin ]; then
-  export PATH="$PATH:$HOME/go/bin"
-fi
+# Setting PATH for Haskell
+[ -f "/Users/yutanakamura/.ghcup/env" ] && source "/Users/yutanakamura/.ghcup/env" # ghcup-env
 
-if [ -d $HOME/go/bin ]; then
-  export PATH="$PATH:$HOME/go/bin"
-fi
 
+# Setting PATH for Android Studio
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+
 
 # auto start tmux
 if command -v tmux &> /dev/null; then
 . $DOTFILES/rc/bashrc.d/auto_start_tmux.sh
 fi
+
 
 # use fish when available
 if command -v fish &> /dev/null; then
