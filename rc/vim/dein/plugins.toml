@@ -44,6 +44,10 @@ repo = 'hrsh7th/cmp-path'
 repo = 'hrsh7th/cmp-cmdline'
 [[plugins]]
 repo = 'hrsh7th/nvim-cmp'
+[[plugins]]
+repo = 'hrsh7th/cmp-vsnip'
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
 
 # Editor UI
 #[[plugins]]
