@@ -176,9 +176,6 @@ let g:quickrun_no_default_key_mappings = 1
 nnoremap <Leader>r :<C-u>QuickRun -runner terminal -runner/terminal/opener "vert new"<CR>
 "}}}
 "
-" neco-syntax の設定 {{{
-let g:necosyntax#min_keyword_length = 2
-"}}}
 
 " ALE configureation {{{
 let g:ale_lint_on_insert_leave = 1

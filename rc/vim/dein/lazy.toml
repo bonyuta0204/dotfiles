@@ -21,11 +21,6 @@ on_ft = ['vue']
 repo = 'dag/vim-fish.git' #fish highting
 on_ft = ['fish']
 
-# VimScript
-[[plugins]]
-repo = 'Shougo/neco-vim'
-on_ft = ['vim']
-
 # Scheme
 [[plugins]]
 repo = 'aharisu/vim_goshrepl'

@@ -20,10 +20,6 @@ repo = 'rhysd/accelerated-jk'
 [[plugins]]
 repo = 'junegunn/fzf.vim' #fuzzy search
 [[plugins]]
-repo = 'Shougo/neco-syntax'
-[[plugins]]
-repo = 'honza/vim-snippets'
-[[plugins]]
 repo = 'easymotion/vim-easymotion'
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
