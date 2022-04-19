@@ -16,11 +16,6 @@ endif
 
 .PHONY: deploy link_files ansible submodule fzf
 
-$(warning $(OS))
-$(warning $(LN_FLAGS))
-$(warning $(NEOVIM_SRC))
-$(warning $(NEOVIM_FILES))
-
 deploy: link_files
 
 link_files: $(DOTFILES) $(NEOVIM_RC) $(NEOVIM_FILES)
