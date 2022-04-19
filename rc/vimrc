@@ -1,22 +1,16 @@
-""""""""""""""""""""""""""""""
-" Basic Configuration
-""""""""""""""""""""""""""""""
-" Esesntial Settings  {{{
+" Esesntial Settings
 set nocompatible
 syntax enable
 
-" load baic settings
+" load settings
 runtime! init/basic.vim
-
+runtime! init/mapping.vim
+runtime! init/window.vim
 runtime! ftplugin/man.vim
-
-" }}}
 
 """"""""""""""""""""""""""""""
 " dein.vimの設定
 """"""""""""""""""""""""""""""
-"{{{
-"
 " Install dein.vim if it is not installed yet
 let s:dein_dir = finddir('dein.vim', '.;')
 if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
@@ -49,93 +43,16 @@ if dein#load_state('~/.vim/dein')
   call dein#save_state()
 endif
 
-"extra runtimepath
-set runtimepath+=~/.fzf "fuzzy search
-set runtimepath+=/usr/local/bin "fuzzy search
-set path+=~/.vim/dein/repos/github.com
-"}}}
 
+" load colorscheme settings
+runtime! init/color.vim
 
-" for accelerated-jk "{{{
-if exists('g:accelerated_jk_enable_deceleration')
-  nmap j <Plug>(accelerated_jk_gj)
-  nmap k <Plug>(accelerated_jk_gk)
-endif
-"}}}
-"
-runtime! init/mapping.vim
-
-
-""""""""""""""""""""""""""""""
-" プラグインの設定
-""""""""""""""""""""""""""""""
-
+" load plugin settings
 runtime! init/plugins/**/*.vim
 runtime! init/plugins/**/*.lua
 
-" Emmet Settings "{{{
-let g:user_emmet_leader_key='<c-t>'
-"}}}
-" IndentLine Settings"{{{
-let g:indentLine_bufTypeExclude = ['help','terminal']
-let g:indentLine_fileTypeExclude = ['help','man']
-"}}}
-
-
-""""""""""""""""""""""""""""""
-" vim-vue settings
-""""""""""""""""""""""""""""""
-let g:vue_pre_processors = ['pug', 'scss']
-" 参考: https://qiita.com/macoshita/items/3f95a6d61af41085db58
-autocmd FileType vue syntax sync fromstart
-
 set omnifunc=v:lua.vim.lsp.omnifunc
 
-
-
-""""""""""""""""""""""""""""""
-" Language Specific Configuration
-""""""""""""""""""""""""""""""
-" Terminal Mode Settings{{{
-  augroup MyTerminal
-    autocmd BufEnter,BufWinEnter * if &buftype ==# "terminal" | normal i
-  augroup END
-"}}}
-
-"}}}
-
-" Help settings {{{
-augroup Help
-  autocmd!
-  autocmd FileType help,man call InitHelp()
-  autocmd BufEnter,WinEnter * if &filetype ==# 'help'| call InitHelp()
-  autocmd BufEnter,WinEnter * if &filetype ==# 'man'| call InitHelp()
-augroup End
-
-function! InitHelp ()
-  wincmd H
-  vertical resize 80
-endfunction
-" }}}
-"
-""""""""""""""""""""""""""""""
-" ColorScheme
-""""""""""""""""""""""""""""""
-"{{{
-try
-  colorscheme gruvbox
-  set background=dark
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme default
-endtry
-
-let g:rehash256 = 1
-augroup MyColorScheme
-  autocmd ColorScheme * highlight MatchParen gui=bold,underline guibg=#3D3469 guifg=NONE
-augroup END
-
-"}}}
-"
 
 " This must be written at the bottom of .vimrc
 filetype indent plugin on
