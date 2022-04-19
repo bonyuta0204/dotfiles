@@ -124,11 +124,7 @@ tnoremap jk <C-\><C-n>
 "}}}
 " ファイル開く系ショートカット"{{{
 nnoremap <Leader>rc :<C-u>edit $MYVIMRC<CR>
-nnoremap <Leader>ft :<C-u>execute 'edit' . fnameescape("~/.vim/after/ftplugin/" . &filetype . '.vim')<CR>
 nnoremap <F5> :<C-u>source<Space>$MYVIMRC<CR>
-nnoremap cmd :<C-u>VimShell<CR>
-nnoremap <Leader>sni :<C-u>NeoSnippetEdit -runtime<CR>
-nnoremap <Leader>es :<C-u>NeoSnippetEdit<CR>
 nnoremap <C-n> :<C-u>NERDTreeToggle<CR>
 nnoremap <C-e> :<C-u>Explore<CR>
 "}}}
@@ -257,14 +253,6 @@ autocmd FileType vue syntax sync fromstart
 "
 if has('nvim-0.5')
 lua << END
-  -- require'lspconfig'.tsserver.setup{}
-  -- require'lspconfig'.solargraph.setup{}
-  -- require'lspconfig'.vimls.setup{}
-  -- require'lspconfig'.vuels.setup{}
-  -- require'lspconfig'.hls.setup{}
-  -- require'lspconfig'.sumneko_lua.setup{}
-  -- require'lspconfig'.bashls.setup{}
-
 
   -- キーバインディングの設定
   -- @see https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
@@ -378,18 +366,6 @@ else
   echo 'Please use neovim v0.5.0 or later to use lsp feature'
 endif
 
-""""""""""""""""""""""""""""""
-" Original Commans
-""""""""""""""""""""""""""""""
-"{{{
-function! RSpec()
-  let s:current_file = @%
-  vertical belowright new
-  echomsg "bundle exec rspec"  .  " " . s:current_file
-  let s:spec_channel = termopen("bundle exec rspec"  .  " " . s:current_file)
-endfunction
-
-"}}}
 
 """"""""""""""""""""""""""""""
 " Language Specific Configuration
@@ -400,9 +376,6 @@ endfunction
   augroup END
 "}}}
 
-"}}}
-" CSS settings "{{{
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
 "}}}
 
 " Help settings {{{
@@ -419,22 +392,6 @@ function! InitHelp ()
 endfunction
 " }}}
 "
-"CPP header file{{{
-set path+=/usr/include/c++/5
-"}}}
-
-"Run CPP file in terminal{{{
-function! RunCpp()
-  let s:tempfile = tempname() . ".cpp"
-  let s:tempexe = tempname()
-  execute "write " . s:tempfile
-  let s:command = printf("g++ %s -o %s && %s", s:tempfile, s:tempexe, s:tempexe)
-  vertical new
-  let s:_bufnr = termopen(s:command)
-endfunction
-
-"}}}
-
 """"""""""""""""""""""""""""""
 " ColorScheme
 """"""""""""""""""""""""""""""
