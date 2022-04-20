@@ -49,7 +49,10 @@ runtime! init/color.vim
 
 " load plugin settings
 runtime! init/plugins/**/*.vim
-runtime! init/plugins/**/*.lua
+
+if has('nvim-0.5')
+  runtime! init/plugins/**/*.lua
+endif
 
 set omnifunc=v:lua.vim.lsp.omnifunc
 
