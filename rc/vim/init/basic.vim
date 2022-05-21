@@ -56,4 +56,9 @@ endif
 set clipboard=unnamed
 set pastetoggle=<F10>
 
+
+
+
+
+set path=.,/usr/include,,/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
 packadd! matchit

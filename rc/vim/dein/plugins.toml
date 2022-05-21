@@ -8,8 +8,6 @@ build = "make"
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 [[plugins]]
-repo = 'thinca/vim-ref'
-[[plugins]]
 repo = 'tpope/vim-fugitive' #git client
 [[plugins]]
 repo = 'tpope/vim-rhubarb' #git client
