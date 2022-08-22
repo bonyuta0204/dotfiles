@@ -38,3 +38,13 @@ end
 if test -d $HOME/.rbenv
   status --is-interactive; and source (rbenv init -|psub)
 end
+
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+
+# pyenv init - | source
+
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
+direnv hook fish | source
+
