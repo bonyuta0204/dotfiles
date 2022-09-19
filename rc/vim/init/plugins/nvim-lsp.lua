@@ -1,3 +1,7 @@
+if not vim.g.lspconfig then
+  return
+end
+
 -- キーバインディングの設定
 -- @see https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
 local nvim_lsp = require('lspconfig')

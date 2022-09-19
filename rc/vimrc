@@ -7,42 +7,7 @@ runtime! init/basic.vim
 runtime! init/mapping.vim
 runtime! init/window.vim
 runtime! ftplugin/man.vim
-
-""""""""""""""""""""""""""""""
-" dein.vimの設定
-""""""""""""""""""""""""""""""
-" Install dein.vim if it is not installed yet
-let s:dein_dir = finddir('dein.vim', '.;')
-if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
-  if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
-    let s:dein_dir = expand('~/.vim/dein/repos/github.com/Shougo/dein.vim')
-    if !isdirectory(s:dein_dir)
-      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
-    endif
-  endif
-  execute 'set runtimepath^=' . substitute(
-        \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
-endif
-
-let s:dein_toml_file = expand('~/.vim/dein/plugins.toml')
-let s:dein_toml_lazy_file = expand('~/.vim/dein/lazy.toml')
-
-if dein#load_state('~/.vim/dein')
-  call dein#begin('~/.vim/dein')
-
-  " Let dein manage dein
-  if filereadable(s:dein_toml_file)
-    call dein#load_toml(s:dein_toml_file, {'lazy': 0})
-  endif
-
-  if filereadable(s:dein_toml_lazy_file)
-    call dein#load_toml(s:dein_toml_lazy_file, {'lazy': 1})
-  endif
-
-  call dein#end()
-  call dein#save_state()
-endif
-
+runtime! init/vim-plug.vim
 
 " load colorscheme settings
 runtime! init/color.vim
