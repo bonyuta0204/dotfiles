@@ -12,6 +12,10 @@ runtime! init/vim-plug.vim
 " load colorscheme settings
 runtime! init/color.vim
 
+" terminal customize
+" NOTE: Should be loaded after init/color.vim
+runtime! init/terminal.vim
+
 " load plugin settings
 runtime! init/plugins/**/*.vim
 

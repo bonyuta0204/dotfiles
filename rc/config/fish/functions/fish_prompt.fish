@@ -5,7 +5,7 @@ function fish_prompt
     and echo (set_color red)"#"
 
     # Main
-    echo -n (set_color  cyan)(prompt_pwd) (set_color -o red)'>'(set_color -o yellow)'>'(set_color -o green)'>'
+    echo -n (set_color 39BAE6 cyan)(prompt_pwd) (set_color -o FF3333 red)'>'(set_color -o FFEE99 yellow)'>'(set_color -o C2D94C green)'>'
     set_color normal
 
     # Git
