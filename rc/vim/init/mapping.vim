@@ -40,3 +40,15 @@ nnoremap<Leader>L <C-w>L
 "split of window
 nnoremap <Leader>s :<C-u>split<CR><C-w>j
 nnoremap <Leader>v :<C-u>vsplit<CR><C-w>l
+
+nnoremap <Leader>sh :<C-u>call OpenTerminal()<CR>
+
+" open terminal in another window
+function! OpenTerminal() abort
+  let s:fish_path = exepath('fish')
+  if !empty(s:fish_path)
+    execute "vsplit " . "term://" . s:fish_path
+  else
+    vsplit +terminal
+  endif
+endfunction
