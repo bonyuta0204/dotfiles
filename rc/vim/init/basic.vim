@@ -60,5 +60,8 @@ set pastetoggle=<F10>
 
 
 
-set path=.,/usr/include,,/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+set path+=/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+if !has('nvim')
+  set path+=~/.vim
+endif
 packadd! matchit
