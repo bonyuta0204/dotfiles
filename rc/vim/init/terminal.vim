@@ -4,6 +4,7 @@ if has('nvim')
     autocmd!
     autocmd TermOpen * :set winhighlight=Normal:BlackBg
     autocmd TermOpen * :setlocal nonumber
+    autocmd TermOpen * :normal i
     autocmd BufHidden term://* :set winhighlight=Normal:Normal
   augroup END
 endif
