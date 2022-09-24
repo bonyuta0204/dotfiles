@@ -1,14 +1,21 @@
-if not vim.g.lspconfig then
+-- setup mason.nvim
+if not pcall(require, 'mason') then
   return
 end
 
--- キーバインディングの設定
--- @see https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
+local mason = require('mason')
+local mason_lspconfig = require('mason-lspconfig')
+
+mason.setup()
+mason_lspconfig.setup({
+  ensure_installed = {  "tsserver", "vimls", "solargraph", "volar", "sumneko_lua" }
+})
+
 local nvim_lsp = require('lspconfig')
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+-- LSP key bind settings
+-- @see https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
+local on_attach = function(_, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -39,14 +46,29 @@ local on_attach = function(client, bufnr)
 
 end
 
--- nvim-lsp-installer settings
--- @see https://github.com/williamboman/nvim-lsp-installer
--- @see https://zenn.dev/nazo6/articles/c2f16b07798bab
-local lsp_installer = require("nvim-lsp-installer")
-lsp_installer.on_server_ready(function(server)
-  local opts = {}
-  opts.on_attach = on_attach
+-- setting up LSP automatically
+mason_lspconfig.setup_handlers({
+  function(server_name)
+    local opts = {}
+    opts.on_attach = on_attach
 
-  server:setup(opts)
-  vim.cmd [[ do User LspAttachBuffers ]]
-end)
+    if server_name == "sumneko_lua" then
+      opts.settings = {
+        Lua = {
+          diagnostics = { globals = { 'vim' } },
+        }
+      }
+    end
+
+    if server_name == "solargraph" then
+      opts.cmd = {
+        "bundle",
+        "exec",
+        "solargraph",
+        "stdio",
+      }
+    end
+
+    nvim_lsp[server_name].setup(opts)
+  end
+})
