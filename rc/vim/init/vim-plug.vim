@@ -38,7 +38,8 @@ Plug 'scrooloose/nerdcommenter'
 " LSP
 if has('nvim-0.5')
   Plug 'neovim/nvim-lspconfig'
-  Plug 'williamboman/nvim-lsp-installer'
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-path'
@@ -47,7 +48,6 @@ if has('nvim-0.5')
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
 endif
-
 
 " Filer
 Plug 'scrooloose/nerdtree'
