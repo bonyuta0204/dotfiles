@@ -1,0 +1,21 @@
+FROM alpine:3.14
+
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+
+
+# install packages for building neovim from source
+# @see: https://github.com/neovim/neovim/wiki/Building-Neovim#build-prerequisites
+RUN apk update && apk add --no-cache vim git make bash neovim curl fzf \
+   build-base cmake automake autoconf libtool pkgconf coreutils curl unzip gettext-tiny-dev
+
+RUN git clone https://github.com/neovim/neovim
+RUN cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && make install
+
+WORKDIR /workspace
+
+COPY . .
+
+RUN make
+
+CMD ["bash"]
