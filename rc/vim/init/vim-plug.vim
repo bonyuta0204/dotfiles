@@ -49,6 +49,11 @@ if has('nvim-0.5')
   Plug 'hrsh7th/vim-vsnip'
 endif
 
+if has('nvim-0.7')
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+endif
+
+
 " Filer
 Plug 'scrooloose/nerdtree'
 
