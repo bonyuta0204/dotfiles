@@ -35,8 +35,8 @@ Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdcommenter'
 
 
-" LSP
 if has('nvim-0.5')
+" LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
@@ -47,12 +47,13 @@ if has('nvim-0.5')
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
 endif
 
+" Treesitter
 if has('nvim-0.7')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 endif
-
 
 " Filer
 Plug 'scrooloose/nerdtree'
@@ -65,7 +66,9 @@ Plug 'morhetz/gruvbox'
 
 
 " Lint
-Plug 'w0rp/ale'
+if !has('nvim-0.7')
+  Plug 'w0rp/ale'
+endif
 
 
 " Syntax Highlight
