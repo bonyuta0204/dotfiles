@@ -8,22 +8,23 @@ local mason_lspconfig = require('mason-lspconfig')
 
 mason.setup()
 mason_lspconfig.setup({
-  ensure_installed = {  "tsserver", "vimls", "solargraph", "volar", "sumneko_lua" }
+  ensure_installed = { "tsserver", "vimls", "solargraph", "volar", "sumneko_lua" }
 })
 
 local nvim_lsp = require('lspconfig')
 
 -- LSP key bind settings
 -- @see https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
-  local opts = { noremap=true, silent=true }
+  local opts = { noremap = true, silent = true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -42,7 +43,12 @@ local on_attach = function(_, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<F8>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+  if client.name == 'volar'  or client.name == 'tsserver' then
+    -- @see: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
+    client.resolved_capabilities.document_formatting = false -- 0.7 and earlier
+  end
 
 end
 
@@ -72,3 +78,14 @@ mason_lspconfig.setup_handlers({
     nvim_lsp[server_name].setup(opts)
   end
 })
+
+-- setting up null-ls
+
+local null_ls = require("null-ls")
+null_ls.setup {
+  sources = {
+    null_ls.builtins.formatting.prettier.with {
+      prefer_local = "node_modules/.bin",
+    },
+  },
+}
