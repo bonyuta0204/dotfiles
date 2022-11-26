@@ -1,9 +1,10 @@
 -- Setup nvim-cmp.
-if not vim.g.loaded_cmp then
+if not pcall(require, 'cmp') then
   return
 end
 
-local cmp = require'cmp'
+local cmp = require 'cmp'
+
 
 cmp.setup({
   snippet = {
@@ -24,7 +25,7 @@ cmp.setup({
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
+    ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif has_words_before() then
