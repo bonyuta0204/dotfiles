@@ -59,8 +59,6 @@ mason_lspconfig.setup_handlers({
     local opts = {}
     opts.on_attach = on_attach
 
-    print(server_name)
-
     if server_name == "sumneko_lua" then
       opts.settings = {
         Lua = {
