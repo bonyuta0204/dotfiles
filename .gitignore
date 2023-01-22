@@ -20,3 +20,4 @@ config/fish/functions/z.awk
 config/fish/functions/zadd.awk
 config/fish/functions/zclean.awk
 Brewfile.lock.json
+.DS_Store
