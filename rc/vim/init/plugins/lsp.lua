@@ -59,10 +59,20 @@ mason_lspconfig.setup_handlers({
     local opts = {}
     opts.on_attach = on_attach
 
+    print(server_name)
+
     if server_name == "sumneko_lua" then
       opts.settings = {
         Lua = {
           diagnostics = { globals = { 'vim' } },
+        }
+      }
+    end
+
+    if server_name == "hls" then
+      opts.settings = {
+        haskell = {
+          formattingProvider = "stylish-haskell"
         }
       }
     end
