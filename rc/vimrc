@@ -167,6 +167,11 @@ nnoremap <Leader>em :<C-u>Maps<CR>
 nnoremap <Leader>eb :<C-u>Buffers<CR>
 nnoremap <Leader>eh :<C-u>History<CR>
 nnoremap <Leader>ag :<C-u>Ag<CR>
+
+
+
+
+" test 
 "}}}
 " ack.vim {{{
 let g:ackprg = "ag --vimgrep"
