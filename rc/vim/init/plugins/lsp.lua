@@ -8,7 +8,7 @@ local mason_lspconfig = require('mason-lspconfig')
 
 mason.setup()
 mason_lspconfig.setup({
-  ensure_installed = { "tsserver", "vimls", "solargraph", "volar", "sumneko_lua" }
+  ensure_installed = { "tsserver", "vimls", "solargraph", "volar", "lua_ls" }
 })
 
 local nvim_lsp = require('lspconfig')
@@ -59,7 +59,7 @@ mason_lspconfig.setup_handlers({
     local opts = {}
     opts.on_attach = on_attach
 
-    if server_name == "sumneko_lua" then
+    if server_name == "lua_ls" then
       opts.settings = {
         Lua = {
           diagnostics = { globals = { 'vim' } },
