@@ -35,6 +35,19 @@ function fpr -d "Fuzzy-find and checkout a github pull request"
   gh pr list | fzf | read -l result; and echo "$result" | awk '{print $1}' | read -l pr_id; and gh pr checkout $pr_id
 end
 
+# ghq + fzf
+function ghq_fzf_repo -d 'Repository search'
+  ghq list --full-path | fzf --reverse --height=100% | read select
+  [ -n "$select" ]; and cd "$select"
+  echo " $select "
+  commandline -f repaint
+end
+
+# fish key bindings
+function fish_user_key_bindings
+  bind \cg ghq_fzf_repo
+end
+
 if test -d $HOME/.rbenv
   status --is-interactive; and source (rbenv init -|psub)
 end
