@@ -37,7 +37,7 @@ end
 
 # ghq + fzf
 function ghq_fzf_repo -d 'Repository search'
-  ghq list --full-path | fzf --reverse --height=100% | read select
+  ghq list --full-path | fzf -m --reverse --height=40% --border | read select
   [ -n "$select" ]; and cd "$select"
   echo " $select "
   commandline -f repaint
