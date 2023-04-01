@@ -5,3 +5,5 @@
 	email = yuta.nakamura@f-scratch.com
 [core]
 	editor = vim -c \"set fenc=utf-8\"
+[ghq]
+	root = ~/workspace
