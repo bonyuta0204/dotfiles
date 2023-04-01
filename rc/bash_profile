@@ -7,7 +7,6 @@ if [ -f ~/.bashrc ]; then
 fi
 
 
-DOTFILES="$HOME/dotfiles"
 TERM=xterm-256color
 
 
@@ -18,8 +17,8 @@ echo $PATH | sed 's/:/\
 }
 
 # Read local settings
-if [ -f $DOTFILES/rc/bashrc.d/bash_local ]; then
-  . $DOTFILES/rc/bashrc.d/bash_local
+if [ -f $HOME/.bashrc.d/bash_local ]; then
+  . $HOME/.bashrc.d/bash_local
 fi
 
 
@@ -105,7 +104,7 @@ unset __conda_setup
 
 # auto start tmux
 if command -v tmux &> /dev/null; then
-. $DOTFILES/rc/bashrc.d/auto_start_tmux.sh
+. $HOME/.bashrc.d/auto_start_tmux.sh
 fi
 
 
