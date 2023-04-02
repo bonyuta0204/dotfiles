@@ -59,11 +59,16 @@ set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
-direnv hook fish | source
+
+if command -v direnv > /dev/null
+  direnv hook fish | source
+end
 
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-eval /Users/yutanakamura/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+if command -v conda > /dev/null
+  eval conda "shell.fish" "hook" $argv | source
+end
 # <<< conda initialize <<<
 
