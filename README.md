@@ -17,9 +17,7 @@ Only `Make` and `Git` is needed.
 To get started, clone the repository and execute the following commands:
 
 ```bash
-git submodule update --init
-make install  # setup tools
-make deploy   # make symbolic links
+./install.sh
 ```
 
 ## Usage

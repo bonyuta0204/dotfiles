@@ -10,17 +10,24 @@ case "${unameOut}" in
     *)          MACHINE="UNKNOWN:${unameOut}"
 esac
 
-if [[ $MACHINE == "Mac" ]]; then
- source installers/mac/essentials.sh
-fi
-
-# when apt is available
-if command -v apt > /dev/null ; then
-  echo "installing package using apt..."
-  source installers/apt/essentials.sh
-  echo "setting up environment with ansible"
-  make ansible
-fi
+case $MACHINE in
+  "Mac")
+    source installers/mac/essentials.sh
+    ;;
+  "Linux")
+    if command -v apt > /dev/null ; then
+      echo "installing package using apt..."
+      source installers/apt/essentials.sh
+      echo "setting up environment with ansible"
+      make ansible
+    else
+      echo "Error: apt not found"
+    fi
+    ;;
+  *)
+    echo "Error: Unsupported machine type"
+    ;;
+esac
 
 # set symlink
 make deploy
