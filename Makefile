@@ -48,3 +48,8 @@ brew:
 
 fzf:
 	bash installers/fzf.sh
+
+.PHONY: show_dotfiles
+show_dotfiles:
+	@echo $(DOTFILES)
+
