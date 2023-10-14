@@ -4,6 +4,9 @@ RC_DIR := $(realpath rc/)
 DOTFILES := $(patsubst rc/%, ~/.%, $(DOTFILES_SRC))
 NEOVIM_RC := $(HOME)/.config/nvim/init.vim
 NEOVIM_FILES := $(patsubst rc/vim/%, ~/.config/nvim/%, $(NEOVIM_SRC))
+VSCODE_SRC := $(shell find rc/vscode -type f -print)
+VSCODE_FILES := $(patsubst rc/vscode/%, ~/Library/Application\ Support/Code/User/%, $(VSCODE_SRC))
+
 OS := $(shell uname -s)
 
 ifeq ($(OS), Linux)
@@ -18,7 +21,7 @@ endif
 
 deploy: link_files
 
-link_files: $(DOTFILES) $(NEOVIM_RC) $(NEOVIM_FILES)
+link_files: $(DOTFILES) $(NEOVIM_RC) $(NEOVIM_FILES) $(VSCODE_FILES)
 
 $(DOTFILES): $(HOME)/.%: $(RC_DIR)/%
 	-mkdir -p $(dir $@)
@@ -33,6 +36,11 @@ $(NEOVIM_FILES): $(HOME)/.config/nvim/%:$(RC_DIR)/vim/%
 	-mkdir -p $(dir $@)
 	-ln $(LN_FLAGS)  $< $@
 
+ $(VSCODE_FILES): $(RC_DIR)/vscode/*
+	$(info "Target" $@)
+	$(info "Prerequisite" $<)
+	-mkdir -p $(dir $@)
+	-ln $(LN_FLAGS)  "$<" "$@"
 
 ansible: submodule
 	ansible-playbook -i localhost, -c local ansible/site.yml
@@ -48,8 +56,3 @@ brew:
 
 fzf:
 	bash installers/fzf.sh
-
-.PHONY: show_dotfiles
-show_dotfiles:
-	@echo $(DOTFILES)
-

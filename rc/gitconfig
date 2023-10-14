@@ -3,3 +3,6 @@
 	editor = vim -c \"set fenc=utf-8\"
 [ghq]
 	root = ~/workspace
+[user]
+	name = Yuta Nakamura
+	email = nakamurayuta0204@gmail.com
