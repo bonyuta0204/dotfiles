@@ -23,8 +23,8 @@ NEOVIM_FILES := $(patsubst rc/vim/%, ~/.config/nvim/%, $(NEOVIM_SRC))
 # Find all source files for VSCode
 VSCODE_SRC := $(shell find rc/vscode -type f -print)
 
-# Destination paths for VSCode files
-VSCODE_FILES := $(patsubst rc/vscode/%, ~/Library/Application\ Support/Code/User/%, $(VSCODE_SRC))
+# VSCode setting root directory
+VSCODE_ROOT := ~/Library/Application\ Support/Code/User
 
 # Determine OS type
 OS := $(shell uname -s)
@@ -52,7 +52,7 @@ endif
 deploy: link_files
 
 # Links all files to their appropriate locations
-link_files: $(DOTFILES) $(NEOVIM_RC) $(NEOVIM_FILES) $(VSCODE_FILES)
+link_files: $(DOTFILES) $(NEOVIM_RC) $(NEOVIM_FILES) $(VSCODE_FILES) $(VSCODE_ROOT)/settings.json
 
 # ---------------------------
 # Individual File Link Targets
@@ -73,8 +73,8 @@ $(NEOVIM_FILES): $(HOME)/.config/nvim/%: $(RC_DIR)/vim/%
 	-mkdir -p $(dir $@)
 	-ln $(LN_FLAGS)  $< $@
 
-# Linking VSCode files
-$(VSCODE_FILES): $(HOME)/Library/Application\ Support/Code/User/%: $(RC_DIR)/vscode/%
+# Lining VSCode settings.json
+$(VSCODE_ROOT)/settings.json: $(RC_DIR)/vscode/settings.json
 	-mkdir -p $(dir $@)
 	-ln $(LN_FLAGS)  "$<" "$@"
 
