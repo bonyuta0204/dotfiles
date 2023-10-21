@@ -42,7 +42,7 @@ endif
 # Phony Declarations
 # ------------------
 
-.PHONY: deploy link_files ansible submodule fzf
+.PHONY: deploy link_files ansible submodule fzf clean
 
 # ------------
 # Main Targets
@@ -100,3 +100,8 @@ brew:
 # Install or update fzf
 fzf:
 	bash installers/fzf.sh
+
+clean:
+	-for file in $(DOTFILES) $(NEOVIM_RC) $(NEOVIM_FILES) $(VSCODE_FILES) $(VSCODE_ROOT)/settings.json; do \
+		unlink "$$file" || true; \
+	done
