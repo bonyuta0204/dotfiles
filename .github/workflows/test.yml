@@ -8,9 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Run test script
-      run: ./test/test.sh
+      - name: Run the installer
+        run: ./install.sh
 
+      - name: Run test script
+        run: ./test/test.sh
