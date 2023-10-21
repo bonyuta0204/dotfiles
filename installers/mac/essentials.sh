@@ -20,4 +20,3 @@ brew install ag
 
 # install fish
 brew install fish
-fish -c 'fisher'
