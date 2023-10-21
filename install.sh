@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 # set os to MACHINE
 unameOut="$(uname -s)"
 case "${unameOut}" in
