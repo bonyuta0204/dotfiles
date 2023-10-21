@@ -10,50 +10,49 @@ BOLD="\033[1m"
 
 FAILED=0
 
+# Function to display program check result
+display_result() {
+    local cmd=$1
+    local is_installed=$2
+    local VERSION=$3
+
+    echo -n "📝 $cmd: "
+    if [ "$is_installed" -eq 0 ]
+    then
+        if [ -z "$VERSION" ]
+        then
+            echo -e "${RED}⚠️ Installed but version not detected${RESET}"
+        else
+            echo -e "${GREEN}✅ Succesfully installed (version: ${VERSION})${RESET}"
+        fi
+    else
+        echo -e "${RED}❌ Not Installed${RESET}"
+        FAILED=1
+    fi
+}
+
 ## Test programs are correctly installed
 
 echo -e "${BOLD}🔍 Checking program installation...${RESET}"
 
-### vim
-echo -n "📝 vim: "
-if ! command -v vim &> /dev/null
-then
-    echo -e "${RED}❌ Not Installed${RESET}"
-    FAILED=1
-else
-    VERSION=$(vim --version | head -n 1 | cut -d ' ' -f 5)
-    echo -e "${GREEN}✅ OK. Installed version ${VERSION}${RESET}"
-fi
+# vim
+is_installed=$(command -v vim &> /dev/null; echo $?)
+VERSION=$( [ "$is_installed" -eq 0 ] && vim --version | head -n 1 | cut -d ' ' -f 5 )
+display_result "vim" "$is_installed" "$VERSION"
 
-echo -n "📝 neovim: "
-if ! command -v nvim &> /dev/null
-then
-    echo -e "${RED}❌ Not Installed${RESET}"
-    FAILED=1
-else
-    VERSION=$(nvim --version | head -n 1 | awk '{print $2}')
-    echo -e "${GREEN}✅ OK. Installed version ${VERSION}${RESET}"
-fi
+# neovim
+is_installed=$(command -v nvim &> /dev/null; echo $?)
+VERSION=$( [ "$is_installed" -eq 0 ] && nvim --version | head -n 1 | awk '{print $2}')
+display_result "neovim" "$is_installed" "$VERSION"
 
-echo -n "📝 tmux: "
-if ! command -v tmux &> /dev/null
-then
-    echo -e "${RED}❌ Not Installed${RESET}"
-    FAILED=1
-else
-    VERSION=$(tmux -V | awk '{print $2}')
-    echo -e "${GREEN}✅ OK. Installed version ${VERSION}${RESET}"
-fi
+# tmux
+is_installed=$(command -v tmux &> /dev/null; echo $?)
+VERSION=$( [ "$is_installed" -eq 0 ] && tmux -V | awk '{print $2}')
+display_result "tmux" "$is_installed" "$VERSION"
 
-echo -n "📝 fish: "
-if ! command -v fish &> /dev/null
-then
-    echo -e "${RED}❌ Not Installed${RESET}"
-    FAILED=1
-else
-    VERSION=$(fish --version | awk '{print $3}')
-    echo -e "${GREEN}✅ OK. Installed version ${VERSION}${RESET}"
-fi
-
+# fish
+is_installed=$(command -v fish &> /dev/null; echo $?)
+VERSION=$( [ "$is_installed" -eq 0 ] && fish --version | awk '{print $3}')
+display_result "fish" "$is_installed" "$VERSION"
 
 exit $FAILED
