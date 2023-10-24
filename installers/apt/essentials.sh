@@ -5,6 +5,9 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+# Set environment variables to non-interactive (this prevents some prompts)
+export DEBIAN_FRONTEND=non-interactive
+
 apt-install(){
  apt-get -y install $@
 }
