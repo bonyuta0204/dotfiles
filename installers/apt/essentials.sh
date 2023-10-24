@@ -1,21 +1,17 @@
 #!/bin/bash
-set -ex
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 
-   exit 1
-fi
+set -eu
 
 # Set environment variables to non-interactive (this prevents some prompts)
 export DEBIAN_FRONTEND=non-interactive
 
 apt-install(){
- apt-get -y install $@
+ sudo apt-get -y install $@
 }
 
 apt-add-repo(){
-  apt-add-repository -y $@
+  sudo apt-add-repository -y $@
 }
-apt-get update
+sudo apt-get update
 ## apt-add-repo is included in software-properties-common
 apt-install software-properties-common
 
