@@ -58,6 +58,7 @@ display_result "fish" "$is_installed" "$VERSION"
 
 ## Testing fish installation
 
+echo ""
 echo -e "${BOLD}🔍 Checking fish installation...${RESET}"
 
 fish test/test_fish.fish
