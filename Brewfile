@@ -1,38 +1,60 @@
-tap "homebrew/cask"
-tap "github/gh"
+#############################################################
+#                       Brewfile                            #
+#############################################################
 
-cask_args appdir: "~/Applications"
+tap 'homebrew/cask-fonts'
 
-brew "awscli"
-brew "fish"
-brew "fzf"
-brew "ag"
-brew "jq"
-brew "wget"
-brew "python3"
-brew "vim"
-brew "neovim"
-brew "tig"
-brew "tmux"
-brew "htop"
-brew "github/gh/gh"
+#------------------------
+# Development Essentials
+#------------------------
 
+brew 'git'                    # Git for version control
+brew 'neovim'                 # Extensible text editor
+brew 'vim'                    # Vim text editor
+brew 'tmux'                   # Terminal multiplexer
+brew 'docker'                 # Containerization
 
+#------------------------
+# Development Utilities
+#------------------------
 
-cask "google-chrome"
+brew 'awscli'                 # AWS CLI
+brew 'gh'                     # GitHub CLI
+brew 'ghq'                    # Remote repo management
+brew 'node'                   # Node.js runtime
+brew 'yarn'                   # Package manager for Node.js
+brew 'mysql-client'           # MySQL client
+brew 'redis'                  # redis
 
-cask "google-japanese-ime"
+#------------------------
+# Shell and CLI Tools
+#------------------------
 
-cask "iterm2"
-cask 'alfred'
-cask 'virtualbox'
-cask 'vagrant'
-cask 'virtualbox-extension-pack'
-cask 'docker'
-cask 'visual-studio-code'
-cask "karabiner-elements"
-cask "sequel-pro"
-cask "firefox"
+brew 'fish'                   # User-friendly shell
+brew 'fzf'                    # Fuzzy finder
+brew 'htop'                   # Process viewer
+brew 'jq'                     # JSON processor
+brew 'ripgrep'                # Fast search tool
+brew 'ag'                     # Fast search tool
+brew 'tig'                    # Text interface for Git
+brew 'tree'                   # Directory tree viewer
+brew 'openssl'                # SSL/TLS toolkit
+brew 'wget'                   # File downloader
 
+#------------------------
+# GUI Applications
+#------------------------
 
-cask "slack"
+cask 'alfred'                 # App launcher
+cask 'google-chrome'          # Web browser
+cask 'iterm2'                 # Terminal emulator
+cask 'karabiner-elements'     # Keyboard customizer
+cask 'visual-studio-code'     # Code editor
+cask 'google-japanese-ime'    # Japanese IME
+cask 'docker'                 # Docker Desktop
+
+#------------------------
+# fonts
+#------------------------
+
+cask 'font-inconsolata-for-powerline'
