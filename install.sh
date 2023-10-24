@@ -35,8 +35,9 @@ esac
 # set symlink
 make deploy
 
+# install fzf
+source installers/fzf.sh
+
 # Install and set up fish
 fish installers/fish.fish
 
-# install fzf
-source installers/fzf.sh
