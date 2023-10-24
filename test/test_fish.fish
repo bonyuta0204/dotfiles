@@ -13,4 +13,20 @@ else
     set FAILED 1
 end
 
+echo -n "📝 z: "
+if type z > /dev/null 2>&1
+    echo "✅ Succesfully installed"
+else
+    echo -e "❌ Not Installed"
+    set FAILED 1
+end
+
+echo -n "📝 fzf: "
+if type __fzfcmd > /dev/null 2>&1
+    echo "✅ Succesfully installed"
+else
+    echo -e "❌ Not Installed"
+    set FAILED 1
+end
+
 exit $FAILED
