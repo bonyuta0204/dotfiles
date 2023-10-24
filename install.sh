@@ -12,6 +12,7 @@ case "${unameOut}" in
     *)          MACHINE="UNKNOWN:${unameOut}"
 esac
 
+# Install Essential Tools
 case $MACHINE in
   "Mac")
     source installers/mac/essentials.sh
@@ -33,6 +34,9 @@ esac
 
 # set symlink
 make deploy
+
+# Install and set up fish
+fish installers/fish.fish
 
 # install fzf
 source installers/fzf.sh

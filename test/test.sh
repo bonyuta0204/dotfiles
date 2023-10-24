@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # This script is used to test if the setup was successful.
 
 # ANSI escape codes for text color
@@ -55,4 +56,16 @@ is_installed=$(command -v fish &> /dev/null; echo $?)
 VERSION=$( [ "$is_installed" -eq 0 ] && fish --version | awk '{print $3}')
 display_result "fish" "$is_installed" "$VERSION"
 
+## Testing fish installation
+
+echo -e "${BOLD}🔍 Checking fish installation...${RESET}"
+
+fish test/test_fish.fish
+
+if [ $? -ne 0 ]
+then
+    FAILED=1
+fi
+
 exit $FAILED
+
