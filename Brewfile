@@ -52,6 +52,8 @@ cask 'karabiner-elements'     # Keyboard customizer
 cask 'visual-studio-code'     # Code editor
 cask 'google-japanese-ime'    # Japanese IME
 cask 'docker'                 # Docker Desktop
+cask 'sequel-ace'             # Graphical MySQL Client
+cask 'clipy'                  # Clipboard Utilities
 
 #------------------------
 # fonts
