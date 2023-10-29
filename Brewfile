@@ -59,3 +59,39 @@ cask 'clipy'                  # Clipboard Utilities
 #------------------------
 
 cask 'font-inconsolata-for-powerline'
+
+#------------------------
+# VSCode Extensions
+#------------------------
+
+# Formatting and Linting
+vscode "dbaeumer.vscode-eslint"
+vscode "esbenp.prettier-vscode"
+vscode "ms-python.black-formatter"
+vscode "ms-python.flake8"
+vscode "misogi.ruby-rubocop"
+
+# GitHub Tools
+vscode "GitHub.copilot"
+vscode "GitHub.copilot-chat"
+vscode "GitHub.copilot-labs"
+vscode "github.vscode-github-actions"
+vscode "GitHub.vscode-pull-request-github"
+
+# Language Support
+vscode "golang.go"
+vscode "haskell.haskell"
+vscode "redhat.java"
+vscode "ms-python.python"
+vscode "Shopify.ruby-lsp"
+vscode "Vue.volar"
+
+# Remote Work and Containers
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+
+# Miscellaneous
+vscode "jebbs.plantuml"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "vscodevim.vim"
