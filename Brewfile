@@ -25,6 +25,7 @@ brew 'node'                   # Node.js runtime
 brew 'yarn'                   # Package manager for Node.js
 brew 'anyenv'                 # All in for ** env
 brew 'mysql-client'           # MySQL client
+brew 'mysql'                  # MySQL
 brew 'redis'                  # redis
 
 #------------------------
