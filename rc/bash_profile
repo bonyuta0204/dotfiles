@@ -1,122 +1,60 @@
 #!/bin/bash
 # .bash_profile
 
-# Get aliases and functions
+# Source .bashrc if it exists
 if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
+    . ~/.bashrc
 fi
 
+# Terminal Settings
+export TERM=xterm-256color
 
-TERM=xterm-256color
-
-
-# for debugging
-echo-path(){
-echo $PATH | sed 's/:/\
-/g'
-}
-
-# Read local settings
+# Load local settings if available
 if [ -f $HOME/.bashrc.d/bash_local ]; then
-  . $HOME/.bashrc.d/bash_local
+    . $HOME/.bashrc.d/bash_local
 fi
 
-
-# User specific environment and startup programs
-export PATH="$HOME/local/script:$HOME/local/bin:$HOME/.local/bin:$PATH"
-export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-
-# use nvim as man viewer when available
+# neovim as man viewer, if available
 if command -v nvim &> /dev/null; then
-  export MANPAGER='nvim +Man!'
+    export MANPAGER='nvim +Man!'
 fi
 
-
-# Setting PATH for XXXenv Library
+# Initialize version managers
+# anyenv
 if command -v anyenv &> /dev/null; then
-  eval "$(anyenv init -)"
+    eval "$(anyenv init -)"
 fi
 
-
-if [ -d ~/.rbenv ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-
-if [ -d ~/.ndenv ]; then
-  export PATH="$HOME/.ndenv/bin:$PATH"
-  eval "$(ndenv init -)"
-fi
-
-if [ -d ~/.nodenv ]; then
-  export PATH="$HOME/.nodenv/bin:$PATH"
-  eval "$(nodenv init -)"
-fi
-
-
-# Setting PATH for go lang
+# Language-specific environment setups
+# Go
 if [ -d /usr/local/go ]; then
-  export PATH="/usr/local/go/bin:$PATH"
+    export PATH="/usr/local/go/bin:$PATH"
 fi
 
 if [ -d ~/go ]; then
-  export PATH="~/go/bin:$PATH"
+    export PATH="~/go/bin:$PATH"
 fi
 
-# Setting PATH for Python 3.10
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
-export PATH
-
-
-# Setting PATH for Npm & Yarn
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-if [ -d ~/.node_modules_global ]; then
-  export PATH="$PATH:$HOME/.node_modules_global/bin"
-fi
-
-
-# Setting PATH for Haskell
+# Haskell
 [ -f "/Users/yutanakamura/.ghcup/env" ] && source "/Users/yutanakamura/.ghcup/env" # ghcup-env
 
-
-# Setting PATH for Android Studio
+# Android Studio
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/yutanakamura/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/yutanakamura/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/yutanakamura/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/yutanakamura/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+# Volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
+# Conditional behavior for VSCode terminal
+if [ "$TERM_PROGRAM" != "vscode" ]; then
+    # auto start tmux if available
+    if command -v tmux &> /dev/null; then
+        . $HOME/.bashrc.d/auto_start_tmux.sh
+    fi
 
-# run only when $TERM_PROGRAM is "vscode"
-if [ $TERM_PROGRAM != "vscode" ]; then
-  # auto start tmux
-  if command -v tmux &> /dev/null; then
-  . $HOME/.bashrc.d/auto_start_tmux.sh
-  fi
-
-  # use fish when available
-  if command -v fish &> /dev/null; then
-    exec fish
-  fi
+    # switch to fish shell if available
+    if command -v fish &> /dev/null; then
+        exec fish
+    fi
 fi
-### LINE BELOW THIS LINE WILL NOT BE EXCUTED WHEN USING FISH SHELL
-
-
+# Lines below this will not execute when using fish shell
