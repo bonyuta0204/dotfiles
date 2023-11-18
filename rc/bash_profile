@@ -9,6 +9,9 @@ fi
 # Terminal Settings
 export TERM=xterm-256color
 
+# Homebrew
+eval "$(/usr/local/bin/brew shellenv)"
+
 # Load local settings if available
 if [ -f $HOME/.bashrc.d/bash_local ]; then
     . $HOME/.bashrc.d/bash_local
@@ -58,3 +61,5 @@ if [ "$TERM_PROGRAM" != "vscode" ]; then
     fi
 fi
 # Lines below this will not execute when using fish shell
+
+
