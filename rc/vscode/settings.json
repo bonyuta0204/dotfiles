@@ -7,7 +7,14 @@
   "remote.SSH.remotePlatform": {
     "vagrant": "linux"
   },
+  "dev.containers.defaultExtensions": [
+    "eamodio.gitlens",
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "GitHub.copilot-labs"
+  ],
   "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "k"],
