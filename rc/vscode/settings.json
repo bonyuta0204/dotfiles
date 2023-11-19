@@ -1,19 +1,33 @@
 {
-  "workbench.colorTheme": "Solarized Light",
+  // ファイルの関連付け設定
   "files.associations": {
     "*.css": "tailwindcss"
   },
-  "remote.SSH.useLocalServer": false,
+
+  // 色テーマの設定
+  "workbench.colorTheme": "Solarized Light",
+
+  // リモートSSH設定
   "remote.SSH.remotePlatform": {
     "vagrant": "linux"
   },
+  "remote.SSH.useLocalServer": false,
+
+  // コンテナの拡張設定
   "dev.containers.defaultExtensions": [
     "eamodio.gitlens",
     "GitHub.copilot",
     "GitHub.copilot-chat",
     "GitHub.copilot-labs"
   ],
-  "vim.useSystemClipboard": true,
+
+  // Git関連設定
+  "git.openRepositoryInParentFolders": "never",
+
+  // Haskell言語の設定
+  "haskell.manageHLS": "GHCup",
+
+  // Vim拡張機能設定
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
     {
@@ -31,41 +45,44 @@
       "after": ["g", "k"]
     }
   ],
-  "[vue]": {
+  "vim.useSystemClipboard": true,
+
+  // 各言語フォーマット関連設定
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
   },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[python]": {
+    "editor.formatOnType": true
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
   "[typescriptreact]": {
-    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
     "editor.quickSuggestions": {
       "strings": "on"
     }
   },
-  "[javascript]": {
+  "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
-  },
-  "haskell.manageHLS": "GHCup",
-  "[python]": {
-    "editor.formatOnType": true
-  },
-  "git.openRepositoryInParentFolders": "never",
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
