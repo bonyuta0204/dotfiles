@@ -12,7 +12,6 @@ brew 'git'                    # Git for version control
 brew 'neovim'                 # Extensible text editor
 brew 'vim'                    # Vim text editor
 brew 'tmux'                   # Terminal multiplexer
-brew 'docker'                 # Containerization
 
 #------------------------
 # Development Utilities
@@ -54,6 +53,8 @@ cask 'karabiner-elements'     # Keyboard customizer
 cask 'visual-studio-code'     # Code editor
 cask 'google-japanese-ime'    # Japanese IME
 cask 'docker'                 # Docker Desktop
+cask 'sequel-ace'             # Graphical MySQL Client
+cask 'clipy'                  # Clipboard Utilities
 
 #------------------------
 # fonts
