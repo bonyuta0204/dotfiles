@@ -9,8 +9,23 @@ fi
 # Terminal Settings
 export TERM=xterm-256color
 
-# Homebrew
-eval "$(/usr/local/bin/brew shellenv)"
+
+# Check for Homebrew path on Apple Silicon-based Macs
+# On Apple Silicon Macs, Homebrew is typically installed at `/opt/homebrew/bin/brew`.
+if [ -f "/opt/homebrew/bin/brew" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Check for Homebrew path on Intel-based Macs
+# On Intel Macs, Homebrew is typically installed at `/usr/local/bin/brew`.
+elif [ -f "/usr/local/bin/brew" ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+
+# Error message if Homebrew is not found
+# If Homebrew is not found in either of the above paths, display an error message.
+else
+    echo "Homebrew is not installed."
+fi
+
 
 # Load local settings if available
 if [ -f $HOME/.bashrc.d/bash_local ]; then
@@ -61,5 +76,3 @@ if [ "$TERM_PROGRAM" != "vscode" ]; then
     fi
 fi
 # Lines below this will not execute when using fish shell
-
-
