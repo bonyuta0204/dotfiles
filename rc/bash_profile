@@ -37,6 +37,8 @@ if command -v nvim &> /dev/null; then
     export MANPAGER='nvim +Man!'
 fi
 
+export PATH="$PATH:$HOME/.local/bin"
+
 # Initialize version managers
 # anyenv
 if command -v anyenv &> /dev/null; then

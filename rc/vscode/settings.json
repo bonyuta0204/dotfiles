@@ -84,5 +84,6 @@
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
-  }
+  },
+  "redhat.telemetry.enabled": true
 }

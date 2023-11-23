@@ -39,6 +39,7 @@ brew 'ripgrep'                # Fast search tool
 brew 'ag'                     # Fast search tool
 brew 'tig'                    # Text interface for Git
 brew 'tree'                   # Directory tree viewer
+brew 'pipx'                   # Python Cli Installer
 brew 'openssl'                # SSL/TLS toolkit
 brew 'wget'                   # File downloader
 
