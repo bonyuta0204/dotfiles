@@ -3,6 +3,7 @@
 #############################################################
 
 tap 'homebrew/cask-fonts'
+tap 'oven-sh/bun'
 
 #------------------------
 # Development Essentials
@@ -26,6 +27,7 @@ brew 'anyenv'                 # All in for ** env
 brew 'mysql-client'           # MySQL client
 brew 'mysql'                  # MySQL
 brew 'redis'                  # redis
+brew 'bun'                    # fast JavaScript all-in-one toolkit
 
 #------------------------
 # Shell and CLI Tools
