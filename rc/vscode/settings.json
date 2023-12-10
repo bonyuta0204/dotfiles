@@ -68,7 +68,7 @@
     "editor.formatOnSave": true
   },
   "[python]": {
-    "editor.formatOnType": true
+    "editor.formatOnSave": true
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -85,5 +85,15 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "redhat.telemetry.enabled": true
+  "redhat.telemetry.enabled": true,
+  "cmake.configureOnOpen": true,
+  "zig.path": "",
+  "zig.zls.path": "/Users/yutanakamura/Library/Application Support/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
+  "zig.initialSetupDone": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  }
 }

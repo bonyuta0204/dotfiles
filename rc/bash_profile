@@ -9,6 +9,8 @@ fi
 # Terminal Settings
 export TERM=xterm-256color
 
+ export PATH="$PATH:$HOME/workspace/github.com/oven-sh/bun/build"
+
 
 # Check for Homebrew path on Apple Silicon-based Macs
 # On Apple Silicon Macs, Homebrew is typically installed at `/opt/homebrew/bin/brew`.
@@ -26,6 +28,7 @@ else
     echo "Homebrew is not installed."
 fi
 
+export PATH="/usr/local/opt/llvm@16/bin:$PATH"
 
 # Load local settings if available
 if [ -f $HOME/.bashrc.d/bash_local ]; then
@@ -37,7 +40,7 @@ if command -v nvim &> /dev/null; then
     export MANPAGER='nvim +Man!'
 fi
 
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Initialize version managers
 # anyenv

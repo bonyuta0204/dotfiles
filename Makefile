@@ -26,6 +26,9 @@ VSCODE_SRC := $(shell find rc/vscode -type f -print)
 # VSCode setting root directory
 VSCODE_ROOT := ~/Library/Application\ Support/Code/User
 
+# VSCode setting root directory
+VSCODE_INSIDER_ROOT := ~/Library/Application\ Support/Code\ -\ Insiders/User
+
 # Determine OS type
 OS := $(shell uname -s)
 
@@ -52,7 +55,7 @@ endif
 deploy: link_files
 
 # Links all files to their appropriate locations
-link_files: $(DOTFILES) $(NEOVIM_RC) $(NEOVIM_FILES) $(VSCODE_FILES) $(VSCODE_ROOT)/settings.json
+link_files: $(DOTFILES) $(NEOVIM_RC) $(NEOVIM_FILES) $(VSCODE_FILES) $(VSCODE_ROOT)/settings.json $(VSCODE_INSIDER_ROOT)/settings.json
 
 # ---------------------------
 # Individual File Link Targets
@@ -75,6 +78,10 @@ $(NEOVIM_FILES): $(HOME)/.config/nvim/%: $(RC_DIR)/vim/%
 
 # Lining VSCode settings.json
 $(VSCODE_ROOT)/settings.json: $(RC_DIR)/vscode/settings.json
+	-mkdir -p $(dir $@)
+	-ln $(LN_FLAGS)  "$<" "$@"
+
+$(VSCODE_INSIDER_ROOT)/settings.json: $(RC_DIR)/vscode/settings.json
 	-mkdir -p $(dir $@)
 	-ln $(LN_FLAGS)  "$<" "$@"
 
@@ -102,6 +109,6 @@ fzf:
 	bash installers/fzf.sh
 
 clean:
-	-for file in $(DOTFILES) $(NEOVIM_RC) $(NEOVIM_FILES) $(VSCODE_FILES) $(VSCODE_ROOT)/settings.json; do \
+	-for file in $(DOTFILES) $(NEOVIM_RC) $(NEOVIM_FILES) $(VSCODE_FILES) $(VSCODE_ROOT)/settings.json $(VSCODE_INSIDER_ROOT)/settings.json; do \
 		unlink "$$file" || true; \
 	done
