@@ -32,6 +32,9 @@ case $MACHINE in
     ;;
 esac
 
+# install VScode Extentions
+source installers/vscode/install-extensions.sh
+
 # set symlink
 make deploy
 
