@@ -14,8 +14,7 @@
   "dev.containers.defaultExtensions": [
     "eamodio.gitlens",
     "GitHub.copilot",
-    "GitHub.copilot-chat",
-    "GitHub.copilot-labs"
+    "GitHub.copilot-chat"
   ],
   // Git関連設定
   "git.openRepositoryInParentFolders": "never",

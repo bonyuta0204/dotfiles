@@ -79,7 +79,6 @@ vscode "misogi.ruby-rubocop"
 # GitHub Tools
 vscode "GitHub.copilot"
 vscode "GitHub.copilot-chat"
-vscode "GitHub.copilot-labs"
 vscode "github.vscode-github-actions"
 vscode "GitHub.vscode-pull-request-github"
 
