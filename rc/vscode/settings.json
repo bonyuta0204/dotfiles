@@ -3,16 +3,13 @@
   "files.associations": {
     "*.css": "tailwindcss"
   },
-
   // 色テーマの設定
   "workbench.colorTheme": "Solarized Light",
-
   // リモートSSH設定
   "remote.SSH.remotePlatform": {
     "vagrant": "linux"
   },
   "remote.SSH.useLocalServer": false,
-
   // コンテナの拡張設定
   "dev.containers.defaultExtensions": [
     "eamodio.gitlens",
@@ -20,33 +17,53 @@
     "GitHub.copilot-chat",
     "GitHub.copilot-labs"
   ],
-
   // Git関連設定
   "git.openRepositoryInParentFolders": "never",
-
   // Haskell言語の設定
   "haskell.manageHLS": "GHCup",
-
   // Vim拡張機能設定
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<RIGHT>"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["j"],
-      "after": ["g", "j"]
+      "before": [
+        "j"
+      ],
+      "after": [
+        "g",
+        "j"
+      ]
     },
     {
-      "before": ["k"],
-      "after": ["g", "k"]
-    }
+      "before": [
+        "k"
+      ],
+      "after": [
+        "g",
+        "k"
+      ]
+    },
   ],
   "vim.useSystemClipboard": true,
-
   // 各言語フォーマット関連設定
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -64,7 +81,7 @@
     "editor.formatOnSave": true
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": true
   },
   "[python]": {
