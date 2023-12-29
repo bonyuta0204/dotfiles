@@ -82,6 +82,12 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+
+# rust
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
+
 # Conditional behavior for VSCode terminal
 if [ "$TERM_PROGRAM" != "vscode" ]; then
     # auto start tmux if available
