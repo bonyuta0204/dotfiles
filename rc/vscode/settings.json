@@ -111,5 +111,12 @@
     "plaintext": false,
     "markdown": true,
     "scminput": false
+  },
+  "cSpell.userWords": ["pathe", "picocolors"],
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.suggest.insertMode": "replace",
+    "cSpell.fixSpellingWithRenameProvider": false
   }
 }

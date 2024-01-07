@@ -28,6 +28,7 @@ brew 'mysql-client'           # MySQL client
 brew 'mysql'                  # MySQL
 brew 'redis'                  # redis
 brew 'bun'                    # fast JavaScript all-in-one toolkit
+brew 'just'                   # task runner written in Rust
 
 #------------------------
 # Shell and CLI Tools
