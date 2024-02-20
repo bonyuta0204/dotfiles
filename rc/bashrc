@@ -77,3 +77,4 @@ if [ -f ~/.fzf.bash ]; then
     cd $dir
   }
 fi
+. "$HOME/.cargo/env"

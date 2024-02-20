@@ -60,7 +60,7 @@
         "g",
         "k"
       ]
-    },
+    }
   ],
   "vim.useSystemClipboard": true,
   // 各言語フォーマット関連設定
@@ -116,11 +116,16 @@
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
     "editor.formatOnSave": true
   },
-  "cSpell.userWords": ["pathe", "picocolors"],
+  "cSpell.userWords": [
+    "pathe",
+    "picocolors"
+  ],
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.suggest.insertMode": "replace",
     "cSpell.fixSpellingWithRenameProvider": false
-  }
+  },
+  "circleci.hostUrl": "",
+  "window.zoomLevel": 1
 }
