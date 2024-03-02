@@ -55,7 +55,10 @@ if [ -d /usr/local/go ]; then
 fi
 
 if [ -d ~/go ]; then
-    export PATH="~/go/bin:$PATH"
+    export GOBIN=$HOME/go/bin
+    export GOPATH=$HOME/go
+
+    export PATH="$HOME/go/bin:$PATH"
 fi
 
 # Haskell

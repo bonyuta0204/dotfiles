@@ -48,7 +48,7 @@ function fish_user_key_bindings
   bind \cg ghq_fzf_repo
 end
 
-if test -d $HOME/.rbenv
+if command -v rbenv > /dev/null
   status --is-interactive; and source (rbenv init -|psub)
 end
 
