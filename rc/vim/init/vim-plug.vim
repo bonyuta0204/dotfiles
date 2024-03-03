@@ -83,6 +83,6 @@ Plug 'posva/vim-vue'
 Plug 'dag/vim-fish'
 
 " copilot
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 
 call plug#end()

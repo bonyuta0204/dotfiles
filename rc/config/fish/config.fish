@@ -64,6 +64,9 @@ if command -v direnv > /dev/null
   direnv hook fish | source
 end
 
+if command -v starship > /dev/null
+  starship init fish | source
+end
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -76,3 +79,4 @@ end
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+
