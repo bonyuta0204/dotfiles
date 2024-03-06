@@ -45,6 +45,7 @@ brew 'tree'                   # Directory tree viewer
 brew 'pipx'                   # Python Cli Installer
 brew 'openssl'                # SSL/TLS toolkit
 brew 'wget'                   # File downloader
+brew 'starship'               # Cross Shell Prompt
 
 #------------------------
 # GUI Applications
@@ -64,7 +65,7 @@ cask 'clipy'                  # Clipboard Utilities
 # fonts
 #------------------------
 
-cask 'font-inconsolata-for-powerline'
+cask 'font-inconsolata-nerd-font'
 
 #------------------------
 # VSCode Extensions
