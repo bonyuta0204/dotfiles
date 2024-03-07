@@ -10,8 +10,5 @@ WORKDIR /workspace
 
 COPY . .
 
-RUN make
-
-RUN nvim -c "PlugInstall" -c "qa"
 
 CMD ["bash"]
