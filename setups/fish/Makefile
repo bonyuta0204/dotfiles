@@ -20,6 +20,6 @@ all: $(CONFIG_TARGETS)
 
 $(CONFIG_TARGETS): $(HOME)/.config/fish/% : config/%
 		@mkdir -p $(dir $@)
-		ln $(LN_FLAGS) $(realpath $<) $@
+		@ln $(LN_FLAGS) $(realpath $<) $@
 
 

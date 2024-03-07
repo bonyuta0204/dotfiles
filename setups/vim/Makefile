@@ -23,9 +23,9 @@ all: $(VIM_RC) $(CONFIG_TARGETS)
 
 $(VIM_RC): ../neovim/vimrc
 		@mkdir -p $(dir $@)
-		ln $(LN_FLAGS) $(realpath $<) $@
+		@ln $(LN_FLAGS) $(realpath $<) $@
 
 # Linking other Neovim files
 $(CONFIG_TARGETS): $(HOME)/.vim/%: ../neovim/config/%
 		@mkdir -p $(dir $@)
-		ln $(LN_FLAGS) $(realpath $<) $@
+		@ln $(LN_FLAGS) $(realpath $<) $@

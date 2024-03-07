@@ -1,4 +1,0 @@
-# Read more about SSH config files: https://linux.die.net/man/5/ssh_config
-Host vagrant
-    HostName 192.168.99.100
-    User vagrant
