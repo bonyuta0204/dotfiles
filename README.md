@@ -1,52 +1,83 @@
-# Dotfiles
+
+# Dotfiles Repository
 
 ## Overview
 
-This repository contains my personal dotfiles and is designed to automate the setup of a macOS system to my preferred configuration. While the primary goal is personal use, the repository is publicly available for anyone to learn from or use.
+This repository contains my personal dotfiles, designed to streamline the setup of macOS and Linux systems based on my preferences. While primarily tailored for my use, it is open to anyone who may find it useful.
 
 ## Supported Platforms
 
 - **macOS**: Fully supported.
-- **Linux**: Partially supported.
+- **Linux**: Support may vary, with some functionalities being limited.
 
 ## Dependencies
-Only `Make` and `Git` is needed.
 
-## Installation
+The only prerequisites for using this repository are `Make` and `Git`.
 
-To get started, clone the repository and execute the following commands:
+## Project Design
 
-```bash
-./install.sh
-```
+This project is designed with two primary goals in mind:
+
+1. **Portability**
+   - Ensures compatibility across different environments, including:
+     - macOS
+     - Linux-based systems
+     - Docker containers
+   - Minimizes reliance on external libraries, aiming for a minimalist approach by utilizing essential tools such as `sh`, `curl`, `git`, and `make`.
+
+2. **Modularity**
+   - Provides users with the flexibility to select only the components they need.
+
+## Project Structure
+
+The project is organized into separate layers to simplify automation:
+
+1. **Install Layer**
+   - Automates the installation of essential tools, with consideration for platform-specific dependencies.
+
+2. **Setup Layer**
+   - Manages tool configuration, typically by:
+     - Deploying configuration files
+     - Running setup scripts
 
 ## Usage
 
-After installation, you can use `make deploy` to refresh the configuration. This will create symbolic links to the appropriate configuration files.
+### Installation
+To install specific software, use the following command:
 
-## Configuration Files and Directories
+```bash
+./install [TARGET]
+```
 
-This repository contains settings and configurations for a variety of tools and environments. Below is a breakdown:
+To install all available software:
 
-- **Brewfile & Brewfile.lock.json**: Homebrew package definitions.
-- **Dockerfile & Dockerfile.nightly**: Docker configurations for standard and nightly builds.
-- **Makefile**: Make tasks for automating setup and deployment.
-- **Ansible**: Contains Ansible playbooks and roles for different setups like `apt-packages`, `docker`, `fish`, `neovim`, `nodenv`, and `rbenv`.
-- **dotfilesLink.bat & dotfilesLink.ps**: Batch and PowerShell scripts for creating symbolic links in Windows.
-- **install.sh**: Shell script to initialize the environment.
-- **installers**: Contains various shell scripts for setting up specific tools and utilities.
-- **rc**: The core directory containing configurations for:
-  - `bash` (bash_profile, bashrc)
-  - `fish` (config.fish, fishfile, and custom functions)
-  - `git` (gitconfig)
-  - `vim` (gvimrc, tmux.conf, vimrc, and more)
-  - `tmux` (tmux.conf)
-- **test**: Contains testing scripts.
+```bash
+./install -a
+```
+
+### Setup
+To configure specific software, use the following command:
+
+```bash
+./setup [TARGET]
+```
+
+To configure all available software:
+
+```bash
+./setup -a
+```
+
+To list all available software:
+
+```bash
+./setup -l
+```
 
 ## Contributing
 
-This repository is not currently accepting contributions, but feel free to use it for your own purposes.
+While this repository is not open for contributions at the moment, you are welcome to use it for your own configurations.
 
 ## License
 
-Feel free to use this repository however you like.
+This repository is available for use under the terms that best suit your needs.
