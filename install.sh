@@ -41,6 +41,8 @@ make deploy
 # install fzf
 source installers/fzf.sh
 
+nvim -c "PlugInstall" -c "qa"
+
 # Install and set up fish
 fish installers/fish.fish
 
