@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+make all
 
 set -euo pipefail
 
@@ -48,4 +50,5 @@ if command -v code-insiders >/dev/null 2>&1; then
 fi
 
 echo "Extension installation process completed."
+
 

@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/env fish
 
 ## Setup fish shell
 ## Fish shell should be installed before running this script
