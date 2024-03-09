@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -u
+
 # Define the base directory where the setup directories are located
 SETUP_DIR="./setups"
 
