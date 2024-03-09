@@ -20,11 +20,10 @@ all: $(VSCODE_ROOT)/settings.json $(VSCODE_INSIDER_ROOT)/settings.json
 
 # Lining VSCode settings.json
 $(VSCODE_ROOT)/settings.json: settings.json
-	- echo "$@"
-	-mkdir -p "$(VSCODE_ROOT)"
+	-mkdir -p $(VSCODE_ROOT)
 	-ln $(LN_FLAGS)  $(realpath $<) "$@"
 
 $(VSCODE_INSIDER_ROOT)/settings.json: settings.json
-	-mkdir -p "$(VSCODE_INSIDER_ROOT)"
+	-mkdir -p $(VSCODE_INSIDER_ROOT)
 	-ln $(LN_FLAGS)  $(realpath $<) "$@"
 
