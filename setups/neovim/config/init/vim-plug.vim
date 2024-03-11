@@ -32,6 +32,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
+Plug 'voldikss/vim-floaterm'
 Plug 'scrooloose/nerdcommenter'
 
 
