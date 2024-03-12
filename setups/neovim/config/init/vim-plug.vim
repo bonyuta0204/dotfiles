@@ -35,6 +35,13 @@ Plug 'mattn/emmet-vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'scrooloose/nerdcommenter'
 
+" Quick run
+Plug 'thinca/vim-quickrun'
+Plug 'is0n/jaq-nvim'
+
+" Test runner
+Plug 'vim-test/vim-test'
+
 
 if has('nvim-0.5')
 " LSP

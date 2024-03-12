@@ -4,6 +4,7 @@
 
 tap 'homebrew/cask-fonts'
 tap 'oven-sh/bun'
+tap 'jesseduffield/lazygit'
 
 #------------------------
 # Development Essentials
@@ -41,6 +42,7 @@ brew 'jq'                     # JSON processor
 brew 'ripgrep'                # Fast search tool
 brew 'ag'                     # Fast search tool
 brew 'tig'                    # Text interface for Git
+brew 'lazygit'                # A simple terminal UI for git commands
 brew 'tree'                   # Directory tree viewer
 brew 'pipx'                   # Python Cli Installer
 brew 'openssl'                # SSL/TLS toolkit
