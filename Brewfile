@@ -25,7 +25,9 @@ brew 'ghq'                    # Remote repo management
 brew 'node'                   # Node.js runtime
 brew 'yarn'                   # Package manager for Node.js
 brew 'anyenv'                 # All in for ** env
-brew 'mysql-client'           # MySQL client
+# NOTE: Need to pin mysql-client 8.2
+# @see: https://github.com/brianmario/mysql2/issues/1346
+# brew 'mysql-client'           # MySQL client
 brew 'mysql'                  # MySQL
 brew 'redis'                  # redis
 brew 'bun'                    # fast JavaScript all-in-one toolkit
