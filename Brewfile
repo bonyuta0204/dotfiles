@@ -32,6 +32,7 @@ brew 'mysql'                  # MySQL
 brew 'redis'                  # redis
 brew 'bun'                    # fast JavaScript all-in-one toolkit
 brew 'just'                   # task runner written in Rust
+brew 'universal-ctags'        # universal-ctags
 
 #------------------------
 # Shell and CLI Tools
