@@ -33,6 +33,7 @@ brew 'redis'                  # redis
 brew 'bun'                    # fast JavaScript all-in-one toolkit
 brew 'just'                   # task runner written in Rust
 brew 'universal-ctags'        # universal-ctags
+brew 'pipx'                   # Install and Run Python Applications in Isolated Environments
 
 #------------------------
 # Shell and CLI Tools

@@ -127,5 +127,7 @@
     "cSpell.fixSpellingWithRenameProvider": false
   },
   "git.autofetch": true,
-  "circleci.hostUrl": ""
+  "circleci.hostUrl": "",
+  "githubPullRequests.fileListLayout": "tree",
+  "githubPullRequests.pullBranch": "never"
 }
