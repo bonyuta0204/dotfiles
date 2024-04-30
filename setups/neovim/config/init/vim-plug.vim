@@ -68,7 +68,6 @@ endif
 
 " Filer
 Plug 'scrooloose/nerdtree'
-Plug 'preservim/tagbar'
 
 
 " Color Schema

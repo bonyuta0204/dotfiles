@@ -16,8 +16,6 @@ nnoremap <Leader>rc :<C-u>edit $MYVIMRC<CR>
 nnoremap <F5> :<C-u>source<Space>$MYVIMRC<CR>
 nnoremap <C-n> :<C-u>NERDTreeToggle<CR>
 nnoremap <C-e> :<C-u>Explore<CR>
-nmap <C-m> :<C-u>TagbarToggle<CR>
-
 
 
 " 括弧補完
