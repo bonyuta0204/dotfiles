@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[core]
+       editor = vim -c "set fenc=utf-8"
+[ghq]
+       root = ~/workspace
+
+# Include machine-specific configuration
+[include]
+       path = ~/.gitconfig.local
