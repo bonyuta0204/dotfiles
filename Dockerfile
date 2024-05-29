@@ -10,5 +10,7 @@ WORKDIR /workspace
 
 COPY . .
 
+RUN ./setup -a
+
 
 CMD ["bash"]

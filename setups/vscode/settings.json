@@ -129,5 +129,6 @@
   "git.autofetch": true,
   "circleci.hostUrl": "",
   "githubPullRequests.fileListLayout": "tree",
-  "githubPullRequests.pullBranch": "never"
+  "githubPullRequests.pullBranch": "never",
+  "github.copilot.editor.enableAutoCompletions": true
 }
