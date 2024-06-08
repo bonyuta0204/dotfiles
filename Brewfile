@@ -5,6 +5,7 @@
 tap 'homebrew/cask-fonts'
 tap 'oven-sh/bun'
 tap 'jesseduffield/lazygit'
+cask_args appdir: "/Applications"
 
 #------------------------
 # Development Essentials
