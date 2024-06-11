@@ -118,7 +118,8 @@
   },
   "cSpell.userWords": [
     "pathe",
-    "picocolors"
+    "picocolors",
+    "tailwindcss"
   ],
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -130,5 +131,7 @@
   "circleci.hostUrl": "",
   "githubPullRequests.fileListLayout": "tree",
   "githubPullRequests.pullBranch": "never",
+  "git.confirmSync": false,
+  "diffEditor.ignoreTrimWhitespace": false,
   "github.copilot.editor.enableAutoCompletions": true
 }

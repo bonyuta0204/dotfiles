@@ -27,12 +27,20 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 
-function fco -d "Fuzzy-find and checkout a branch"
+function fcb -d "Fuzzy-find and Checkout a Branch"
   git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
 end
 
-function fpr -d "Fuzzy-find and checkout a github pull request"
+function fcp -d "Fuzzy-find and Checkout a Pull request"
   gh pr list | fzf | read -l result; and echo "$result" | awk '{print $1}' | read -l pr_id; and gh pr checkout $pr_id
+end
+
+function fmb -d "Fuzzy-find and Merge a Branch"
+  git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git merge "$result"
+end
+
+function fmp -d "Fuzzy-find and Merge a Pull request"
+  gh pr list | fzf | read -l result; and echo "$result" | awk '{print $1}' | read -l branch; and echo "$branch"
 end
 
 # ghq + fzf
