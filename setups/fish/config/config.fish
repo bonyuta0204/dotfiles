@@ -27,20 +27,33 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 
+function fuzzy_find_pr -d "Fuzzy-find a Pull Request ID"
+  gh pr list --limit 100 | fzf | awk '{print $1}'
+end
+
+function fuzzy_find_git_branch -d "Fuzzy-find a Git Branch"
+  git branch --all | grep -v HEAD | string trim | fzf
+end
+
 function fcb -d "Fuzzy-find and Checkout a Branch"
-  git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
+  set branch (fuzzy_find_git_branch)
+  git checkout "$branch"
 end
 
 function fcp -d "Fuzzy-find and Checkout a Pull request"
-  gh pr list --limit 100 | fzf | read -l result; and echo "$result" | awk '{print $1}' | read -l pr_id; and gh pr checkout $pr_id
+  set pr_id (fuzzy_find_pr)
+  gh pr checkout $pr_id
 end
 
 function fmb -d "Fuzzy-find and Merge a Branch"
-  git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git merge "$result"
+  set branch (fuzzy_find_git_branch)
+  git merge "$branch"
 end
 
 function fmp -d "Fuzzy-find and Merge a Pull request"
-  gh pr list --limit 100 | fzf | read -l result; and echo "$result" | awk '{print $1}' | read -l pr_id; and gh pr view $pr_id --jq ".headRefName" --json "headRefName" | read -l branch_name; git merge origin/$branch_name
+  set pr_id (fuzzy_find_pr)
+  gh pr view $pr_id --jq ".headRefName" --json "headRefName" | read -l branch_name
+  git merge origin/$branch_name
 end
 
 # ghq + fzf
