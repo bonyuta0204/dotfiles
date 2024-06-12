@@ -32,7 +32,7 @@ function fcb -d "Fuzzy-find and Checkout a Branch"
 end
 
 function fcp -d "Fuzzy-find and Checkout a Pull request"
-  gh pr list | fzf | read -l result; and echo "$result" | awk '{print $1}' | read -l pr_id; and gh pr checkout $pr_id
+  gh pr list --limit 100 | fzf | read -l result; and echo "$result" | awk '{print $1}' | read -l pr_id; and gh pr checkout $pr_id
 end
 
 function fmb -d "Fuzzy-find and Merge a Branch"
@@ -40,7 +40,7 @@ function fmb -d "Fuzzy-find and Merge a Branch"
 end
 
 function fmp -d "Fuzzy-find and Merge a Pull request"
-  gh pr list | fzf | read -l result; and echo "$result" | awk '{print $1}' | read -l branch; and echo "$branch"
+  gh pr list --limit 100 | fzf | read -l result; and echo "$result" | awk '{print $1}' | read -l pr_id; and gh pr view $pr_id --jq ".headRefName" --json "headRefName" | read -l branch_name; git merge origin/$branch_name
 end
 
 # ghq + fzf
