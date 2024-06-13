@@ -12,7 +12,7 @@ set __fish_git_prompt_color_upstream_behind red
 set PATH $TO_FISH_PATH $PATH
 
 # settinf for fzf
-set  FZF_DEFAULT_OPTS '--height 40% --reverse --border'
+set -gx FZF_DEFAULT_OPTS '--height=40% --reverse --border'
 
 set fish_term24bit 1
 
@@ -58,7 +58,7 @@ end
 
 # ghq + fzf
 function ghq_fzf_repo -d 'Repository search'
-  ghq list --full-path | fzf -m --reverse --height=40% --border | read select
+  ghq list --full-path | fzf | read select
   [ -n "$select" ]; and cd "$select"
   echo " $select "
   commandline -f repaint

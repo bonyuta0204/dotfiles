@@ -133,5 +133,6 @@
   "githubPullRequests.pullBranch": "never",
   "git.confirmSync": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "github.copilot.editor.enableAutoCompletions": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
