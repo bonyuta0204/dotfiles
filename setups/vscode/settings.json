@@ -12,9 +12,6 @@
   "remote.SSH.useLocalServer": false,
   // コンテナの拡張設定
   "dev.containers.defaultExtensions": [
-    "eamodio.gitlens",
-    "GitHub.copilot",
-    "GitHub.copilot-chat"
   ],
   // Git関連設定
   "git.openRepositoryInParentFolders": "never",
@@ -134,5 +131,7 @@
   "git.confirmSync": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "github.copilot.editor.enableAutoCompletions": true,
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.startupEditor": "none",
+  "security.workspace.trust.untrustedFiles": "open"
 }
