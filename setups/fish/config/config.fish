@@ -80,7 +80,7 @@ end
 
 # anyenv Initialization
 if command -v anyenv > /dev/null
-    eval (anyenv init -|psub)
+    status --is-interactive; and source (anyenv init -|psub)
 end
 
 # Homebrew Initialization (Intel and Apple Silicon)
