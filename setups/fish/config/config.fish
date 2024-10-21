@@ -16,11 +16,7 @@ set -gx SHELL "/usr/local/bin/fish"
 # -----------------------------------------
 # PATH Settings
 # -----------------------------------------
-# Load PATH variable set by other shell (e.g., bash)
-set PATH $TO_FISH_PATH $PATH
-
-set -gx PATH "$HOME/.local/bin" $PATH
-set -gx PATH "$HOME/workspace/github.com/oven-sh/bun/build" $PATH
+fish_add_path "$HOME/.local/bin"
 
 # -----------------------------------------
 # Version Manager Initializations
@@ -30,7 +26,7 @@ set -gx VOLTA_HOME "$HOME/.volta"
 
 # Go
 if test -d /usr/local/go
-    set -gx PATH "/usr/local/go/bin" $PATH
+    fish_add_path "/usr/local/go/bin"
 end
 if test -d ~/go
     set -gx GOBIN $HOME/go/bin
@@ -39,14 +35,14 @@ end
 
 # Rust
 if test -f "$HOME/.cargo/env"
-  fish_add_path "$HOME/.cargo/bin"
+    fish_add_path "$HOME/.cargo/bin"
 end
 
 # Bun
 set -gx BUN_INSTALL "$HOME/.bun"
 
 # pnpm
-set -gx PNPM_HOME "/Users/yutanakamura/Library/pnpm"
+fish_add_path "/Users/yutanakamura/Library/pnpm"
 
 fish_add_path $HOME/.cabal/bin
 fish_add_path "$HOME/.ghcup/bin"
