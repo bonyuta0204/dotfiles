@@ -85,6 +85,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# Lines below this will not execute when using fish shell
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
 # rust
 if [ -f "$HOME/.cargo/env" ]; then
@@ -103,4 +105,3 @@ if [ "$TERM_PROGRAM" != "vscode" ]; then
         exec fish
     fi
 fi
-# Lines below this will not execute when using fish shell
