@@ -35,7 +35,6 @@ fish_add_path "$HOME/.local/bin"
 # Version Manager Initializations
 # -----------------------------------------
 # Volta
-set -gx VOLTA_HOME "$HOME/.volta"
 
 # Go
 if test -d /usr/local/go
@@ -94,6 +93,10 @@ end
 if command -v anyenv > /dev/null
     status --is-interactive; and source (anyenv init -|psub)
 end
+
+# Volta Initialization
+set -gx VOLTA_HOME "$HOME/.volta"
+fish_add_path "$VOLTA_HOME/bin"
 
 
 # -----------------------------------------
