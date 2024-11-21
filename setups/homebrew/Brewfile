@@ -30,7 +30,7 @@ brew 'anyenv'                 # All in for ** env
 # NOTE: Need to pin mysql-client 8.2
 # @see: https://github.com/brianmario/mysql2/issues/1346
 # brew 'mysql-client'           # MySQL client
-brew 'mysql'                  # MySQL
+brew 'mysql@8.0'              # MySQL
 brew 'redis'                  # redis
 brew 'bun'                    # fast JavaScript all-in-one toolkit
 brew 'just'                   # task runner written in Rust

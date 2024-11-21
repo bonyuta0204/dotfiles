@@ -11,7 +11,20 @@ set fish_term24bit 1
 # Set terminal color support
 set -gx TERM xterm-256color
 
-set -gx SHELL "/usr/local/bin/fish"
+
+# -----------------------------------------
+# Homebrew Initialization
+# -----------------------------------------
+# Homebrew Initialization (Intel and Apple Silicon)
+if test -f "/opt/homebrew/bin/brew"
+    source ("/opt/homebrew/bin/brew" shellenv | psub)
+else if test -f "/usr/local/bin/brew"
+    source ("/usr/local/bin/brew" shellenv | psub)
+else
+    echo "Homebrew is not installed."
+end
+
+
 
 # -----------------------------------------
 # PATH Settings
@@ -22,7 +35,6 @@ fish_add_path "$HOME/.local/bin"
 # Version Manager Initializations
 # -----------------------------------------
 # Volta
-set -gx VOLTA_HOME "$HOME/.volta"
 
 # Go
 if test -d /usr/local/go
@@ -50,6 +62,9 @@ fish_add_path "$HOME/.ghcup/bin"
 # -----------------------------------------
 # Environment Initializations
 # -----------------------------------------
+#
+set -gx SHELL (which fish)
+
 # Rbenv Initialization
 if command -v rbenv > /dev/null
     status --is-interactive; and source (rbenv init -|psub)
@@ -79,14 +94,10 @@ if command -v anyenv > /dev/null
     status --is-interactive; and source (anyenv init -|psub)
 end
 
-# Homebrew Initialization (Intel and Apple Silicon)
-if test -f "/opt/homebrew/bin/brew"
-    source ("/opt/homebrew/bin/brew" shellenv | psub)
-else if test -f "/usr/local/bin/brew"
-    source ("/usr/local/bin/brew" shellenv | psub)
-else
-    echo "Homebrew is not installed."
-end
+# Volta Initialization
+set -gx VOLTA_HOME "$HOME/.volta"
+fish_add_path "$VOLTA_HOME/bin"
+
 
 # -----------------------------------------
 # Git and Fuzzy Finder Settings
