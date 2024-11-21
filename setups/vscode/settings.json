@@ -11,8 +11,7 @@
   },
   "remote.SSH.useLocalServer": false,
   // コンテナの拡張設定
-  "dev.containers.defaultExtensions": [
-  ],
+  "dev.containers.defaultExtensions": [],
   // Git関連設定
   "git.openRepositoryInParentFolders": "never",
   // Haskell言語の設定
@@ -113,6 +112,9 @@
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
     "editor.formatOnSave": true
   },
+  "[haskell]": {
+    "editor.formatOnSave": true
+  },
   "cSpell.userWords": [
     "pathe",
     "picocolors",
@@ -133,5 +135,10 @@
   "github.copilot.editor.enableAutoCompletions": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "workbench.startupEditor": "none",
-  "security.workspace.trust.untrustedFiles": "open"
+  "security.workspace.trust.untrustedFiles": "open",
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  }
 }

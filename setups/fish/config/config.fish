@@ -165,3 +165,7 @@ alias la='ls -al'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
+
+# >>> coursier install directory >>>
+set -gx PATH "$PATH:/Users/yutanakamura/Library/Application Support/Coursier/bin"
+# <<< coursier install directory <<<
