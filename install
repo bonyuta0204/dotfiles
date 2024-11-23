@@ -1,6 +1,9 @@
 #!/bin/bash
 
-set -u
+set -ueo pipefail
+
+source "$(dirname "$0")/lib/util.sh"
+
 
 # Define the base directory where the setup directories are located
 INSTALL_DIR="./installers"
@@ -23,7 +26,7 @@ install() {
 
     # Check if the tool-specific setup script exists and is executable
     if [[ -x "$tool_setup_script" ]]; then
-        ./$tool_setup_script
+        source ./$tool_setup_script
         echo "$tool_name install complete."
     else
         echo "No setup script found for $tool_name, skipping..."
