@@ -7,14 +7,16 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Run the installer
-        run: ./install.sh
+        # Need to uninstall homebrew first to test homebrew install later
+      - name: Uninstall homebrew
+        run: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 
-      - name: Run test script
-        run: ./test/test.sh
+      - name: Run E2E test
+        run:  bash ./tests/e2e.sh
