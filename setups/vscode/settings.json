@@ -116,6 +116,7 @@
     "editor.formatOnSave": true
   },
   "cSpell.userWords": [
+    "kpiee",
     "pathe",
     "picocolors",
     "tailwindcss"
@@ -128,7 +129,7 @@
   },
   "git.autofetch": true,
   "circleci.hostUrl": "",
-  "githubPullRequests.fileListLayout": "tree",
+  "githubPullRequests.fileListLayout": "flat",
   "githubPullRequests.pullBranch": "never",
   "git.confirmSync": false,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -140,5 +141,6 @@
     "**/.bloop": true,
     "**/.metals": true,
     "**/.ammonite": true
-  }
+  },
+  "chat.editing.alwaysSaveWithGeneratedChanges": true
 }
