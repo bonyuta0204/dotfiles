@@ -50,6 +50,8 @@ if test -f "$HOME/.cargo/env"
     fish_add_path "$HOME/.cargo/bin"
 end
 
+fish_add_path "$HOME/.codeium/windsurf/bin"
+
 # Bun
 set -gx BUN_INSTALL "$HOME/.bun"
 
