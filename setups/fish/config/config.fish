@@ -61,6 +61,8 @@ fish_add_path "/Users/yutanakamura/Library/pnpm"
 fish_add_path $HOME/.cabal/bin
 fish_add_path "$HOME/.ghcup/bin"
 
+fish_add_path /opt/homebrew/opt/mysql@8.0/bin
+
 # -----------------------------------------
 # Environment Initializations
 # -----------------------------------------
@@ -179,6 +181,11 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 
-# >>> coursier install directory >>>
-set -gx PATH "$PATH:/Users/yutanakamura/Library/Application Support/Coursier/bin"
-# <<< coursier install directory <<<
+fish_add_path "$HOME/Library/Application Support/Coursier/bin"
+
+# pnpm
+set -gx PNPM_HOME "$HOME/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
