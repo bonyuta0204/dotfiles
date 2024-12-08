@@ -50,8 +50,6 @@ if test -f "$HOME/.cargo/env"
     fish_add_path "$HOME/.cargo/bin"
 end
 
-fish_add_path "$HOME/.codeium/windsurf/bin"
-
 # Bun
 set -gx BUN_INSTALL "$HOME/.bun"
 
@@ -182,5 +180,3 @@ alias cp='cp -i'
 # >>> coursier install directory >>>
 set -gx PATH "$PATH:/Users/yutanakamura/Library/Application Support/Coursier/bin"
 # <<< coursier install directory <<<
-
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /Users/yutanakamura/.ghcup/bin $PATH # ghcup-env

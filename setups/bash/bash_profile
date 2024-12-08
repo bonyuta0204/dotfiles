@@ -1,94 +1,116 @@
 #!/bin/bash
 # .bash_profile
+#
+# Sections:
+# 1. Sourcing Shell Files & Local Customizations
+# 2. Terminal & UI Settings
+# 3. Core PATH and Environment Vars
+# 4. Homebrew Initialization
+# 5. Tools & Utilities (Man Pager, anyenv)
+# 6. Language & Runtime Environments (Go, Haskell, Rust)
+# 7. Development Tools (Android SDK, LLVM)
+# 8. Node.js Ecosystem (Volta, Bun, Yarn, pnpm)
+# 9. Other Tools (MySQL)
 
-# Source .bashrc if it exists
+# ----------------------------------------
+# 1. Sourcing Shell Files & Local Customizations
+# ----------------------------------------
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# Terminal Settings
+if [ -f "$HOME/.bashrc.d/bash_local" ]; then
+    . "$HOME/.bashrc.d/bash_local"
+fi
+
+# ----------------------------------------
+# 2. Terminal & UI Settings
+# ----------------------------------------
 export TERM=xterm-256color
 
- export PATH="$PATH:$HOME/workspace/github.com/oven-sh/bun/build"
+# ----------------------------------------
+# 3. Core PATH and Environment Vars
+# ----------------------------------------
+# Put frequently used paths at the front
+export PATH="$HOME/.local/bin:$PATH"
 
-
-# Check for Homebrew path on Apple Silicon-based Macs
-# On Apple Silicon Macs, Homebrew is typically installed at `/opt/homebrew/bin/brew`.
+# ----------------------------------------
+# 4. Homebrew Initialization
+# ----------------------------------------
 if [ -f "/opt/homebrew/bin/brew" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Check for Homebrew path on Intel-based Macs
-# On Intel Macs, Homebrew is typically installed at `/usr/local/bin/brew`.
 elif [ -f "/usr/local/bin/brew" ]; then
     eval "$(/usr/local/bin/brew shellenv)"
-
-# Error message if Homebrew is not found
-# If Homebrew is not found in either of the above paths, display an error message.
 else
-    echo "Homebrew is not installed."
 fi
 
-export PATH="/usr/local/opt/llvm@16/bin:$PATH"
-
-# Load local settings if available
-if [ -f $HOME/.bashrc.d/bash_local ]; then
-    . $HOME/.bashrc.d/bash_local
-fi
-
-# neovim as man viewer, if available
+# ----------------------------------------
+# 5. Tools & Utilities
+# ----------------------------------------
+# Use neovim as the man page viewer if available
 if command -v nvim &> /dev/null; then
     export MANPAGER='nvim +Man!'
 fi
 
-export PATH="$HOME/.local/bin:$PATH"
-
-# Initialize version managers
-# anyenv
+# anyenv initialization
 if command -v anyenv &> /dev/null; then
     eval "$(anyenv init -)"
 fi
 
-# Language-specific environment setups
+# ----------------------------------------
+# 6. Language & Runtime Environments
+# ----------------------------------------
 # Go
 if [ -d /usr/local/go ]; then
     export PATH="/usr/local/go/bin:$PATH"
 fi
-
-if [ -d ~/go ]; then
-    export GOBIN=$HOME/go/bin
-    export GOPATH=$HOME/go
-
-    export PATH="$HOME/go/bin:$PATH"
+if [ -d "$HOME/go" ]; then
+    export GOPATH="$HOME/go"
+    export GOBIN="$GOPATH/bin"
+    export PATH="$GOBIN:$PATH"
 fi
 
-# Haskell
-[ -f "/Users/yutanakamura/.ghcup/env" ] && source "/Users/yutanakamura/.ghcup/env" # ghcup-env
+# Haskell (ghcup)
+if [ -f "$HOME/.ghcup/env" ]; then
+    . "$HOME/.ghcup/env"
+fi
 
-# Android Studio
-export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+# Rust (cargo)
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
 
+# ----------------------------------------
+# 7. Development Tools
+# ----------------------------------------
+# neovim
+export PATH="/opt/nvim-linux64/bin:$PATH"
+
+# LLVM
+export PATH="/usr/local/opt/llvm@16/bin:$PATH"
+
+# ----------------------------------------
+# 8. Node.js Ecosystem
+# ----------------------------------------
 # Volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-# bun
+# Bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:$PATH
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/Users/yutanakamura/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
 
-# Lines below this will not execute when using fish shell
+# ----------------------------------------
+# 9. Other Tools
+# ----------------------------------------
+# MySQL
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
-# rust
-if [ -f "$HOME/.cargo/env" ]; then
-    . "$HOME/.cargo/env"
-fi
+
