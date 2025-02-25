@@ -43,7 +43,7 @@ end
 if test -d ~/go
     set -gx GOBIN $HOME/go/bin
     set -gx GOPATH $HOME/go
-    fish_add_path "$HOME/go/bin"
+    fish_add_path $GOBIN
 end
 
 # Rust
@@ -180,8 +180,13 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 
-# >>> coursier install directory >>>
 set -gx PATH "$PATH:/Users/yutanakamura/Library/Application Support/Coursier/bin"
-# <<< coursier install directory <<<
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /Users/yutanakamura/.ghcup/bin $PATH # ghcup-env
+
+# pnpm
+set -gx PNPM_HOME "/Users/yuta.nakamura/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
