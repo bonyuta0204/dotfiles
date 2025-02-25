@@ -43,6 +43,7 @@ end
 if test -d ~/go
     set -gx GOBIN $HOME/go/bin
     set -gx GOPATH $HOME/go
+    fish_add_path "$HOME/go/bin"
 end
 
 # Rust

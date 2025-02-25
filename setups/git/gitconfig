@@ -5,3 +5,5 @@
 # Include machine-specific configuration
 [include]
        path = ~/.gitconfig.local
+[core]
+	quotepath = false
