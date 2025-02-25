@@ -106,23 +106,18 @@
   "[haskell]": {
     "editor.formatOnSave": true
   },
-  "cSpell.userWords": [
-    "pathe",
-    "picocolors",
-    "tailwindcss"
-  ],
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.suggest.insertMode": "replace",
-    "cSpell.fixSpellingWithRenameProvider": false
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
   },
   "git.autofetch": true,
-  "githubPullRequests.fileListLayout": "tree",
-  "githubPullRequests.pullBranch": "never",
   "git.confirmSync": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "github.copilot.editor.enableAutoCompletions": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "workbench.startupEditor": "none",
   "security.workspace.trust.untrustedFiles": "open",
@@ -130,9 +125,6 @@
     "**/.bloop": true,
     "**/.metals": true,
     "**/.ammonite": true
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "windsurf.autocompleteSpeed": "fast",
   "windsurf.autoExecutionPolicy": "auto",
