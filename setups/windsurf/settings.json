@@ -1,0 +1,146 @@
+{
+  // ファイルの関連付け設定
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  // 色テーマの設定
+  "workbench.colorTheme": "Solarized Light",
+  // リモートSSH設定
+  "remote.SSH.remotePlatform": {
+    "vagrant": "linux"
+  },
+  "remote.SSH.useLocalServer": false,
+  // コンテナの拡張設定
+  "dev.containers.defaultExtensions": [],
+  // Git関連設定
+  "git.openRepositoryInParentFolders": "never",
+  // Haskell言語の設定
+  "haskell.manageHLS": "GHCup",
+  // Vim拡張機能設定
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<RIGHT>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "j"
+      ],
+      "after": [
+        "g",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "g",
+        "k"
+      ]
+    }
+  ],
+  "vim.useSystemClipboard": true,
+  // 各言語フォーマット関連設定
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
+  },
+  "[python]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+      "strings": "on"
+    }
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "redhat.telemetry.enabled": true,
+  "cmake.configureOnOpen": true,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": true
+  },
+  "[haskell]": {
+    "editor.formatOnSave": true
+  },
+  "cSpell.userWords": [
+    "pathe",
+    "picocolors",
+    "tailwindcss"
+  ],
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.suggest.insertMode": "replace",
+    "cSpell.fixSpellingWithRenameProvider": false
+  },
+  "git.autofetch": true,
+  "githubPullRequests.fileListLayout": "tree",
+  "githubPullRequests.pullBranch": "never",
+  "git.confirmSync": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.startupEditor": "none",
+  "security.workspace.trust.untrustedFiles": "open",
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "windsurf.autocompleteSpeed": "fast",
+  "windsurf.autoExecutionPolicy": "auto",
+  "windsurf.rememberLastModelSelection": true,
+  "makefile.configureOnOpen": false,
+  "windsurf.explainAndFixInCurrentConversation": true,
+  "windsurf.cascadeCommandsAllowList": [
+    "cargo check"
+  ],
+  "terminal.integrated.defaultProfile.osx": "bash"
+}

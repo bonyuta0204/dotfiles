@@ -183,6 +183,7 @@ alias cp='cp -i'
 set -gx PATH "$PATH:/Users/yutanakamura/Library/Application Support/Coursier/bin"
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /Users/yutanakamura/.ghcup/bin $PATH # ghcup-env
+
 # pnpm
 set -gx PNPM_HOME "/Users/yuta.nakamura/Library/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
