@@ -1,5 +1,6 @@
 # VSCode setting root directory
 WINDSURF_ROOT := ~/Library/Application\ Support/Windsurf/User
+GLOBAL_RULE_CONFIG := $(HOME)/.codeium/windsurf/memories/global_rules.md
 
 # Determine OS type
 OS := $(shell uname -s)
@@ -13,9 +14,14 @@ else
 		$(error unknown OS $(OS))
 endif
 
-all: $(WINDSURF_ROOT)/settings.json
+all: $(WINDSURF_ROOT)/settings.json $(GLOBAL_RULE_CONFIG)
 
-# Lining VSCode settings.json
+# Linking VSCode settings.json
 $(WINDSURF_ROOT)/settings.json: settings.json
-	-mkdir -p $(WINDSURF_ROOT)
-	-ln $(LN_FLAGS)  $(realpath $<) "$@"
+	mkdir -p "$(dir $@)"
+	ln $(LN_FLAGS) $(realpath $<) "$@"
+
+# Memory File
+$(GLOBAL_RULE_CONFIG): global_rules.md
+	mkdir -p "$(dir $@)"
+	ln $(LN_FLAGS) $(realpath $<) "$@"
