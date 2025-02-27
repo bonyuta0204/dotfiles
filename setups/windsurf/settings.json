@@ -132,7 +132,15 @@
   "makefile.configureOnOpen": false,
   "windsurf.explainAndFixInCurrentConversation": true,
   "windsurf.cascadeCommandsAllowList": [
-    "cargo check"
+    "cargo check",
+    "go test",
+    "git status",
+    "git commit",
+    "git checkout",
+    "git add",
+    "git push",
+    "mkdir",
+    "gh pr"
   ],
   "terminal.integrated.defaultProfile.osx": "bash"
 }
