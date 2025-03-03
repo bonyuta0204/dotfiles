@@ -140,6 +140,7 @@
     "git add",
     "git push",
     "mkdir",
+    "bundle exec rspec",
     "gh pr"
   ],
   "terminal.integrated.defaultProfile.osx": "bash"
