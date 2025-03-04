@@ -150,7 +150,8 @@
     "rg",
     "mkdir",
     "bundle exec rspec",
-    "gh pr"
+    "gh pr",
+    "gh issue"
   ],
   "terminal.integrated.defaultProfile.osx": "bash"
 }
