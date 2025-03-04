@@ -134,12 +134,20 @@
   "windsurf.cascadeCommandsAllowList": [
     "cargo check",
     "go test",
+    "go build",
+    "make",
     "git status",
     "git commit",
     "git checkout",
     "git add",
     "git push",
+    "git mv",
     "mkdir",
+    "mv",
+    "find",
+    "grep",
+    "ag",
+    "rg",
     "gh pr"
   ],
   "terminal.integrated.defaultProfile.osx": "bash"

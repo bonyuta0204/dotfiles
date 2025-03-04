@@ -7,3 +7,5 @@
        path = ~/.gitconfig.local
 [core]
 	quotepath = false
+[init]
+	defaultBranch = main
