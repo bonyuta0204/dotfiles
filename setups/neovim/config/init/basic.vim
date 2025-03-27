@@ -54,7 +54,6 @@ endif
 
 "  Other Options
 set clipboard=unnamed
-set pastetoggle=<F10>
 
 
 

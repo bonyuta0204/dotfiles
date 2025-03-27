@@ -13,7 +13,6 @@
   - If a new post is necessary, keep it **concise** and **only include essential information.**  
 
 ### 3. GitHub Workflow & Commands
-- **Use the `gh` command-line tool** instead of MCP tools when applicable.  
 - Ensure that:
   - **GitHub issues and PRs are correctly linked** for traceability.  
   - **All commands follow best practices** (e.g., meaningful commit messages, clean issue updates).  
@@ -44,6 +43,5 @@
 - **Use the same issue throughout the task.** Never create duplicates.  
 - **Edit existing posts when possible** instead of always adding new ones.  
 - **Reference previous comments** in the issue for context.  
-- **Use `gh` commands** over MCP tools when applicable.  
 - **Keep troubleshooting reports brief** and **to the point.**  
 - Follow **Git best practices** and ensure clean, well-structured commits.  

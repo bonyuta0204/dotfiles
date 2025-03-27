@@ -153,5 +153,12 @@
     "gh pr",
     "gh issue"
   ],
-  "terminal.integrated.defaultProfile.osx": "bash"
+  "terminal.integrated.defaultProfile.osx": "bash",
+  "windsurf.chatFontSize": "default",
+  "windsurf.openRecentConversation": true,
+  "cSpell.userWords": [
+    "axios",
+    "kpiee"
+  ],
+  "go.toolsManagement.autoUpdate": true
 }
