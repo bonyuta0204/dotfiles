@@ -21,7 +21,7 @@ endif
 
 all: $(VIM_RC) $(CONFIG_TARGETS)
 
-$(VIM_RC): ../neovim/vimrc
+$(VIM_RC): vimrc
 		@mkdir -p $(dir $@)
 		@ln $(LN_FLAGS) $(realpath $<) $@
 
