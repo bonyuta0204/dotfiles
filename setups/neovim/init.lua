@@ -10,6 +10,9 @@ vim.opt.omnifunc = 'v:lua.vim.lsp.omnifunc'
 -- Enable filetype plugin and indent
 vim.cmd('filetype indent plugin on')
 
+-- Setup diagnostic configuration
+require("config.diagnostic").setup()
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
