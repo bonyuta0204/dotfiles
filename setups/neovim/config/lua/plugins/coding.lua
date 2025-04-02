@@ -9,7 +9,7 @@ return {
     dependencies = { 'williamboman/mason.nvim' },
     config = function()
       require('mason-lspconfig').setup({
-        ensure_installed = { "tsserver", "vimls", "solargraph", "volar" }
+        ensure_installed = { "ts_ls", "vimls", "solargraph", "volar" }
       })
       require("mason-lspconfig").setup_handlers {
         -- The first entry (without a key) will be the default handler

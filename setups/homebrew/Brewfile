@@ -26,6 +26,8 @@ brew 'ghq'                    # Remote repo management
 brew 'node'                   # Node.js runtime
 brew 'yarn'                   # Package manager for Node.js
 brew 'anyenv'                 # All in for ** env
+brew 'bat'                    # A cat(1) clone with syntax highlighting and Git integration.
+brew 'fd'                     # fast and user-friendly alternative to find
 # NOTE: Need to pin mysql-client 8.2
 # @see: https://github.com/brianmario/mysql2/issues/1346
 # brew 'mysql-client'           # MySQL client
