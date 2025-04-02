@@ -55,10 +55,6 @@ if has('nvim-0.5')
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
-
-  " null-ls.nvim depends on plenary.nvim
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'jose-elias-alvarez/null-ls.nvim'
 endif
 
 " Treesitter

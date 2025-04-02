@@ -87,14 +87,3 @@ mason_lspconfig.setup_handlers({
     nvim_lsp[server_name].setup(opts)
   end
 })
-
--- setting up null-ls
-
-local null_ls = require("null-ls")
-null_ls.setup {
-  sources = {
-    null_ls.builtins.formatting.prettier.with {
-      prefer_local = "node_modules/.bin",
-    },
-  },
-}
