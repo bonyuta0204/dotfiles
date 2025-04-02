@@ -1,5 +1,5 @@
-# Destination path for Neovim's init.vim
-NEOVIM_RC := $(HOME)/.config/nvim/init.vim
+# Destination path for Neovim's init.lua
+NEOVIM_RC := $(HOME)/.config/nvim/init.lua
 
 # Find all source files for Neovim
 CONFIG_SRC := $(shell find config -type f -print)
@@ -21,7 +21,7 @@ endif
 
 all: $(NEOVIM_RC) $(CONFIG_TARGETS)
 
-$(NEOVIM_RC): vimrc
+$(NEOVIM_RC): init.lua
 		@mkdir -p $(dir $@)
 		@ln $(LN_FLAGS) $(realpath $<) $@
 
