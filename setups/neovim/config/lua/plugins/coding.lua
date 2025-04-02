@@ -1,11 +1,25 @@
 return {
   -- LSP
   {
+    'williamboman/mason.nvim',
+    opts = {}
+  },
+  {
     'williamboman/mason-lspconfig.nvim',
     dependencies = { 'williamboman/mason.nvim' },
-    opts = {
-  ensure_installed = { "tsserver", "vimls", "solargraph", "volar", "lua_ls" }
-    }
+    config = function()
+      require('mason-lspconfig').setup({
+        ensure_installed = { "tsserver", "vimls", "solargraph", "volar" }
+      })
+      require("mason-lspconfig").setup_handlers {
+        -- The first entry (without a key) will be the default handler
+        -- and will be called for each installed server that doesn't have
+        -- a dedicated handler.
+        function (server_name) -- default handler (optional)
+            require("lspconfig")[server_name].setup {}
+        end,
+      }
+    end
   },
   {
     'neovim/nvim-lspconfig',
@@ -22,10 +36,6 @@ return {
       'hrsh7th/vim-vsnip',
     },
     cond = vim.fn.has('nvim-0.5') == 1,
-    config = function()
-      require('config.plugins').setup_lsp()
-      require('config.plugins').setup_cmp()
-    end,
   },
 
   -- Treesitter
@@ -34,22 +44,12 @@ return {
     build = ':TSUpdate',
     event = { "BufReadPost", "BufNewFile" },
     cond = vim.fn.has('nvim-0.7') == 1,
-    config = function()
-      require('config.plugins').setup_treesitter()
-    end,
   },
 
   -- Quick run
   {
     'thinca/vim-quickrun',
     cmd = 'QuickRun',
-  },
-  {
-    'is0n/jaq-nvim',
-    cmd = 'Jaq',
-    config = function()
-      require('config.plugins').setup_jaq()
-    end,
   },
 
   -- Test runner

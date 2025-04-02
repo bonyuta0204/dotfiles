@@ -62,7 +62,3 @@ vim.cmd('runtime! init/plugins/**/*.vim')
 if vim.fn.has('nvim-0.5') == 1 then
   vim.cmd('runtime! init/plugins/**/*.lua')
 end
-
-
--- Setup plugin configurations
-require("config.plugins").setup()
