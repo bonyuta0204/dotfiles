@@ -58,3 +58,4 @@ if command -v docker-compose &> /dev/null; then
     cd $dir
   }
 fi
+. "/Users/yutanakamura/.deno/env"
