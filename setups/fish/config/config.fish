@@ -30,6 +30,7 @@ end
 # PATH Settings
 # -----------------------------------------
 fish_add_path "$HOME/.local/bin"
+fish_add_path "/usr/local/bin"
 
 # -----------------------------------------
 # Version Manager Initializations
