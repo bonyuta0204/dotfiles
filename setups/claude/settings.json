@@ -1,0 +1,31 @@
+{
+  "includeCoAuthoredBy": true,
+  "cleanupPeriodDays": 30,
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(yarn *)",
+      "Bash(pnpm *)",
+      "Bash(make *)",
+      "Bash(./setup *)",
+      "Bash(./install *)",
+      "Bash(git *)",
+      "Bash(docker *)",
+      "Bash(kubectl *)",
+      "Read(~/.gitconfig)",
+      "Read(~/.bashrc)",
+      "Read(~/.zshrc)",
+      "Read(~/.vimrc)",
+      "Read(~/.tmux.conf)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo rm *)",
+      "Bash(curl * | sh)",
+      "Bash(wget * | sh)"
+    ]
+  },
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1"
+  }
+}
