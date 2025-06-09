@@ -9,3 +9,5 @@
 	quotepath = false
 [init]
 	defaultBranch = main
+[checkout]
+	defaultRemote = origin

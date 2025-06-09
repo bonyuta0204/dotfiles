@@ -5,6 +5,7 @@
   - **Always use the official template** from https://github.com/f-scratch/.github/blob/master/.github/PULL_REQUEST_TEMPLATE.md
   - **Write the PR description in Japanese**
   - **Fill in all sections that you understand** - it's okay to leave sections blank if you don't have the information
+- **Never remove or omit any section or header from the official PR template**. If you are unsure what to write, leave the section blank, but always preserve the template structure so all sections remain visible to reviewers.
   - **Push the current branch first** before attempting to create a pull request
   - **Ask about uncommitted changes** if there are any uncommitted files
   - **Note that the default branch** in f-scratch repositories is usually `develop` (not `main` or `master`)
