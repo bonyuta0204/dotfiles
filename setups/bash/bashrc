@@ -58,4 +58,5 @@ if command -v docker-compose &> /dev/null; then
     cd $dir
   }
 fi
-. "/Users/yutanakamura/.deno/env"
+# added by Snowflake SnowflakeCLI installer v1.0
+export PATH=/Applications/SnowflakeCLI.app/Contents/MacOS/:$PATH

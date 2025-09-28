@@ -25,7 +25,20 @@
       "Bash(wget * | sh)"
     ]
   },
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude Code is waiting (permission/input)\" with title \"Claude\"'"
+          }
+        ]
+      }
+    ]
+  },
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "1"
-  }
+  },
+  "model": "sonnet"
 }

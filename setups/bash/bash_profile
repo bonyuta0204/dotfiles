@@ -113,4 +113,5 @@ esac
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
 
-. "/Users/yutanakamura/.deno/env"
+# added by Snowflake SnowflakeCLI installer v1.0
+export PATH=/Applications/SnowflakeCLI.app/Contents/MacOS/:$PATH
