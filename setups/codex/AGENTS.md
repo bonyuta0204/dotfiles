@@ -23,3 +23,5 @@
 
 - For CHORE tickets, use `chore/CHORExxxx_<変更内容>`.
 - Current example: `chore/CHORE0333_update_agents_resource_rules`.
+- At the end of each session, if there are reusable/general learnings, ask the user whether to append them to `~/.codex/AGENTS.md`.
+- Repositories are managed with `ghq`; discover repo paths from `ghq` first when locating projects (for example, `ghq list -p` and `ghq root`).
