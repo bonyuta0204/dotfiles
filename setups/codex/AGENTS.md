@@ -23,5 +23,10 @@
 
 - For CHORE tickets, use `chore/CHORExxxx_<変更内容>`.
 - Current example: `chore/CHORE0333_update_agents_resource_rules`.
-- At the end of each session, if there are reusable/general learnings, ask the user whether to append them to `~/.codex/AGENTS.md`.
+- At the end of each session, classify learnings into `repo-specific` and `general/reusable`.
+- Append `repo-specific` learnings only to the current repository `AGENTS.md`.
+- Append `general/reusable` learnings only to `~/.codex/AGENTS.md`.
+- Never propose appending `repo-specific` learnings to `~/.codex/AGENTS.md`.
+- If classification is ambiguous, default to `repo-specific`.
+- Before asking to append to either file, first present the exact proposed bullet content, then ask whether to append it.
 - Repositories are managed with `ghq`; discover repo paths from `ghq` first when locating projects (for example, `ghq list -p` and `ghq root`).
