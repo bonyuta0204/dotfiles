@@ -1,0 +1,96 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+model = "gpt-5.4"
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+model_reasoning_effort = "high"
+personality = "pragmatic"
+
+# notify = ["bash", "/Users/yuta.nakamura/.codex/notify.sh"]
+
+[projects."/Users/yuta.nakamura/workspace/github.com/f-scratch/kpiee-designs"]
+trust_level = "trusted"
+
+[projects."/Users/yuta.nakamura/workspace/github.com/f-scratch/dx-kpiee"]
+trust_level = "trusted"
+
+[projects."/Users/yuta.nakamura/workspace/github.com-bonyuta0204/bonyuta0204/obsidian-vault"]
+trust_level = "trusted"
+
+[projects."/Users/yuta.nakamura/workspace/github.com/f-scratch/atlas-kpiee"]
+trust_level = "trusted"
+
+[projects."/Users/yuta.nakamura/workspace/github.com/f-scratch/atlas-core"]
+trust_level = "trusted"
+
+[projects."/Users/yuta.nakamura"]
+trust_level = "trusted"
+
+[projects."/Users/yuta.nakamura/workspace/github.com/bonyuta0204/agent-skills"]
+trust_level = "trusted"
+
+[projects."/Users/yuta.nakamura/workspace/github.com/remix-run/react-router"]
+trust_level = "trusted"
+
+[projects."/Users/yuta.nakamura/workspace/github.com/f-scratch/zelda-preparation4th"]
+trust_level = "trusted"
+
+[projects."/Users/yuta.nakamura/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/yuta.nakamura/workspace/github.com/dbt-labs/dbt-fusion"]
+trust_level = "trusted"
+
+[sandbox_workspace_write]
+network_access = true
+
+[mcp_servers.github]
+url = "https://api.githubcopilot.com/mcp/"
+bearer_token_env_var = "BUNDLE_GITHUB__COM"
+
+[mcp_servers.chrome-devtools]
+command = "npx"
+args = ["chrome-devtools-mcp@latest", "--autoConnect"]
+
+[mcp_servers.deepwiki]
+url = "https://mcp.deepwiki.com/mcp"
+
+[mcp_servers.notion]
+url = "https://mcp.notion.com/mcp"
+
+[mcp_servers.figma]
+url = "https://mcp.figma.com/mcp"
+
+[mcp_servers.playwright]
+args = ["@playwright/mcp@latest"]
+command = "npx"
+
+[notice]
+hide_gpt5_1_migration_prompt = true
+"hide_gpt-5.1-codex-max_migration_prompt" = true
+
+[notice.model_migrations]
+"gpt-5.2" = "gpt-5.2-codex"
+
+[features]
+unified_exec = true
+multi_agent = true
+prevent_idle_sleep = true
+js_repl = true
+apps = true
+
+[tui]
+notifications = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."figma@openai-curated"]
+enabled = true
+
+[otel]
+environment = "dev"
+log_user_prompt = false
+
+# The current local collector only exposes a traces pipeline on localhost:4318.
+trace_exporter = { otlp-http = { endpoint = "http://localhost:4318/v1/traces", protocol = "binary" } }

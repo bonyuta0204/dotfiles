@@ -1,5 +1,5 @@
-CONFIG_SRC := AGENTS.md
-CONFIG_TARGETS := $(HOME)/.codex/AGENTS.md
+CONFIG_SRCS := AGENTS.md config.toml
+CONFIG_TARGETS := $(HOME)/.codex/AGENTS.md $(HOME)/.codex/config.toml
 
 OS := $(shell uname -s)
 
@@ -13,6 +13,10 @@ endif
 
 all: $(CONFIG_TARGETS)
 
-$(CONFIG_TARGETS): $(CONFIG_SRC)
+$(HOME)/.codex/AGENTS.md: AGENTS.md
+	@mkdir -p $(dir $@)
+	@ln $(LN_FLAGS) $(realpath $<) $@
+
+$(HOME)/.codex/config.toml: config.toml
 	@mkdir -p $(dir $@)
 	@ln $(LN_FLAGS) $(realpath $<) $@
