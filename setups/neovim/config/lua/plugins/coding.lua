@@ -6,20 +6,11 @@ return {
   },
   {
     'williamboman/mason-lspconfig.nvim',
-    dependencies = { 'williamboman/mason.nvim' },
-    config = function()
-      require('mason-lspconfig').setup({
-        ensure_installed = { "ts_ls", "vimls", "solargraph", "volar" }
-      })
-      require("mason-lspconfig").setup_handlers {
-        -- The first entry (without a key) will be the default handler
-        -- and will be called for each installed server that doesn't have
-        -- a dedicated handler.
-        function (server_name) -- default handler (optional)
-            require("lspconfig")[server_name].setup {}
-        end,
-      }
-    end
+    dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
+    opts = {
+      ensure_installed = { "ts_ls", "vimls", "solargraph", "vue_ls" },
+      automatic_enable = true,
+    },
   },
   {
     'neovim/nvim-lspconfig',
@@ -35,6 +26,17 @@ return {
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
     },
+    config = function()
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      local ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+      if ok then
+        capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+      end
+
+      for _, server in ipairs({ "ts_ls", "vimls", "solargraph", "vue_ls" }) do
+        vim.lsp.config(server, { capabilities = capabilities })
+      end
+    end,
     cond = vim.fn.has('nvim-0.5') == 1,
   },
 

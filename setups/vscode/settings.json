@@ -142,5 +142,6 @@
     "**/.metals": true,
     "**/.ammonite": true
   },
-  "makefile.configureOnOpen": true
+  "makefile.configureOnOpen": true,
+  "security.promptForLocalFileProtocolHandling": false
 }

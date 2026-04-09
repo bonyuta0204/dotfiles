@@ -41,6 +41,9 @@ trust_level = "trusted"
 [projects."/Users/yuta.nakamura/workspace/github.com/dbt-labs/dbt-fusion"]
 trust_level = "trusted"
 
+[projects."/Users/yuta.nakamura/workspace/github.com/f-scratch/kpiee-allstars"]
+trust_level = "trusted"
+
 [sandbox_workspace_write]
 network_access = true
 
@@ -92,5 +95,7 @@ enabled = true
 environment = "dev"
 log_user_prompt = false
 
-# The current local collector only exposes a traces pipeline on localhost:4318.
+# Send traces, metrics, and logs to the local OTLP/HTTP collector.
 trace_exporter = { otlp-http = { endpoint = "http://localhost:4318/v1/traces", protocol = "binary" } }
+metrics_exporter = { otlp-http = { endpoint = "http://localhost:4318/v1/metrics", protocol = "binary" } }
+exporter = { otlp-http = { endpoint = "http://localhost:4318/v1/logs", protocol = "binary" } }
