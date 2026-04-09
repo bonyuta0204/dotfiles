@@ -23,6 +23,8 @@ if [ -f "$HOME/.bashrc.d/bash_local" ]; then
     . "$HOME/.bashrc.d/bash_local"
 fi
 
+export SHELL="/bin/bash"
+
 # ----------------------------------------
 # 2. Terminal & UI Settings
 # ----------------------------------------
@@ -115,3 +117,9 @@ export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
 # added by Snowflake SnowflakeCLI installer v1.0
 export PATH=/Applications/SnowflakeCLI.app/Contents/MacOS/:$PATH
+
+# Added by Windsurf
+export PATH="/Users/yuta.nakamura/.codeium/windsurf/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/yuta.nakamura/.antigravity/antigravity/bin:$PATH"

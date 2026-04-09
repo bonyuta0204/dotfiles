@@ -29,6 +29,7 @@ end
 # -----------------------------------------
 # PATH Settings
 # -----------------------------------------
+fish_add_path "$HOME/.claude/local"
 fish_add_path "$HOME/.local/bin"
 fish_add_path "/usr/local/bin"
 
@@ -159,12 +160,28 @@ function ghq_fzf_repo -d 'Repository search'
     commandline -f repaint
 end
 
+function ghq_fzf_windsurf -d 'Repository search (open in Windsurf)'
+    ghq list --full-path | fzf | read -l select
+    if test -n "$select"
+        if command -v windsurf >/dev/null 2>&1
+            windsurf "$select"
+        else if test (uname) = "Darwin"
+            open -a "Windsurf" "$select"
+        else
+            echo "windsurf command not found"
+            return 1
+        end
+    end
+    commandline -f repaint
+end
+
 # -----------------------------------------
 # Key Bindings
 # -----------------------------------------
 # Bind custom functions to key combinations
 function fish_user_key_bindings
     bind \cg ghq_fzf_repo
+    bind \co ghq_fzf_windsurf
 end
 
 # -----------------------------------------
@@ -180,6 +197,11 @@ alias la='ls -al'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
+alias gw='ghq_fzf_windsurf'
+
+if type -q eza
+    alias ls='eza --icons --git --group-directories-first'
+end
 
 set -gx PATH "$PATH:/Users/yutanakamura/Library/Application Support/Coursier/bin"
 
@@ -191,3 +213,15 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+fish_add_path /Users/yuta.nakamura/.local/bin
+
+# dbt aliases
+alias dbtf=/Users/yuta.nakamura/.local/bin/dbt
+fish_add_path /Users/yuta.nakamura/.local/bin
+fish_add_path /Users/yuta.nakamura/.local/bin
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/yuta.nakamura/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/yuta.nakamura/Downloads/google-cloud-sdk/path.fish.inc'; end
+fish_add_path /Users/yuta.nakamura/.local/bin
+fish_add_path /Users/yuta.nakamura/.local/bin
+fish_add_path /Users/yuta.nakamura/.local/bin

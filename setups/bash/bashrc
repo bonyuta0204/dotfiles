@@ -4,6 +4,9 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# Add Claude to PATH (at the beginning)
+export PATH="$HOME/.claude/local/claude:$PATH"
+
 set -o vi
 
 # prompt setting
@@ -60,3 +63,21 @@ if command -v docker-compose &> /dev/null; then
 fi
 # added by Snowflake SnowflakeCLI installer v1.0
 export PATH=/Applications/SnowflakeCLI.app/Contents/MacOS/:$PATH
+
+# Added by dbt installer
+export PATH="$PATH:/Users/yuta.nakamura/.local/bin"
+
+# dbt aliases
+alias dbtf=/Users/yuta.nakamura/.local/bin/dbt
+
+# Added by dbt installer
+export PATH="$PATH:/var/folders/sk/800yq98568jdv4n0fvln_kf80000gp/T/tmp.Cuoc2aZO/bin"
+
+# dbt aliases
+alias dbtf=/var/folders/sk/800yq98568jdv4n0fvln_kf80000gp/T/tmp.Cuoc2aZO/bin/dbt
+
+# Added by dbt installer
+export PATH="$PATH:/var/folders/sk/800yq98568jdv4n0fvln_kf80000gp/T/tmp.i62W914R"
+
+# dbt aliases
+alias dbtf=/var/folders/sk/800yq98568jdv4n0fvln_kf80000gp/T/tmp.i62W914R/dbt
