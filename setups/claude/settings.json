@@ -23,6 +23,7 @@
       "Bash(./install:*)",
       "Bash(git:*)",
       "Bash(docker:*)",
+      "Bash(docker-compose:*)",
       "Bash(kubectl:*)",
       "Read(~/.gitconfig)",
       "Read(~/.bashrc)",
@@ -31,13 +32,31 @@
       "Read(~/.tmux.conf)",
       "Bash(gh:*)",
       "Bash(ghq:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)",
+      "Bash(mv:*)",
+      "Bash(curl:*)",
+      "Bash(go:*)",
+      "Bash(bundle:*)",
+      "Bash(golangci-lint:*)",
+      "Bash(./gradlew:*)",
+      "WebSearch",
       "mcp__notion__notion-*",
-      "mcp__github__*"
+      "mcp__github__*",
+      "mcp__linear-server__*",
+      "mcp__deepwiki__*",
+      "mcp__plugin_slack_slack__*",
+      "mcp__plugin_figma_figma__*"
     ],
     "deny": [
       "Bash(rm -rf:*)",
       "Bash(sudo rm:*)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "hooks": {
     "Notification": [
@@ -55,8 +74,18 @@
     "gopls-lsp@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
-    "ruby-lsp@claude-plugins-official": true
+    "ruby-lsp@claude-plugins-official": true,
+    "codex@openai-codex": true
+  },
+  "extraKnownMarketplaces": {
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    }
   },
   "alwaysThinkingEnabled": true,
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true
 }
