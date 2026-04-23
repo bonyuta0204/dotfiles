@@ -5,8 +5,11 @@ approval_policy = "never"
 sandbox_mode = "danger-full-access"
 model_reasoning_effort = "high"
 personality = "pragmatic"
+experimental_use_rmcp_client = true
 
 # notify = ["bash", "/Users/yuta.nakamura/.codex/notify.sh"]
+
+notify = ["/Users/yuta.nakamura/.codex/plugins/cache/openai-bundled/computer-use/1.0.755/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
 
 [projects."/Users/yuta.nakamura/workspace/github.com/f-scratch/kpiee-designs"]
 trust_level = "trusted"
@@ -44,6 +47,12 @@ trust_level = "trusted"
 [projects."/Users/yuta.nakamura/workspace/github.com/f-scratch/kpiee-allstars"]
 trust_level = "trusted"
 
+[projects."/Users/yuta.nakamura/workspace/github.com/f-scratch/zelda-kpadmin"]
+trust_level = "trusted"
+
+[projects."/Users/yuta.nakamura/workspace/github.com/f-scratch/kirby-kpieecable"]
+trust_level = "trusted"
+
 [sandbox_workspace_write]
 network_access = true
 
@@ -68,6 +77,9 @@ url = "https://mcp.figma.com/mcp"
 args = ["@playwright/mcp@latest"]
 command = "npx"
 
+[mcp_servers.freee]
+url = "https://mcp.freee.co.jp/mcp"
+
 [notice]
 hide_gpt5_1_migration_prompt = true
 "hide_gpt-5.1-codex-max_migration_prompt" = true
@@ -81,6 +93,7 @@ multi_agent = true
 prevent_idle_sleep = true
 js_repl = true
 apps = true
+memories = true
 
 [tui]
 notifications = true
@@ -91,11 +104,22 @@ enabled = true
 [plugins."figma@openai-curated"]
 enabled = true
 
+[plugins."notion@openai-curated"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
 [otel]
 environment = "dev"
 log_user_prompt = false
 
 # Send traces, metrics, and logs to the local OTLP/HTTP collector.
-trace_exporter = { otlp-http = { endpoint = "http://localhost:4318/v1/traces", protocol = "binary" } }
-metrics_exporter = { otlp-http = { endpoint = "http://localhost:4318/v1/metrics", protocol = "binary" } }
-exporter = { otlp-http = { endpoint = "http://localhost:4318/v1/logs", protocol = "binary" } }
+trace_exporter = { otlp-http = { endpoint = "http://localhost:4318/v1/traces", protocol = "binary", headers = {} } }
+metrics_exporter = { otlp-http = { endpoint = "http://localhost:4318/v1/metrics", protocol = "binary", headers = {} } }
+exporter = { otlp-http = { endpoint = "http://localhost:4318/v1/logs", protocol = "binary", headers = {} } }
+
+[marketplaces.openai-bundled]
+last_updated = "2026-04-22T05:31:13Z"
+source_type = "local"
+source = "/Users/yuta.nakamura/.codex/.tmp/bundled-marketplaces/openai-bundled"

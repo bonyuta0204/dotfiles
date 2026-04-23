@@ -79,7 +79,8 @@
     "slack@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
-    "codex@openai-codex": true
+    "codex@openai-codex": true,
+    "playwright@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {

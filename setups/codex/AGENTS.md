@@ -19,6 +19,17 @@
   - Internal improvement: `[内部改善ID] 説明`
   - Rollback: `[DETACH_実装ID] 説明`
 
+## Meaning-First Modeling
+
+- Before changing code, understand the meaning of the workflow rather than the current shape of the implementation. Identify the business object, actor, operation, lifecycle, state transitions, invariants, and failure/empty states in plain language first.
+- Treat new booleans, optional props, fallback branches, counters, and ad hoc condition combinations as signals that a concept may be missing. Do not patch the symptom by adding another condition until you can name the concept the condition is standing in for.
+- Do not let one variable, ID, DTO, enum, or object carry multiple meanings just because it happens to work in one path. UI selection, operation target, display target, API lookup key, persistence key, cache key, and editing session are different roles unless the domain proves they are the same.
+- Model the domain relationship explicitly before choosing the code structure. Prefer named concepts, value objects, discriminated unions, and small resolver functions that make invalid states hard to represent over nullable fields plus scattered branching.
+- Place decisions at the layer that owns the meaning. Container/UI orchestration may translate user state into a domain input; data-fetching hooks and API builders should receive already-resolved intent and mechanically translate it. Lower layers should not reconstruct business meaning from raw flags or counts.
+- At external boundaries, read the producer/consumer contract and translate language deliberately. Name parameters by what the receiving system uses them to resolve, not by what the current screen appears to show. If UI language, domain language, and API language differ, create an explicit boundary mapping instead of reusing one term everywhere.
+- Avoid "safe-looking" fallbacks until the intended absence semantics are clear. A fallback that hides an impossible or invalid state makes the model less truthful; a fallback that represents a real business rule should be named as that rule.
+- Before implementing, be able to explain: what concept is being represented, who owns it, which states are valid, which boundary cases matter, what invariants are preserved, and why the chosen model makes later branches unnecessary. If that explanation is vague, keep analyzing rather than coding.
+
 ## Notes
 
 - For CHORE tickets, use `chore/CHORExxxx_<変更内容>`.
